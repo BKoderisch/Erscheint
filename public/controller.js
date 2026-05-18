@@ -349,6 +349,33 @@ function renderSheetLabels() {
     chip.addEventListener('click', () => {
       sheetLabels = sheetLabels.filter((l) => l !== lbl);
       renderSheetLabels();
+      renderLabelSuggestions();
+    });
+    container.appendChild(chip);
+  }
+}
+
+function renderLabelSuggestions() {
+  const container = document.getElementById('sheet-label-suggestions');
+  container.innerHTML = '';
+
+  const allLabels = [...new Set(songs.flatMap((s) => s.labels || []))].sort();
+  const available = allLabels.filter((l) => !sheetLabels.includes(l));
+  if (available.length === 0) return;
+
+  const hint = document.createElement('span');
+  hint.style.cssText = 'font-size:.7rem;color:var(--text-3);width:100%;margin-bottom:2px;display:block;';
+  hint.textContent = 'Vorhandene Labels:';
+  container.appendChild(hint);
+
+  for (const lbl of available) {
+    const chip = labelChipEl(lbl);
+    chip.style.cursor = 'pointer';
+    chip.title = 'Hinzufügen';
+    chip.addEventListener('click', () => {
+      sheetLabels.push(lbl);
+      renderSheetLabels();
+      renderLabelSuggestions();
     });
     container.appendChild(chip);
   }
@@ -360,6 +387,7 @@ document.getElementById('sheet-label-add').addEventListener('click', () => {
   if (val && !sheetLabels.includes(val)) {
     sheetLabels.push(val);
     renderSheetLabels();
+    renderLabelSuggestions();
   }
   input.value = '';
   input.focus();
@@ -394,6 +422,7 @@ async function openSheet(mode, songId = null) {
   }
 
   renderSheetLabels();
+  renderLabelSuggestions();
   document.getElementById('sheet-overlay').classList.add('open');
   setTimeout(() => nameEl.focus(), 250);
 }
