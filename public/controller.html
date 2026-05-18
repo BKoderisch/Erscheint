@@ -600,6 +600,19 @@
       .song-card-actions { opacity: 1; }
     }
 
+    /* ── Sticky header ──────────────────────────────────────────────────────── */
+    .sticky-header {
+      position: sticky;
+      top: var(--topbar-h);
+      z-index: 30;
+      background: var(--bg);
+      padding-top: 12px;
+      margin: 0 -16px;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: 4px;
+    }
+
     /* hide panels not shown */
     .panel { display: none; }
     .panel.active { display: block; }
@@ -630,31 +643,36 @@
   <!-- ── Page content ───────────────────────────────────────────────────────── -->
   <main class="main">
 
-    <!-- Now Playing -->
-    <div class="now-playing" id="now-playing">
-      <div class="np-indicator" id="np-dot"></div>
-      <div class="np-body">
-        <div class="np-label">Jetzt auf dem Beamer</div>
-        <div class="np-title" id="np-title">Schwarze Leinwand</div>
+    <!-- Sticky header: Now Playing + Arrangement banner + Tabs -->
+    <div class="sticky-header">
+
+      <!-- Now Playing -->
+      <div class="now-playing" id="now-playing">
+        <div class="np-indicator" id="np-dot"></div>
+        <div class="np-body">
+          <div class="np-label">Jetzt auf dem Beamer</div>
+          <div class="np-title" id="np-title">Schwarze Leinwand</div>
+        </div>
+        <button class="np-blank-btn always" id="blank-btn">Blank</button>
       </div>
-      <button class="np-blank-btn always" id="blank-btn">Blank</button>
-    </div>
 
-    <!-- Active arrangement banner -->
-    <div class="arr-banner" id="arr-banner">
-      <span class="arr-banner-icon">♪</span>
-      <span class="arr-banner-text" id="arr-banner-name"></span>
-      <button class="arr-banner-clear" id="arr-banner-clear">✕ Alle Songs</button>
-    </div>
+      <!-- Active arrangement banner -->
+      <div class="arr-banner" id="arr-banner">
+        <span class="arr-banner-icon">♪</span>
+        <span class="arr-banner-text" id="arr-banner-name"></span>
+        <button class="arr-banner-clear" id="arr-banner-clear">✕ Alle Songs</button>
+      </div>
 
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="songs">
-        Songs <span class="tab-badge" id="songs-badge">0</span>
-      </button>
-      <button class="tab-btn" data-tab="arrangements">
-        Arrangements <span class="tab-badge" id="arr-badge">0</span>
-      </button>
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="songs">
+          Songs <span class="tab-badge" id="songs-badge">0</span>
+        </button>
+        <button class="tab-btn" data-tab="arrangements">
+          Arrangements <span class="tab-badge" id="arr-badge">0</span>
+        </button>
+      </div>
+
     </div>
 
     <!-- ── Songs panel ──────────────────────────────────────────────────────── -->
