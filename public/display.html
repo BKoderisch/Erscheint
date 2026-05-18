@@ -24,8 +24,16 @@
       text-align: center;
       overflow: hidden;
       line-height: 1.4;
-      white-space: pre-wrap;
-      word-break: break-word;
+      column-gap: 4vw;
+    }
+
+    .section {
+      break-inside: avoid;
+      display: block;
+    }
+
+    .section + .section {
+      margin-top: 0.5em;
     }
 
     .section-label {
@@ -35,20 +43,10 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-bottom: 0.1em;
-      margin-top: 0.7em;
-    }
-
-    .section-label:first-child {
-      margin-top: 0;
     }
 
     .lyric-line {
       display: block;
-    }
-
-    .section-gap {
-      display: block;
-      height: 0.5em;
     }
   </style>
 </head>

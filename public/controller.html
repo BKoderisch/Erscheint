@@ -10,7 +10,7 @@
       --surface: #1f2937;
       --surface2: #374151;
       --accent: #6ee7b7;
-      --accent-dim: #34d39933;
+      --accent-dim: #34d39922;
       --danger: #ef4444;
       --text: #f9fafb;
       --text-dim: #9ca3af;
@@ -24,211 +24,227 @@
       color: var(--text);
       font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
       padding: 16px;
-      padding-bottom: 40px;
+      padding-bottom: 48px;
       max-width: 640px;
       margin: 0 auto;
     }
 
+    /* ── Header ── */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
-
-    h1 {
-      font-size: 1.6rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
+    h1 { font-size: 1.5rem; font-weight: 800; }
     #status-dot {
       width: 10px; height: 10px;
       border-radius: 50%;
-      background: #6b7280;
+      background: #4b5563;
       transition: background 0.3s;
     }
     #status-dot.connected { background: var(--accent); }
 
-    /* ── Monitor section ── */
-    #monitor-section {
-      margin-bottom: 20px;
+    /* ── Monitor buttons ── */
+    #monitor-section { margin-bottom: 16px; }
+    #monitor-section label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-dim); display: block; margin-bottom: 6px;
     }
-
-    #monitor-section h2 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      margin-bottom: 8px;
-    }
-
-    #monitor-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
+    #monitor-buttons { display: flex; flex-wrap: wrap; gap: 6px; }
     .monitor-btn {
-      padding: 8px 14px;
-      background: var(--surface);
-      border: 1px solid var(--surface2);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-size: 0.85rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      padding: 7px 12px;
+      background: var(--surface); border: 1px solid var(--surface2);
+      border-radius: var(--radius); color: var(--text);
+      font-size: 0.8rem; cursor: pointer;
     }
-
     .monitor-btn:hover { background: var(--surface2); }
-    .monitor-btn.primary-badge::after {
-      content: 'Primär';
-      font-size: 0.7rem;
-      background: var(--surface2);
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: var(--text-dim);
-    }
 
     /* ── Blank button ── */
     #blank-btn {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 20px;
-      background: var(--danger);
-      color: #fff;
-      border: none;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.02em;
+      display: block; width: 100%; padding: 13px;
+      margin-bottom: 16px;
+      background: var(--danger); color: #fff;
+      border: none; border-radius: var(--radius);
+      font-size: 1rem; font-weight: 700; cursor: pointer;
       transition: opacity 0.15s;
     }
     #blank-btn:hover { opacity: 0.85; }
-    #blank-btn.active-blank { background: #b91c1c; }
+
+    /* ── Tabs ── */
+    .tabs {
+      display: flex; gap: 4px;
+      margin-bottom: 16px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 4px;
+    }
+    .tab-btn {
+      flex: 1; padding: 9px;
+      background: transparent; border: none;
+      border-radius: 7px;
+      color: var(--text-dim); font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s, color 0.15s;
+    }
+    .tab-btn.active {
+      background: var(--surface2); color: var(--text);
+    }
+
+    /* ── Tab panels ── */
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Section label ── */
+    .section-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-dim); margin-bottom: 8px; display: block;
+    }
 
     /* ── Song list ── */
-    #song-list-header {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      margin-bottom: 8px;
-    }
-
-    #song-list {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-
+    #song-list { list-style: none; margin-bottom: 12px; }
     .song-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 13px 14px;
-      margin-bottom: 6px;
-      background: var(--surface);
-      border-radius: var(--radius);
-      border: 2px solid transparent;
-      cursor: pointer;
-      transition: background 0.1s, border-color 0.15s;
-      gap: 8px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 14px; margin-bottom: 6px;
+      background: var(--surface); border-radius: var(--radius);
+      border: 2px solid transparent; cursor: pointer;
+      transition: background 0.1s, border-color 0.15s; gap: 8px;
     }
-
     .song-item:hover { background: var(--surface2); }
-
-    .song-item.active {
-      border-color: var(--accent);
-      background: var(--accent-dim);
+    .song-item.active { border-color: var(--accent); background: var(--accent-dim); }
+    .song-title { font-size: 1rem; font-weight: 600; flex: 1; }
+    .icon-btn {
+      background: none; border: none; color: var(--text-dim);
+      font-size: 1rem; cursor: pointer; padding: 4px 6px;
+      border-radius: 4px; line-height: 1; flex-shrink: 0;
     }
+    .icon-btn:hover { color: var(--danger); }
 
-    .song-title {
-      font-size: 1rem;
-      font-weight: 600;
-      flex: 1;
-    }
+    #no-songs { color: var(--text-dim); font-size: 0.9rem; padding: 12px 0; }
 
-    .delete-btn {
-      background: none;
-      border: none;
-      color: var(--text-dim);
-      font-size: 1rem;
-      cursor: pointer;
-      padding: 4px 6px;
-      border-radius: 4px;
-      line-height: 1;
-      transition: color 0.1s;
-      flex-shrink: 0;
+    /* ── Collapsible add song ── */
+    #add-toggle {
+      width: 100%; padding: 10px 14px;
+      background: var(--surface); border: 1px solid var(--surface2);
+      border-radius: var(--radius); color: var(--text-dim);
+      font-size: 0.85rem; font-weight: 600;
+      cursor: pointer; text-align: left;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.15s;
     }
-    .delete-btn:hover { color: var(--danger); }
+    #add-toggle:hover { background: var(--surface2); }
+    #add-toggle .chevron { transition: transform 0.2s; }
+    #add-toggle.open .chevron { transform: rotate(180deg); }
 
-    #no-songs {
-      color: var(--text-dim);
-      font-size: 0.9rem;
-      padding: 12px 0;
+    #add-form {
+      display: none;
+      padding: 12px 0 0;
     }
-
-    /* ── Add song ── */
-    #add-section h2 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-dim);
-      margin-bottom: 10px;
-    }
+    #add-form.open { display: block; }
 
     input[type="text"], textarea {
-      width: 100%;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-      background: var(--surface);
-      border: 1px solid var(--surface2);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-size: 0.95rem;
-      font-family: inherit;
-      outline: none;
+      width: 100%; padding: 10px 12px; margin-bottom: 8px;
+      background: var(--surface); border: 1px solid var(--surface2);
+      border-radius: var(--radius); color: var(--text);
+      font-size: 0.95rem; font-family: inherit; outline: none;
       transition: border-color 0.15s;
     }
-
-    input[type="text"]:focus, textarea:focus {
-      border-color: var(--accent);
-    }
-
+    input[type="text"]:focus, textarea:focus { border-color: var(--accent); }
     textarea {
-      height: 200px;
-      resize: vertical;
-      font-family: 'SF Mono', 'Cascadia Code', monospace;
-      font-size: 0.85rem;
+      height: 180px; resize: vertical;
+      font-family: 'SF Mono', 'Cascadia Code', monospace; font-size: 0.82rem;
     }
-
-    #add-btn {
-      padding: 11px 22px;
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: var(--radius);
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
+    .primary-btn {
+      padding: 10px 20px;
+      background: var(--accent); color: #000;
+      border: none; border-radius: var(--radius);
+      font-weight: 700; font-size: 0.9rem; cursor: pointer;
       transition: opacity 0.15s;
     }
-    #add-btn:hover { opacity: 0.85; }
-    #add-btn:disabled { opacity: 0.4; cursor: default; }
+    .primary-btn:hover { opacity: 0.85; }
+    .primary-btn:disabled { opacity: 0.4; cursor: default; }
+
+    /* ── Arrangements ── */
+    #arr-list { list-style: none; margin-bottom: 16px; }
+    .arr-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 14px; margin-bottom: 6px;
+      background: var(--surface); border-radius: var(--radius);
+      border: 2px solid transparent; gap: 8px;
+    }
+    .arr-item.active-arr { border-color: var(--accent); background: var(--accent-dim); }
+    .arr-name { font-size: 1rem; font-weight: 600; flex: 1; }
+    .arr-actions { display: flex; gap: 4px; }
+
+    /* ── Arrangement editor ── */
+    #arr-editor { display: none; }
+    #arr-editor.open { display: block; }
+    #arr-editor-title {
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    #arr-back {
+      background: var(--surface); border: none; color: var(--text-dim);
+      padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;
+    }
+    #arr-back:hover { background: var(--surface2); }
+
+    #arr-song-list { list-style: none; margin-bottom: 16px; }
+    .arr-song-item {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 12px; margin-bottom: 5px;
+      background: var(--surface); border-radius: var(--radius);
+    }
+    .arr-song-title { flex: 1; font-weight: 600; }
+    .move-btn {
+      background: none; border: none; color: var(--text-dim);
+      font-size: 0.85rem; cursor: pointer; padding: 3px 6px;
+      border-radius: 4px;
+    }
+    .move-btn:hover:not(:disabled) { background: var(--surface2); color: var(--text); }
+    .move-btn:disabled { opacity: 0.2; cursor: default; }
+
+    #arr-add-song-section { margin-top: 8px; }
+    #arr-add-song-section .section-label { margin-bottom: 8px; }
+    #arr-available-list { list-style: none; }
+    .avail-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 9px 12px; margin-bottom: 5px;
+      background: var(--surface); border-radius: var(--radius);
+    }
+    .avail-title { font-size: 0.95rem; }
+    .add-to-arr-btn {
+      background: none; border: 1px solid var(--surface2); color: var(--accent);
+      padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; cursor: pointer;
+    }
+    .add-to-arr-btn:hover { background: var(--accent-dim); }
+
+    #no-arr { color: var(--text-dim); font-size: 0.9rem; padding: 12px 0; }
+
+    /* ── Active arrangement banner ── */
+    #active-arr-banner {
+      display: none;
+      align-items: center; justify-content: space-between;
+      padding: 10px 14px; margin-bottom: 12px;
+      background: var(--accent-dim); border: 1px solid var(--accent);
+      border-radius: var(--radius); font-size: 0.9rem;
+    }
+    #active-arr-banner.visible { display: flex; }
+    #active-arr-name { font-weight: 700; color: var(--accent); }
+    #clear-arr-btn {
+      background: none; border: none; color: var(--text-dim);
+      cursor: pointer; font-size: 0.85rem; padding: 2px 6px;
+    }
+    #clear-arr-btn:hover { color: var(--danger); }
   </style>
 </head>
 <body>
   <header>
     <h1>Erscheint</h1>
-    <div id="status-dot" title="WebSocket-Verbindung"></div>
+    <div id="status-dot"></div>
   </header>
 
   <div id="monitor-section">
-    <h2>Display öffnen auf</h2>
+    <label>Display öffnen auf</label>
     <div id="monitor-buttons">
       <button class="monitor-btn" onclick="openDisplay(null)">🖥 Display öffnen</button>
     </div>
@@ -236,16 +252,71 @@
 
   <button id="blank-btn">Schwarze Leinwand</button>
 
-  <div id="song-list-header">Songs</div>
-  <ul id="song-list">
-    <li id="no-songs">Noch keine Songs vorhanden.</li>
-  </ul>
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="songs">Alle Songs</button>
+    <button class="tab-btn" data-tab="arrangements">Arrangements</button>
+  </div>
 
-  <div id="add-section">
-    <h2>Song hinzufügen</h2>
-    <input id="title-input" type="text" placeholder="Titel des Songs">
-    <textarea id="text-input" placeholder="Liedtext hier einfügen …&#10;&#10;Strophe 1:&#10;Zeile eins&#10;Zeile zwei&#10;&#10;Refrain:&#10;Zeile drei&#10;Zeile vier"></textarea>
-    <button id="add-btn">Hinzufügen</button>
+  <!-- ── Songs tab ── -->
+  <div class="tab-panel active" id="tab-songs">
+    <div id="active-arr-banner">
+      <span>Arrangement: <span id="active-arr-name"></span></span>
+      <button id="clear-arr-btn">✕ Alle Songs</button>
+    </div>
+
+    <span class="section-label" id="songs-list-label">Songs</span>
+    <ul id="song-list">
+      <li id="no-songs">Noch keine Songs vorhanden.</li>
+    </ul>
+
+    <button id="add-toggle">
+      Song hinzufügen
+      <span class="chevron">▾</span>
+    </button>
+    <div id="add-form">
+      <input id="title-input" type="text" placeholder="Titel">
+      <textarea id="text-input" placeholder="Liedtext hier einfügen …&#10;&#10;Strophe 1:&#10;Zeile eins&#10;Zeile zwei&#10;&#10;Refrain:&#10;Zeile drei&#10;Zeile vier"></textarea>
+      <button id="add-btn" class="primary-btn">Hinzufügen</button>
+    </div>
+  </div>
+
+  <!-- ── Arrangements tab ── -->
+  <div class="tab-panel" id="tab-arrangements">
+    <!-- List view -->
+    <div id="arr-list-view">
+      <span class="section-label">Arrangements</span>
+      <ul id="arr-list">
+        <li id="no-arr">Noch keine Arrangements vorhanden.</li>
+      </ul>
+
+      <button id="arr-toggle">
+        Neues Arrangement
+        <span class="chevron">▾</span>
+      </button>
+      <div id="arr-create-form" style="display:none; padding-top:12px;">
+        <input id="arr-name-input" type="text" placeholder="Name des Arrangements">
+        <button id="arr-create-btn" class="primary-btn">Erstellen</button>
+      </div>
+    </div>
+
+    <!-- Editor view -->
+    <div id="arr-editor">
+      <div id="arr-editor-title">
+        <button id="arr-back">← Zurück</button>
+        <span id="arr-editor-name"></span>
+      </div>
+
+      <span class="section-label">Reihenfolge</span>
+      <ul id="arr-song-list"></ul>
+
+      <div id="arr-add-song-section">
+        <span class="section-label">Song hinzufügen</span>
+        <ul id="arr-available-list"></ul>
+        <div id="no-avail" style="color:var(--text-dim);font-size:0.9rem;display:none;">
+          Alle Songs sind bereits im Arrangement.
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="controller.js"></script>

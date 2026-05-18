@@ -8,9 +8,10 @@ const { execSync } = require('child_process');
 
 const PORT = 3000;
 const SONGS_DIR = path.join(__dirname, 'songs');
+const ARR_DIR = path.join(__dirname, 'arrangements');
 
-// Ensure songs directory exists
 if (!fs.existsSync(SONGS_DIR)) fs.mkdirSync(SONGS_DIR);
+if (!fs.existsSync(ARR_DIR)) fs.mkdirSync(ARR_DIR);
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -23,8 +24,8 @@ function getLocalIP() {
   return 'localhost';
 }
 
-function slugify(title) {
-  return title
+function slugify(str) {
+  return str
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
@@ -32,13 +33,11 @@ function slugify(title) {
     .replace(/^-+|-+$/g, '');
 }
 
-function uniqueId(title) {
-  let base = slugify(title) || 'song';
+function uniqueId(dir, title) {
+  let base = slugify(title) || 'item';
   let id = base;
   let n = 1;
-  while (fs.existsSync(path.join(SONGS_DIR, `${id}.json`))) {
-    id = `${base}-${n++}`;
-  }
+  while (fs.existsSync(path.join(dir, `${id}.json`))) id = `${base}-${n++}`;
   return id;
 }
 
@@ -54,18 +53,11 @@ function parseRawText(rawText) {
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
-
     if (!line) {
-      if (current && current.lines.length > 0) {
-        sections.push(current);
-        current = null;
-      }
+      if (current && current.lines.length > 0) { sections.push(current); current = null; }
       continue;
     }
-
-    const isHeader =
-      SECTION_HEADER.test(line) || (line.endsWith(':') && line.length < 40);
-
+    const isHeader = SECTION_HEADER.test(line) || (line.endsWith(':') && line.length < 40);
     if (isHeader) {
       if (current && current.lines.length > 0) sections.push(current);
       current = { label: line.replace(/:$/, '').trim(), lines: [] };
@@ -74,7 +66,6 @@ function parseRawText(rawText) {
       current.lines.push(line);
     }
   }
-
   if (current && current.lines.length > 0) sections.push(current);
   return sections;
 }
@@ -84,31 +75,11 @@ function parseRawText(rawText) {
 function getMonitors() {
   if (process.platform !== 'win32') return null;
   try {
-    const ps = `
-Add-Type -AssemblyName System.Windows.Forms;
-$screens = [System.Windows.Forms.Screen]::AllScreens;
-$result = $screens | ForEach-Object {
-  [PSCustomObject]@{
-    name    = $_.DeviceName -replace '\\\\.\\\\', '';
-    x       = $_.Bounds.X;
-    y       = $_.Bounds.Y;
-    width   = $_.Bounds.Width;
-    height  = $_.Bounds.Height;
-    primary = $_.Primary
-  }
-};
-$result | ConvertTo-Json -Compress
-`.trim();
-    const output = execSync(
-      `powershell -NoProfile -NonInteractive -Command "${ps.replace(/"/g, '\\"')}"`,
-      { timeout: 5000 }
-    ).toString().trim();
+    const ps = `Add-Type -AssemblyName System.Windows.Forms;$screens=[System.Windows.Forms.Screen]::AllScreens;$result=$screens|ForEach-Object{[PSCustomObject]@{name=$_.DeviceName -replace '\\\\.\\\\','';x=$_.Bounds.X;y=$_.Bounds.Y;width=$_.Bounds.Width;height=$_.Bounds.Height;primary=$_.Primary}};$result|ConvertTo-Json -Compress`;
+    const output = execSync(`powershell -NoProfile -NonInteractive -Command "${ps}"`, { timeout: 5000 }).toString().trim();
     const parsed = JSON.parse(output);
-    // PowerShell returns an object (not array) when there's only one monitor
     return Array.isArray(parsed) ? parsed : [parsed];
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
 
 // ── Express app ───────────────────────────────────────────────────────────────
@@ -117,42 +88,36 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// GET /api/songs — list of {id, title}
+app.get('/', (_req, res) => res.redirect('/controller'));
+app.get('/controller', (_req, res) => res.sendFile(path.join(__dirname, 'public', 'controller.html')));
+app.get('/display', (_req, res) => res.sendFile(path.join(__dirname, 'public', 'display.html')));
+
+// ── Songs API ─────────────────────────────────────────────────────────────────
+
 app.get('/api/songs', (_req, res) => {
-  const songs = fs
-    .readdirSync(SONGS_DIR)
+  const songs = fs.readdirSync(SONGS_DIR)
     .filter((f) => f.endsWith('.json'))
-    .map((f) => {
-      try {
-        const song = JSON.parse(fs.readFileSync(path.join(SONGS_DIR, f), 'utf8'));
-        return { id: song.id, title: song.title };
-      } catch {
-        return null;
-      }
-    })
+    .map((f) => { try { const s = JSON.parse(fs.readFileSync(path.join(SONGS_DIR, f), 'utf8')); return { id: s.id, title: s.title }; } catch { return null; } })
     .filter(Boolean)
     .sort((a, b) => a.title.localeCompare(b.title, 'de'));
   res.json(songs);
 });
 
-// GET /api/songs/:id — full song
 app.get('/api/songs/:id', (req, res) => {
   const file = path.join(SONGS_DIR, `${req.params.id}.json`);
   if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
   res.json(JSON.parse(fs.readFileSync(file, 'utf8')));
 });
 
-// POST /api/songs — {title, rawText}
 app.post('/api/songs', (req, res) => {
   const { title, rawText } = req.body;
   if (!title || !rawText) return res.status(400).json({ error: 'title and rawText required' });
-  const id = uniqueId(title);
+  const id = uniqueId(SONGS_DIR, title);
   const song = { id, title, sections: parseRawText(rawText) };
   fs.writeFileSync(path.join(SONGS_DIR, `${id}.json`), JSON.stringify(song, null, 2));
   res.status(201).json(song);
 });
 
-// DELETE /api/songs/:id
 app.delete('/api/songs/:id', (req, res) => {
   const file = path.join(SONGS_DIR, `${req.params.id}.json`);
   if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
@@ -160,25 +125,61 @@ app.delete('/api/songs/:id', (req, res) => {
   res.json({ ok: true });
 });
 
-// GET /api/monitors
-app.get('/api/monitors', (_req, res) => {
-  const monitors = getMonitors();
-  res.json(monitors);
+// ── Arrangements API ──────────────────────────────────────────────────────────
+
+app.get('/api/arrangements', (_req, res) => {
+  const list = fs.readdirSync(ARR_DIR)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => { try { const a = JSON.parse(fs.readFileSync(path.join(ARR_DIR, f), 'utf8')); return { id: a.id, name: a.name, songIds: a.songIds }; } catch { return null; } })
+    .filter(Boolean)
+    .sort((a, b) => a.name.localeCompare(b.name, 'de'));
+  res.json(list);
 });
 
-// ── HTTP + WebSocket server ───────────────────────────────────────────────────
+app.get('/api/arrangements/:id', (req, res) => {
+  const file = path.join(ARR_DIR, `${req.params.id}.json`);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
+  res.json(JSON.parse(fs.readFileSync(file, 'utf8')));
+});
+
+app.post('/api/arrangements', (req, res) => {
+  const { name, songIds } = req.body;
+  if (!name) return res.status(400).json({ error: 'name required' });
+  const id = uniqueId(ARR_DIR, name);
+  const arr = { id, name, songIds: songIds || [] };
+  fs.writeFileSync(path.join(ARR_DIR, `${id}.json`), JSON.stringify(arr, null, 2));
+  res.status(201).json(arr);
+});
+
+app.put('/api/arrangements/:id', (req, res) => {
+  const file = path.join(ARR_DIR, `${req.params.id}.json`);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
+  const existing = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const updated = { ...existing, ...req.body, id: existing.id };
+  fs.writeFileSync(file, JSON.stringify(updated, null, 2));
+  res.json(updated);
+});
+
+app.delete('/api/arrangements/:id', (req, res) => {
+  const file = path.join(ARR_DIR, `${req.params.id}.json`);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
+  fs.unlinkSync(file);
+  res.json({ ok: true });
+});
+
+// GET /api/monitors
+app.get('/api/monitors', (_req, res) => res.json(getMonitors()));
+
+// ── WebSocket ─────────────────────────────────────────────────────────────────
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-
 const clients = new Set();
 let currentState = { type: 'blank' };
 
 wss.on('connection', (ws) => {
   clients.add(ws);
-  // Sync new client to current state
   ws.send(JSON.stringify(currentState));
-
   ws.on('message', (raw) => {
     try {
       const msg = JSON.parse(raw);
@@ -189,9 +190,8 @@ wss.on('connection', (ws) => {
         currentState = { type: 'blank' };
         broadcast(currentState);
       }
-    } catch { /* ignore malformed messages */ }
+    } catch { /* ignore */ }
   });
-
   ws.on('close', () => clients.delete(ws));
   ws.on('error', () => clients.delete(ws));
 });

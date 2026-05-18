@@ -4,15 +4,7 @@ let currentSongId = null;
 
 function connect() {
   const ws = new WebSocket(`ws://${location.host}`);
-
-  ws.onopen = () => {
-    // Connection restored — no visual feedback needed on display
-  };
-
-  ws.onmessage = (event) => {
-    handleMessage(JSON.parse(event.data));
-  };
-
+  ws.onmessage = (e) => handleMessage(JSON.parse(e.data));
   ws.onclose = () => setTimeout(connect, 2000);
   ws.onerror = () => ws.close();
 }
@@ -26,11 +18,8 @@ async function handleMessage(msg) {
     try {
       const res = await fetch(`/api/songs/${msg.songId}`);
       if (!res.ok) { showBlank(); return; }
-      const song = await res.json();
-      renderSong(song);
-    } catch {
-      showBlank();
-    }
+      renderSong(await res.json());
+    } catch { showBlank(); }
   }
 }
 
@@ -40,28 +29,25 @@ function renderSong(song) {
   const container = document.getElementById('lyrics-container');
   container.innerHTML = '';
 
-  let firstSection = true;
   for (const section of song.sections) {
-    if (!firstSection) {
-      const gap = document.createElement('span');
-      gap.className = 'section-gap';
-      container.appendChild(gap);
-    }
-    firstSection = false;
+    const block = document.createElement('div');
+    block.className = 'section';
 
     if (section.label) {
       const labelEl = document.createElement('span');
       labelEl.className = 'section-label';
       labelEl.textContent = section.label;
-      container.appendChild(labelEl);
+      block.appendChild(labelEl);
     }
 
     for (const line of section.lines) {
       const lineEl = document.createElement('span');
       lineEl.className = 'lyric-line';
       lineEl.textContent = line;
-      container.appendChild(lineEl);
+      block.appendChild(lineEl);
     }
+
+    container.appendChild(block);
   }
 
   autoScale(container);
@@ -72,26 +58,41 @@ function showBlank() {
   document.getElementById('lyrics-container').innerHTML = '';
 }
 
-// ── Auto-scaling (binary search) ──────────────────────────────────────────────
+// ── Auto-scaling with multi-column search ─────────────────────────────────────
 
-function autoScale(container) {
+function binarySearchFontSize(container) {
   const maxH = window.innerHeight * 0.9;
   const maxW = window.innerWidth * 0.9;
-
   let lo = 4, hi = 200, best = lo;
-
   while (lo <= hi) {
     const mid = (lo + hi) >> 1;
     container.style.fontSize = `${mid}px`;
     if (container.scrollHeight <= maxH && container.scrollWidth <= maxW) {
-      best = mid;
-      lo = mid + 1;
+      best = mid; lo = mid + 1;
     } else {
       hi = mid - 1;
     }
   }
+  return best;
+}
 
-  container.style.fontSize = `${best}px`;
+function autoScale(container) {
+  let bestCols = 1;
+  let bestSize = 0;
+
+  for (const cols of [1, 2, 3]) {
+    container.style.columnCount = cols > 1 ? cols : 'auto';
+    const size = binarySearchFontSize(container);
+    if (size > bestSize) {
+      bestSize = size;
+      bestCols = cols;
+    }
+    // No point trying more columns if font is already as large as it gets
+    if (size >= 200) break;
+  }
+
+  container.style.columnCount = bestCols > 1 ? bestCols : 'auto';
+  container.style.fontSize = `${bestSize}px`;
 }
 
 window.addEventListener('resize', () => {
