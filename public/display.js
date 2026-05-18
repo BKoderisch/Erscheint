@@ -115,28 +115,40 @@ function bestFontSize(container, numCols) {
 
 function applyBestLayout() {
   if (!currentSong) return;
+
+  // Ignore calls while the window has no real size yet
+  if (window.innerWidth < 100 || window.innerHeight < 100) return;
+
   const container = document.getElementById('lyrics-container');
-  const portrait  = window.innerHeight > window.innerWidth;
+
+  // Hide during calculation — prevents flickering at intermediate font sizes
+  container.style.visibility = 'hidden';
+
+  const portrait = window.innerHeight > window.innerWidth;
 
   if (portrait) {
     buildLayout(container, currentSong, 1, true);
     container.style.fontSize = `${bestFontSize(container, 1)}px`;
-    return;
+  } else {
+    let bestCols = 1, bestSize = 0;
+    for (const cols of [1, 2, 3]) {
+      buildLayout(container, currentSong, cols, false);
+      const size = bestFontSize(container, cols);
+      if (size > bestSize) { bestSize = size; bestCols = cols; }
+      if (size >= 200) break;
+    }
+    buildLayout(container, currentSong, bestCols, false);
+    container.style.fontSize = `${bestSize}px`;
   }
 
-  // Landscape: find the column count that gives the largest font
-  let bestCols = 1, bestSize = 0;
-  for (const cols of [1, 2, 3]) {
-    buildLayout(container, currentSong, cols, false);
-    const size = bestFontSize(container, cols);
-    if (size > bestSize) { bestSize = size; bestCols = cols; }
-    if (size >= 200) break;
-  }
-
-  buildLayout(container, currentSong, bestCols, false);
-  container.style.fontSize = `${bestSize}px`;
+  container.style.visibility = 'visible';
 }
 
-window.addEventListener('resize', applyBestLayout);
+// Debounce: wait until resizing has stopped before recalculating
+let resizeTimer = null;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(applyBestLayout, 120);
+});
 
 connect();
