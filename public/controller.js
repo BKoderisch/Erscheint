@@ -121,13 +121,16 @@ function openDisplay(monitor) {
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+  document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+  document.getElementById(`tab-${tab}`).classList.add('active');
+  document.getElementById('songs-search-section').style.display = tab === 'songs' ? '' : 'none';
+}
+
 document.querySelectorAll('.tab-btn').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
-  });
+  btn.addEventListener('click', () => switchTab(btn.dataset.tab));
 });
 
 // ── Songs ─────────────────────────────────────────────────────────────────────
@@ -538,11 +541,7 @@ function activateArr(id) {
   renderSongList();
   updateArrBanner();
   if (activeArrId) {
-    // Switch to songs tab
-    document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
-    document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
-    document.querySelector('[data-tab="songs"]').classList.add('active');
-    document.getElementById('tab-songs').classList.add('active');
+    switchTab('songs');
     const arr = arrangements.find((a) => a.id === activeArrId);
     toast(`Arrangement „${arr.name}" aktiv`, 'success');
   }

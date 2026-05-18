@@ -697,15 +697,19 @@
         </button>
       </div>
 
+      <!-- Search + label filter (only visible in Songs tab) -->
+      <div id="songs-search-section">
+        <div class="search-wrap">
+          <span class="search-icon">⌕</span>
+          <input class="search-input" id="search-input" type="search" placeholder="Songs durchsuchen …" autocomplete="off">
+        </div>
+        <div class="label-filter-strip" id="label-filter-strip"></div>
+      </div>
+
     </div>
 
     <!-- ── Songs panel ──────────────────────────────────────────────────────── -->
     <div class="panel active" id="tab-songs">
-      <div class="search-wrap">
-        <span class="search-icon">⌕</span>
-        <input class="search-input" id="search-input" type="search" placeholder="Songs durchsuchen …" autocomplete="off">
-      </div>
-      <div class="label-filter-strip" id="label-filter-strip"></div>
       <ul class="song-list" id="song-list"></ul>
       <div class="empty-state" id="songs-empty" style="display:none">
         <div class="empty-state-icon">♪</div>
