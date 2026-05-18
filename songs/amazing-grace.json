@@ -1,0 +1,42 @@
+{
+  "id": "amazing-grace",
+  "title": "Amazing Grace",
+  "sections": [
+    {
+      "label": "Strophe 1",
+      "lines": [
+        "Amazing grace, how sweet the sound",
+        "That saved a wretch like me",
+        "I once was lost, but now am found",
+        "Was blind, but now I see"
+      ]
+    },
+    {
+      "label": "Strophe 2",
+      "lines": [
+        "'Twas grace that taught my heart to fear",
+        "And grace my fears relieved",
+        "How precious did that grace appear",
+        "The hour I first believed"
+      ]
+    },
+    {
+      "label": "Refrain",
+      "lines": [
+        "My chains are gone, I've been set free",
+        "My God, my Savior has ransomed me",
+        "And like a flood His mercy reigns",
+        "Unending love, amazing grace"
+      ]
+    },
+    {
+      "label": "Strophe 3",
+      "lines": [
+        "The Lord has promised good to me",
+        "His word my hope secures",
+        "He will my shield and portion be",
+        "As long as life endures"
+      ]
+    }
+  ]
+}

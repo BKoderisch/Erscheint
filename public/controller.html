@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erscheint – Controller</title>
+  <style>
+    :root {
+      --bg: #111827;
+      --surface: #1f2937;
+      --surface2: #374151;
+      --accent: #6ee7b7;
+      --accent-dim: #34d39933;
+      --danger: #ef4444;
+      --text: #f9fafb;
+      --text-dim: #9ca3af;
+      --radius: 10px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, 'Segoe UI', Arial, sans-serif;
+      padding: 16px;
+      padding-bottom: 40px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    #status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: #6b7280;
+      transition: background 0.3s;
+    }
+    #status-dot.connected { background: var(--accent); }
+
+    /* ── Monitor section ── */
+    #monitor-section {
+      margin-bottom: 20px;
+    }
+
+    #monitor-section h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    #monitor-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .monitor-btn {
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .monitor-btn:hover { background: var(--surface2); }
+    .monitor-btn.primary-badge::after {
+      content: 'Primär';
+      font-size: 0.7rem;
+      background: var(--surface2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text-dim);
+    }
+
+    /* ── Blank button ── */
+    #blank-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      background: var(--danger);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      transition: opacity 0.15s;
+    }
+    #blank-btn:hover { opacity: 0.85; }
+    #blank-btn.active-blank { background: #b91c1c; }
+
+    /* ── Song list ── */
+    #song-list-header {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    #song-list {
+      list-style: none;
+      margin-bottom: 28px;
+    }
+
+    .song-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 14px;
+      margin-bottom: 6px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: background 0.1s, border-color 0.15s;
+      gap: 8px;
+    }
+
+    .song-item:hover { background: var(--surface2); }
+
+    .song-item.active {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .song-title {
+      font-size: 1rem;
+      font-weight: 600;
+      flex: 1;
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 4px;
+      line-height: 1;
+      transition: color 0.1s;
+      flex-shrink: 0;
+    }
+    .delete-btn:hover { color: var(--danger); }
+
+    #no-songs {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      padding: 12px 0;
+    }
+
+    /* ── Add song ── */
+    #add-section h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      background: var(--surface);
+      border: 1px solid var(--surface2);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    input[type="text"]:focus, textarea:focus {
+      border-color: var(--accent);
+    }
+
+    textarea {
+      height: 200px;
+      resize: vertical;
+      font-family: 'SF Mono', 'Cascadia Code', monospace;
+      font-size: 0.85rem;
+    }
+
+    #add-btn {
+      padding: 11px 22px;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    #add-btn:hover { opacity: 0.85; }
+    #add-btn:disabled { opacity: 0.4; cursor: default; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Erscheint</h1>
+    <div id="status-dot" title="WebSocket-Verbindung"></div>
+  </header>
+
+  <div id="monitor-section">
+    <h2>Display öffnen auf</h2>
+    <div id="monitor-buttons">
+      <button class="monitor-btn" onclick="openDisplay(null)">🖥 Display öffnen</button>
+    </div>
+  </div>
+
+  <button id="blank-btn">Schwarze Leinwand</button>
+
+  <div id="song-list-header">Songs</div>
+  <ul id="song-list">
+    <li id="no-songs">Noch keine Songs vorhanden.</li>
+  </ul>
+
+  <div id="add-section">
+    <h2>Song hinzufügen</h2>
+    <input id="title-input" type="text" placeholder="Titel des Songs">
+    <textarea id="text-input" placeholder="Liedtext hier einfügen …&#10;&#10;Strophe 1:&#10;Zeile eins&#10;Zeile zwei&#10;&#10;Refrain:&#10;Zeile drei&#10;Zeile vier"></textarea>
+    <button id="add-btn">Hinzufügen</button>
+  </div>
+
+  <script src="controller.js"></script>
+</body>
+</html>

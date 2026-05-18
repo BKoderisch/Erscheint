@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Erscheint – Display</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #lyrics-container {
+      width: 90vw;
+      max-height: 90vh;
+      text-align: center;
+      overflow: hidden;
+      line-height: 1.4;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .section-label {
+      display: block;
+      opacity: 0.4;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.1em;
+      margin-top: 0.7em;
+    }
+
+    .section-label:first-child {
+      margin-top: 0;
+    }
+
+    .lyric-line {
+      display: block;
+    }
+
+    .section-gap {
+      display: block;
+      height: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="lyrics-container"></div>
+  <script src="display.js"></script>
+</body>
+</html>
