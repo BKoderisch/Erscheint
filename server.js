@@ -97,7 +97,7 @@ app.get('/display', (_req, res) => res.sendFile(path.join(__dirname, 'public', '
 app.get('/api/songs', (_req, res) => {
   const songs = fs.readdirSync(SONGS_DIR)
     .filter((f) => f.endsWith('.json'))
-    .map((f) => { try { const s = JSON.parse(fs.readFileSync(path.join(SONGS_DIR, f), 'utf8')); return { id: s.id, title: s.title }; } catch { return null; } })
+    .map((f) => { try { const s = JSON.parse(fs.readFileSync(path.join(SONGS_DIR, f), 'utf8')); return { id: s.id, title: s.title, sectionCount: s.sections ? s.sections.length : 0 }; } catch { return null; } })
     .filter(Boolean)
     .sort((a, b) => a.title.localeCompare(b.title, 'de'));
   res.json(songs);
@@ -116,6 +116,20 @@ app.post('/api/songs', (req, res) => {
   const song = { id, title, sections: parseRawText(rawText) };
   fs.writeFileSync(path.join(SONGS_DIR, `${id}.json`), JSON.stringify(song, null, 2));
   res.status(201).json(song);
+});
+
+app.put('/api/songs/:id', (req, res) => {
+  const file = path.join(SONGS_DIR, `${req.params.id}.json`);
+  if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
+  const existing = JSON.parse(fs.readFileSync(file, 'utf8'));
+  const { title, rawText } = req.body;
+  const updated = {
+    ...existing,
+    title: title || existing.title,
+    sections: rawText ? parseRawText(rawText) : existing.sections,
+  };
+  fs.writeFileSync(file, JSON.stringify(updated, null, 2));
+  res.json(updated);
 });
 
 app.delete('/api/songs/:id', (req, res) => {

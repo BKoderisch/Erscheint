@@ -1,22 +1,37 @@
+'use strict';
+
+// ── State ─────────────────────────────────────────────────────────────────────
+
 let ws;
-let currentSongId = null;
-let songs = [];          // all songs from library
-let arrangements = [];   // all arrangements
-let activeArrId = null;  // arrangement currently used for the song list
-let editingArrId = null; // arrangement open in editor
-let displayWindow = null;
+let songs        = [];
+let arrangements = [];
+let currentSongId  = null;
+let activeArrId    = null;
+let editingArrId   = null;
+let editingSongId  = null;   // null = add mode, string = edit mode
+let displayWindow  = null;
+let searchQuery    = '';
 
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 
 function connectWS() {
   ws = new WebSocket(`ws://${location.host}`);
-  ws.onopen = () => document.getElementById('status-dot').classList.add('connected');
-  ws.onclose = () => { document.getElementById('status-dot').classList.remove('connected'); setTimeout(connectWS, 2000); };
+
+  ws.onopen = () => {
+    document.getElementById('status-dot').classList.add('connected');
+    document.getElementById('status-text').textContent = 'Verbunden';
+  };
+  ws.onclose = () => {
+    document.getElementById('status-dot').classList.remove('connected');
+    document.getElementById('status-text').textContent = 'Getrennt';
+    setTimeout(connectWS, 2000);
+  };
   ws.onerror = () => ws.close();
   ws.onmessage = (e) => {
     const msg = JSON.parse(e.data);
     currentSongId = msg.type === 'song' ? msg.songId : null;
-    updateActiveHighlight();
+    updateNowPlaying();
+    updateSongHighlight();
   };
 }
 
@@ -24,23 +39,69 @@ function send(msg) {
   if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(msg));
 }
 
-// ── Monitor ───────────────────────────────────────────────────────────────────
+// ── Toast ─────────────────────────────────────────────────────────────────────
+
+function toast(text, type = '') {
+  const el = document.createElement('div');
+  el.className = `toast${type ? ' ' + type : ''}`;
+  el.textContent = text;
+  document.getElementById('toasts').prepend(el);
+  setTimeout(() => el.remove(), 3200);
+}
+
+// ── Now Playing ───────────────────────────────────────────────────────────────
+
+function updateNowPlaying() {
+  const card   = document.getElementById('now-playing');
+  const title  = document.getElementById('np-title');
+  const btn    = document.getElementById('blank-btn');
+
+  if (currentSongId) {
+    const song = songs.find((s) => s.id === currentSongId);
+    title.textContent = song ? song.title : currentSongId;
+    card.classList.add('live');
+    btn.classList.remove('always');
+    btn.textContent = '⬛ Blank';
+  } else {
+    title.textContent = 'Schwarze Leinwand';
+    card.classList.remove('live');
+    btn.classList.add('always');
+    btn.textContent = 'Blank';
+  }
+}
+
+document.getElementById('blank-btn').addEventListener('click', () => {
+  send({ type: 'blank' });
+});
+
+// ── Monitor dropdown ──────────────────────────────────────────────────────────
+
+document.getElementById('monitor-toggle-btn').addEventListener('click', (e) => {
+  e.stopPropagation();
+  document.getElementById('monitor-dropdown').classList.toggle('open');
+});
+document.addEventListener('click', () => {
+  document.getElementById('monitor-dropdown').classList.remove('open');
+});
 
 async function loadMonitors() {
   try {
     const monitors = await fetch('/api/monitors').then((r) => r.json());
     if (!monitors || !monitors.length) return;
-    const container = document.getElementById('monitor-buttons');
+    const container = document.getElementById('monitor-items');
     container.innerHTML = '';
     monitors.forEach((m, i) => {
       const btn = document.createElement('button');
-      btn.className = 'monitor-btn';
-      btn.textContent = `🖥 Monitor ${i + 1}${m.primary ? ' (Primär)' : ''}`;
+      btn.className = 'monitor-item';
+      btn.innerHTML = `🖥 Monitor ${i + 1}${m.primary ? ' <span class="monitor-badge">Primär</span>' : ''}`;
       btn.title = `${m.name}  ${m.width}×${m.height}`;
-      btn.addEventListener('click', () => openDisplay(m));
+      btn.addEventListener('click', () => {
+        openDisplay(m);
+        document.getElementById('monitor-dropdown').classList.remove('open');
+      });
       container.appendChild(btn);
     });
-  } catch { /* keep default button */ }
+  } catch { /* keep default */ }
 }
 
 function openDisplay(monitor) {
@@ -60,171 +121,103 @@ function openDisplay(monitor) {
 document.querySelectorAll('.tab-btn').forEach((btn) => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
   });
 });
 
-// ── Blank button ──────────────────────────────────────────────────────────────
-
-document.getElementById('blank-btn').addEventListener('click', () => send({ type: 'blank' }));
-
 // ── Songs ─────────────────────────────────────────────────────────────────────
 
 async function loadSongs() {
   songs = await fetch('/api/songs').then((r) => r.json());
+  document.getElementById('songs-badge').textContent = songs.length;
   renderSongList();
+  updateNowPlaying();
 }
 
 function visibleSongs() {
-  if (!activeArrId) return songs;
-  const arr = arrangements.find((a) => a.id === activeArrId);
-  if (!arr) return songs;
-  return arr.songIds.map((id) => songs.find((s) => s.id === id)).filter(Boolean);
+  let list = songs;
+  if (activeArrId) {
+    const arr = arrangements.find((a) => a.id === activeArrId);
+    if (arr) list = arr.songIds.map((id) => songs.find((s) => s.id === id)).filter(Boolean);
+  }
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    list = list.filter((s) => s.title.toLowerCase().includes(q));
+  }
+  return list;
 }
 
 function renderSongList() {
-  const list = document.getElementById('song-list');
-  const noSongs = document.getElementById('no-songs');
-  list.querySelectorAll('.song-item').forEach((el) => el.remove());
+  const ul = document.getElementById('song-list');
+  ul.innerHTML = '';
 
   const visible = visibleSongs();
-  if (visible.length === 0) { noSongs.style.display = ''; return; }
-  noSongs.style.display = 'none';
+  const allEmpty = songs.length === 0;
+  const searchEmpty = !allEmpty && visible.length === 0 && searchQuery;
+
+  document.getElementById('songs-empty').style.display      = allEmpty ? '' : 'none';
+  document.getElementById('songs-no-results').style.display = searchEmpty ? '' : 'none';
 
   for (const song of visible) {
     const li = document.createElement('li');
-    li.className = 'song-item' + (song.id === currentSongId ? ' active' : '');
+    li.className = 'song-card' + (song.id === currentSongId ? ' active' : '');
     li.dataset.id = song.id;
 
-    const titleEl = document.createElement('span');
-    titleEl.className = 'song-title';
-    titleEl.textContent = song.title;
+    const meta = song.sectionCount
+      ? `${song.sectionCount} ${song.sectionCount === 1 ? 'Abschnitt' : 'Abschnitte'}`
+      : '';
 
-    const delBtn = document.createElement('button');
-    delBtn.className = 'icon-btn';
-    delBtn.textContent = '✕';
-    delBtn.title = 'Löschen';
-    delBtn.addEventListener('click', (e) => { e.stopPropagation(); deleteSong(song.id, song.title); });
+    li.innerHTML = `
+      <div class="song-card-body">
+        <div class="song-card-title">${escHtml(song.title)}</div>
+        ${meta ? `<div class="song-card-meta">${meta}</div>` : ''}
+      </div>
+      <div class="song-card-actions">
+        <button class="card-btn" data-action="edit" title="Bearbeiten">✎</button>
+        <button class="card-btn danger" data-action="delete" title="Löschen">✕</button>
+      </div>`;
 
-    li.appendChild(titleEl);
-    li.appendChild(delBtn);
+    li.querySelector('[data-action="edit"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      openSheet('edit', song.id);
+    });
+    li.querySelector('[data-action="delete"]').addEventListener('click', (e) => {
+      e.stopPropagation();
+      deleteSong(song.id, song.title);
+    });
     li.addEventListener('click', () => send({ type: 'show_song', songId: song.id }));
-    list.appendChild(li);
+    ul.appendChild(li);
   }
 }
 
-function updateActiveHighlight() {
-  document.querySelectorAll('.song-item').forEach((el) => {
+function updateSongHighlight() {
+  document.querySelectorAll('.song-card').forEach((el) => {
     el.classList.toggle('active', el.dataset.id === currentSongId);
   });
 }
 
 async function deleteSong(id, title) {
-  if (!confirm(`"${title}" wirklich löschen?`)) return;
   await fetch(`/api/songs/${id}`, { method: 'DELETE' });
   if (currentSongId === id) send({ type: 'blank' });
+  toast(`„${title}" gelöscht`);
   await loadSongs();
+  if (editingArrId) renderArrEditor();
 }
 
-// ── Add song (collapsible) ────────────────────────────────────────────────────
+// ── Search ────────────────────────────────────────────────────────────────────
 
-const addToggle = document.getElementById('add-toggle');
-const addForm = document.getElementById('add-form');
-addToggle.addEventListener('click', () => {
-  const open = addForm.classList.toggle('open');
-  addToggle.classList.toggle('open', open);
-});
-
-document.getElementById('add-btn').addEventListener('click', async () => {
-  const titleInput = document.getElementById('title-input');
-  const textInput = document.getElementById('text-input');
-  const btn = document.getElementById('add-btn');
-  const title = titleInput.value.trim();
-  const rawText = textInput.value.trim();
-  if (!title) { titleInput.focus(); return; }
-  if (!rawText) { textInput.focus(); return; }
-
-  btn.disabled = true; btn.textContent = 'Wird hinzugefügt…';
-  try {
-    await fetch('/api/songs', {
-      method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title, rawText }),
-    });
-    titleInput.value = ''; textInput.value = '';
-    addForm.classList.remove('open'); addToggle.classList.remove('open');
-    await loadSongs();
-  } finally { btn.disabled = false; btn.textContent = 'Hinzufügen'; }
-});
-
-// ── Arrangements list ─────────────────────────────────────────────────────────
-
-async function loadArrangements() {
-  arrangements = await fetch('/api/arrangements').then((r) => r.json());
-  renderArrangementList();
-}
-
-function renderArrangementList() {
-  const list = document.getElementById('arr-list');
-  const noArr = document.getElementById('no-arr');
-  list.querySelectorAll('.arr-item').forEach((el) => el.remove());
-
-  if (arrangements.length === 0) { noArr.style.display = ''; return; }
-  noArr.style.display = 'none';
-
-  for (const arr of arrangements) {
-    const li = document.createElement('li');
-    li.className = 'arr-item' + (arr.id === activeArrId ? ' active-arr' : '');
-    li.dataset.id = arr.id;
-
-    const nameEl = document.createElement('span');
-    nameEl.className = 'arr-name';
-    nameEl.textContent = arr.name;
-
-    const actions = document.createElement('div');
-    actions.className = 'arr-actions';
-
-    const useBtn = document.createElement('button');
-    useBtn.className = 'icon-btn';
-    useBtn.textContent = arr.id === activeArrId ? '✓' : '▶';
-    useBtn.title = arr.id === activeArrId ? 'Aktiv' : 'Verwenden';
-    useBtn.addEventListener('click', () => activateArrangement(arr.id));
-
-    const editBtn = document.createElement('button');
-    editBtn.className = 'icon-btn';
-    editBtn.textContent = '✎';
-    editBtn.title = 'Bearbeiten';
-    editBtn.addEventListener('click', () => openArrEditor(arr.id));
-
-    const delBtn = document.createElement('button');
-    delBtn.className = 'icon-btn';
-    delBtn.textContent = '✕';
-    delBtn.title = 'Löschen';
-    delBtn.addEventListener('click', () => deleteArrangement(arr.id, arr.name));
-
-    actions.append(useBtn, editBtn, delBtn);
-    li.append(nameEl, actions);
-    list.appendChild(li);
-  }
-}
-
-function activateArrangement(id) {
-  activeArrId = activeArrId === id ? null : id;
-  renderArrangementList();
+document.getElementById('search-input').addEventListener('input', (e) => {
+  searchQuery = e.target.value.trim();
   renderSongList();
-  updateArrBanner();
+});
 
-  // Switch to songs tab
-  document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
-  document.querySelector('[data-tab="songs"]').classList.add('active');
-  document.getElementById('tab-songs').classList.add('active');
-}
+// ── Arrangement banner ────────────────────────────────────────────────────────
 
 function updateArrBanner() {
-  const banner = document.getElementById('active-arr-banner');
-  const nameEl = document.getElementById('active-arr-name');
+  const banner = document.getElementById('arr-banner');
+  const nameEl = document.getElementById('arr-banner-name');
   if (activeArrId) {
     const arr = arrangements.find((a) => a.id === activeArrId);
     nameEl.textContent = arr ? arr.name : '';
@@ -234,42 +227,178 @@ function updateArrBanner() {
   }
 }
 
-document.getElementById('clear-arr-btn').addEventListener('click', () => {
+document.getElementById('arr-banner-clear').addEventListener('click', () => {
   activeArrId = null;
+  updateArrBanner();
+  renderSongList();
+  renderArrangementList();
+});
+
+// ── Sheet (Add / Edit song) ───────────────────────────────────────────────────
+
+function sectionsToText(sections) {
+  return sections.map((s) => {
+    const lines = [];
+    if (s.label) lines.push(s.label + ':');
+    lines.push(...s.lines);
+    return lines.join('\n');
+  }).join('\n\n');
+}
+
+async function openSheet(mode, songId = null) {
+  editingSongId = mode === 'edit' ? songId : null;
+  const titleEl  = document.getElementById('sheet-title-text');
+  const nameEl   = document.getElementById('sheet-name');
+  const textEl   = document.getElementById('sheet-text');
+  const submitEl = document.getElementById('sheet-submit');
+
+  if (mode === 'edit' && songId) {
+    titleEl.textContent  = 'Song bearbeiten';
+    submitEl.textContent = 'Speichern';
+    try {
+      const song = await fetch(`/api/songs/${songId}`).then((r) => r.json());
+      nameEl.value = song.title;
+      textEl.value = sectionsToText(song.sections);
+    } catch { toast('Fehler beim Laden', 'error'); return; }
+  } else {
+    titleEl.textContent  = 'Song hinzufügen';
+    submitEl.textContent = 'Hinzufügen';
+    nameEl.value = '';
+    textEl.value = '';
+  }
+
+  document.getElementById('sheet-overlay').classList.add('open');
+  setTimeout(() => nameEl.focus(), 250);
+}
+
+function closeSheet() {
+  document.getElementById('sheet-overlay').classList.remove('open');
+  editingSongId = null;
+}
+
+document.getElementById('fab').addEventListener('click',          () => openSheet('add'));
+document.getElementById('sheet-close').addEventListener('click',  closeSheet);
+document.getElementById('sheet-cancel').addEventListener('click', closeSheet);
+document.getElementById('sheet-overlay').addEventListener('click', (e) => {
+  if (e.target === document.getElementById('sheet-overlay')) closeSheet();
+});
+
+document.getElementById('sheet-submit').addEventListener('click', async () => {
+  const title   = document.getElementById('sheet-name').value.trim();
+  const rawText = document.getElementById('sheet-text').value.trim();
+  const btn     = document.getElementById('sheet-submit');
+
+  if (!title) { document.getElementById('sheet-name').focus(); return; }
+
+  btn.disabled = true;
+  try {
+    if (editingSongId) {
+      await fetch(`/api/songs/${editingSongId}`, {
+        method: 'PUT', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, rawText: rawText || undefined }),
+      });
+      toast(`„${title}" gespeichert`, 'success');
+    } else {
+      if (!rawText) { document.getElementById('sheet-text').focus(); btn.disabled = false; return; }
+      await fetch('/api/songs', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, rawText }),
+      });
+      toast(`„${title}" hinzugefügt`, 'success');
+    }
+    closeSheet();
+    await loadSongs();
+  } catch { toast('Fehler beim Speichern', 'error'); }
+  finally { btn.disabled = false; }
+});
+
+// ── Arrangements list ─────────────────────────────────────────────────────────
+
+async function loadArrangements() {
+  arrangements = await fetch('/api/arrangements').then((r) => r.json());
+  document.getElementById('arr-badge').textContent = arrangements.length;
+  renderArrangementList();
+}
+
+function renderArrangementList() {
+  const ul    = document.getElementById('arr-list');
+  const empty = document.getElementById('arr-empty');
+  ul.innerHTML = '';
+
+  if (arrangements.length === 0) { empty.style.display = ''; return; }
+  empty.style.display = 'none';
+
+  for (const arr of arrangements) {
+    const isActive = arr.id === activeArrId;
+    const count = arr.songIds.length;
+    const li = document.createElement('li');
+    li.className = 'arr-card' + (isActive ? ' active-arr' : '');
+    li.innerHTML = `
+      <div class="arr-card-body">
+        <div class="arr-card-title">${escHtml(arr.name)}</div>
+        <div class="arr-card-meta">${count} ${count === 1 ? 'Song' : 'Songs'}</div>
+      </div>
+      <div class="arr-card-actions">
+        <button class="card-btn" data-action="use"  title="${isActive ? 'Aktiv' : 'Verwenden'}">${isActive ? '✓' : '▶'}</button>
+        <button class="card-btn" data-action="edit" title="Bearbeiten">✎</button>
+        <button class="card-btn danger" data-action="delete" title="Löschen">✕</button>
+      </div>`;
+
+    li.querySelector('[data-action="use"]').addEventListener('click',    () => activateArr(arr.id));
+    li.querySelector('[data-action="edit"]').addEventListener('click',   () => openArrEditor(arr.id));
+    li.querySelector('[data-action="delete"]').addEventListener('click', () => deleteArr(arr.id, arr.name));
+    ul.appendChild(li);
+  }
+}
+
+function activateArr(id) {
+  activeArrId = activeArrId === id ? null : id;
   renderArrangementList();
   renderSongList();
   updateArrBanner();
-});
+  if (activeArrId) {
+    // Switch to songs tab
+    document.querySelectorAll('.tab-btn').forEach((b) => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach((p) => p.classList.remove('active'));
+    document.querySelector('[data-tab="songs"]').classList.add('active');
+    document.getElementById('tab-songs').classList.add('active');
+    const arr = arrangements.find((a) => a.id === activeArrId);
+    toast(`Arrangement „${arr.name}" aktiv`, 'success');
+  }
+}
 
-async function deleteArrangement(id, name) {
-  if (!confirm(`"${name}" wirklich löschen?`)) return;
-  if (activeArrId === id) { activeArrId = null; updateArrBanner(); }
+async function deleteArr(id, name) {
   await fetch(`/api/arrangements/${id}`, { method: 'DELETE' });
+  if (activeArrId === id) { activeArrId = null; updateArrBanner(); renderSongList(); }
+  toast(`„${name}" gelöscht`);
   await loadArrangements();
 }
 
-// ── New arrangement (collapsible) ─────────────────────────────────────────────
+// ── New arrangement ───────────────────────────────────────────────────────────
 
-const arrToggle = document.getElementById('arr-toggle');
-const arrCreateForm = document.getElementById('arr-create-form');
-arrToggle.addEventListener('click', () => {
-  const open = arrCreateForm.style.display === 'block';
-  arrCreateForm.style.display = open ? 'none' : 'block';
-  arrToggle.querySelector('.chevron').style.transform = open ? '' : 'rotate(180deg)';
+document.getElementById('arr-new-btn').addEventListener('click', () => {
+  const form = document.getElementById('create-arr-form');
+  const open = form.classList.toggle('open');
+  if (open) setTimeout(() => document.getElementById('arr-name-input').focus(), 50);
 });
 
 document.getElementById('arr-create-btn').addEventListener('click', async () => {
   const input = document.getElementById('arr-name-input');
-  const name = input.value.trim();
+  const name  = input.value.trim();
   if (!name) { input.focus(); return; }
-  await fetch('/api/arrangements', {
+  const arr = await fetch('/api/arrangements', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, songIds: [] }),
-  });
+  }).then((r) => r.json());
   input.value = '';
-  arrCreateForm.style.display = 'none';
-  arrToggle.querySelector('.chevron').style.transform = '';
+  document.getElementById('create-arr-form').classList.remove('open');
+  toast(`„${name}" erstellt`, 'success');
   await loadArrangements();
+  openArrEditor(arr.id);
+});
+
+document.getElementById('arr-name-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') document.getElementById('arr-create-btn').click();
 });
 
 // ── Arrangement editor ────────────────────────────────────────────────────────
@@ -278,7 +407,7 @@ function openArrEditor(id) {
   editingArrId = id;
   const arr = arrangements.find((a) => a.id === id);
   document.getElementById('arr-editor-name').textContent = arr.name;
-  document.getElementById('arr-list-view').style.display = 'none';
+  document.getElementById('arr-list-view').classList.add('hidden');
   document.getElementById('arr-editor').classList.add('open');
   renderArrEditor();
 }
@@ -286,7 +415,7 @@ function openArrEditor(id) {
 document.getElementById('arr-back').addEventListener('click', () => {
   editingArrId = null;
   document.getElementById('arr-editor').classList.remove('open');
-  document.getElementById('arr-list-view').style.display = '';
+  document.getElementById('arr-list-view').classList.remove('hidden');
   loadArrangements();
 });
 
@@ -294,65 +423,46 @@ function renderArrEditor() {
   const arr = arrangements.find((a) => a.id === editingArrId);
   if (!arr) return;
 
-  // Songs in arrangement (ordered)
-  const songList = document.getElementById('arr-song-list');
-  songList.innerHTML = '';
-
+  // Ordered songs
+  const ul = document.getElementById('arr-song-list');
+  ul.innerHTML = '';
   arr.songIds.forEach((songId, idx) => {
     const song = songs.find((s) => s.id === songId);
     if (!song) return;
-
     const li = document.createElement('li');
-    li.className = 'arr-song-item';
-
-    const titleEl = document.createElement('span');
-    titleEl.className = 'arr-song-title';
-    titleEl.textContent = song.title;
-
-    const upBtn = document.createElement('button');
-    upBtn.className = 'move-btn'; upBtn.textContent = '▲'; upBtn.title = 'Nach oben';
-    upBtn.disabled = idx === 0;
-    upBtn.addEventListener('click', () => moveArrSong(arr, idx, -1));
-
-    const downBtn = document.createElement('button');
-    downBtn.className = 'move-btn'; downBtn.textContent = '▼'; downBtn.title = 'Nach unten';
-    downBtn.disabled = idx === arr.songIds.length - 1;
-    downBtn.addEventListener('click', () => moveArrSong(arr, idx, 1));
-
-    const removeBtn = document.createElement('button');
-    removeBtn.className = 'icon-btn'; removeBtn.textContent = '✕'; removeBtn.title = 'Entfernen';
-    removeBtn.addEventListener('click', () => removeArrSong(arr, songId));
-
-    li.append(titleEl, upBtn, downBtn, removeBtn);
-    songList.appendChild(li);
+    li.className = 'arr-song-row';
+    li.innerHTML = `
+      <span class="arr-song-num">${idx + 1}</span>
+      <span class="arr-song-title">${escHtml(song.title)}</span>
+      <button class="move-btn" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
+      <button class="move-btn" title="Nach unten" ${idx === arr.songIds.length - 1 ? 'disabled' : ''}>▼</button>
+      <button class="card-btn danger" title="Entfernen">✕</button>`;
+    const [upBtn, downBtn, removeBtn] = li.querySelectorAll('button');
+    upBtn.addEventListener('click',    () => moveArrSong(arr, idx, -1));
+    downBtn.addEventListener('click',  () => moveArrSong(arr, idx,  1));
+    removeBtn.addEventListener('click',() => removeArrSong(arr, songId));
+    ul.appendChild(li);
   });
 
-  // Available songs (not yet in arrangement)
-  const inArr = new Set(arr.songIds);
-  const available = songs.filter((s) => !inArr.has(s.id));
-  const availList = document.getElementById('arr-available-list');
-  const noAvail = document.getElementById('no-avail');
-  availList.innerHTML = '';
+  // Available songs
+  const inArr  = new Set(arr.songIds);
+  const avail  = songs.filter((s) => !inArr.has(s.id));
+  const availUl = document.getElementById('arr-avail-list');
+  const noAvail = document.getElementById('arr-avail-empty');
+  availUl.innerHTML = '';
 
-  if (available.length === 0) {
+  if (avail.length === 0) {
     noAvail.style.display = '';
   } else {
     noAvail.style.display = 'none';
-    for (const song of available) {
+    avail.forEach((song) => {
       const li = document.createElement('li');
-      li.className = 'avail-item';
-
-      const titleEl = document.createElement('span');
-      titleEl.className = 'avail-title';
-      titleEl.textContent = song.title;
-
-      const addBtn = document.createElement('button');
-      addBtn.className = 'add-to-arr-btn'; addBtn.textContent = '+ Hinzufügen';
-      addBtn.addEventListener('click', () => addArrSong(arr, song.id));
-
-      li.append(titleEl, addBtn);
-      availList.appendChild(li);
-    }
+      li.className = 'avail-row';
+      li.innerHTML = `<span class="avail-title">${escHtml(song.title)}</span>
+        <button class="add-btn-small">+ Hinzufügen</button>`;
+      li.querySelector('button').addEventListener('click', () => addArrSong(arr, song.id));
+      availUl.appendChild(li);
+    });
   }
 }
 
@@ -361,9 +471,9 @@ async function saveArr(arr) {
     method: 'PUT', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ songIds: arr.songIds }),
   });
-  // Update local copy
   const idx = arrangements.findIndex((a) => a.id === arr.id);
   if (idx !== -1) arrangements[idx] = { ...arrangements[idx], songIds: arr.songIds };
+  if (activeArrId === arr.id) renderSongList();
 }
 
 async function moveArrSong(arr, idx, dir) {
@@ -372,22 +482,25 @@ async function moveArrSong(arr, idx, dir) {
   ids.splice(idx + dir, 0, item);
   arr.songIds = ids;
   await saveArr(arr);
-  if (activeArrId === arr.id) renderSongList();
   renderArrEditor();
 }
 
 async function removeArrSong(arr, songId) {
   arr.songIds = arr.songIds.filter((id) => id !== songId);
   await saveArr(arr);
-  if (activeArrId === arr.id) renderSongList();
   renderArrEditor();
 }
 
 async function addArrSong(arr, songId) {
   arr.songIds = [...arr.songIds, songId];
   await saveArr(arr);
-  if (activeArrId === arr.id) renderSongList();
   renderArrEditor();
+}
+
+// ── Utility ───────────────────────────────────────────────────────────────────
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 // ── Init ──────────────────────────────────────────────────────────────────────
