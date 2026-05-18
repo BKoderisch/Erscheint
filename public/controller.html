@@ -700,6 +700,17 @@
       content: ''; flex: 1; height: 1px; background: var(--border);
     }
 
+    /* ── Drag & drop ────────────────────────────────────────────────────────── */
+    .drag-handle {
+      color: var(--text-3); font-size: 1rem; cursor: grab;
+      padding: 0 2px; flex-shrink: 0; user-select: none;
+    }
+    .drag-handle:active { cursor: grabbing; }
+    .arr-song-row, .arr-sep-row { user-select: none; }
+    .arr-dragging { opacity: 0.3; }
+    .arr-drop-above { box-shadow: 0 -2px 0 var(--accent); }
+    .arr-drop-below { box-shadow: 0  2px 0 var(--accent); }
+
     /* ── Add separator form ─────────────────────────────────────────────────── */
     .add-sep-row {
       display: flex; gap: 8px; margin-top: 10px;

@@ -15,6 +15,7 @@ let activeLabel    = null;   // label currently used as filter
 let sheetLabels    = [];     // labels being edited in the sheet
 let searchResults  = null;   // null = not in search mode, array = search results
 let availSearch    = '';     // search query in arrangement editor available-songs list
+let dragSrcIdx     = null;  // index of item currently being dragged
 
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 
@@ -650,27 +651,74 @@ function renderArrEditor() {
     if (item.type === 'separator') {
       li.className = 'arr-sep-row';
       li.innerHTML = `
+        <span class="drag-handle">⠿</span>
         <span class="arr-sep-text">${escHtml(item.label || '—')}</span>
-        <button class="move-btn" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
-        <button class="move-btn" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
-        <button class="card-btn danger" title="Entfernen">✕</button>`;
+        <button class="move-btn" draggable="false" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
+        <button class="move-btn" draggable="false" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
+        <button class="card-btn danger" draggable="false" title="Entfernen">✕</button>`;
     } else {
       const song = songs.find((s) => s.id === item.id);
       if (!song) return;
       songNum++;
       li.className = 'arr-song-row';
       li.innerHTML = `
+        <span class="drag-handle">⠿</span>
         <span class="arr-song-num">${songNum}</span>
         <span class="arr-song-title">${escHtml(song.title)}</span>
-        <button class="move-btn" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
-        <button class="move-btn" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
-        <button class="card-btn danger" title="Entfernen">✕</button>`;
+        <button class="move-btn" draggable="false" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
+        <button class="move-btn" draggable="false" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
+        <button class="card-btn danger" draggable="false" title="Entfernen">✕</button>`;
     }
 
     const [upBtn, downBtn, removeBtn] = li.querySelectorAll('button');
     upBtn.addEventListener('click',     () => moveItem(arr, idx, -1));
     downBtn.addEventListener('click',   () => moveItem(arr, idx,  1));
     removeBtn.addEventListener('click', () => removeItem(arr, idx));
+
+    // ── Drag & drop ──────────────────────────────────────────────────────────
+    li.draggable = true;
+
+    li.addEventListener('dragstart', (e) => {
+      dragSrcIdx = idx;
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(() => li.classList.add('arr-dragging'), 0);
+    });
+
+    li.addEventListener('dragend', () => {
+      dragSrcIdx = null;
+      li.classList.remove('arr-dragging');
+      ul.querySelectorAll('li').forEach((el) => el.classList.remove('arr-drop-above', 'arr-drop-below'));
+    });
+
+    li.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      if (dragSrcIdx === idx) return;
+      ul.querySelectorAll('li').forEach((el) => el.classList.remove('arr-drop-above', 'arr-drop-below'));
+      const { top, height } = li.getBoundingClientRect();
+      li.classList.add(e.clientY < top + height / 2 ? 'arr-drop-above' : 'arr-drop-below');
+    });
+
+    li.addEventListener('dragleave', (e) => {
+      if (!li.contains(e.relatedTarget)) li.classList.remove('arr-drop-above', 'arr-drop-below');
+    });
+
+    li.addEventListener('drop', (e) => {
+      e.preventDefault();
+      li.classList.remove('arr-drop-above', 'arr-drop-below');
+      if (dragSrcIdx === null || dragSrcIdx === idx) return;
+
+      const { top, height } = li.getBoundingClientRect();
+      let insertAt = e.clientY < top + height / 2 ? idx : idx + 1;
+      if (dragSrcIdx < insertAt) insertAt--;
+      if (dragSrcIdx === insertAt) return;
+
+      const its = [...getItems(arr)];
+      const [moved] = its.splice(dragSrcIdx, 1);
+      its.splice(insertAt, 0, moved);
+      arr.items = its;
+      saveArr(arr).then(() => renderArrEditor());
+    });
+
     ul.appendChild(li);
   });
 
