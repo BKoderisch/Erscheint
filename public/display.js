@@ -82,22 +82,26 @@ function binarySearchFontSize(container) {
 }
 
 function autoScale(container) {
-  let bestCols = 1;
-  let bestSize = 0;
+  const portrait = window.innerHeight > window.innerWidth;
 
-  for (const cols of [1, 2, 3]) {
-    container.style.columnCount = cols > 1 ? cols : 'auto';
-    const size = binarySearchFontSize(container);
-    if (size > bestSize) {
-      bestSize = size;
-      bestCols = cols;
+  if (portrait) {
+    // Portrait: allow wrapping, single column, no horizontal constraint from long lines
+    container.style.whiteSpace = 'normal';
+    container.style.columnCount = 'auto';
+    container.style.fontSize = `${binarySearchFontSize(container)}px`;
+  } else {
+    // Landscape: no wrapping, find best column count
+    container.style.whiteSpace = 'nowrap';
+    let bestCols = 1, bestSize = 0;
+    for (const cols of [1, 2, 3]) {
+      container.style.columnCount = cols > 1 ? cols : 'auto';
+      const size = binarySearchFontSize(container);
+      if (size > bestSize) { bestSize = size; bestCols = cols; }
+      if (size >= 200) break;
     }
-    // No point trying more columns if font is already as large as it gets
-    if (size >= 200) break;
+    container.style.columnCount = bestCols > 1 ? bestCols : 'auto';
+    container.style.fontSize = `${bestSize}px`;
   }
-
-  container.style.columnCount = bestCols > 1 ? bestCols : 'auto';
-  container.style.fontSize = `${bestSize}px`;
 }
 
 window.addEventListener('resize', () => {
