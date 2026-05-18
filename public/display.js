@@ -29,6 +29,11 @@ function renderSong(song) {
   const container = document.getElementById('lyrics-container');
   container.innerHTML = '';
 
+  const titleEl = document.createElement('span');
+  titleEl.className = 'song-title';
+  titleEl.textContent = song.title;
+  container.appendChild(titleEl);
+
   for (const section of song.sections) {
     const block = document.createElement('div');
     block.className = 'section';
