@@ -44,7 +44,7 @@ function uniqueId(dir, title) {
 // ── Section parser ────────────────────────────────────────────────────────────
 
 const SECTION_HEADER =
-  /^(strophe|vers|verse|refrain|chorus|bridge|intro|outro|pre-chorus|vorkehrus|tag|coda|interlude)[\s\d]*:?$/i;
+  /^(strophe|vers|verse|refrain|chorus|bridge|intro|outro|pre-chorus|vorkehrus|tag|coda|interlude|schluss)[\s\d]*:?$/i;
 
 function parseRawText(rawText) {
   const lines = rawText.split(/\r?\n/);
