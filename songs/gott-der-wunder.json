@@ -1,0 +1,63 @@
+{
+  "id": "gott-der-wunder",
+  "title": "Gott der Wunder",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Vers 1",
+      "lines": [
+        "Du hörst nicht [G]auf, Wunder[C2]  zu tun",
+        "Du bleibst[Em7]  dir treu, und de[C2]inem Volk",
+        "Zeig dich er[G]neut, ich bin[C2]  bereit",
+        "Zeuge[Em7]  zu sein, von de[C2]iner Kraft"
+      ]
+    },
+    {
+      "label": "Prechorus 1",
+      "lines": [
+        "Ich weiß dass[G]  du lebst    [G/B]     [C2]",
+        "Ich weiß dass[Em7]  du lebst    [C2]Oh"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Ja, ich [G]glaub an dich [G/B]dass du [C2]Wunder tust",
+        "[D4]Wie vor t[Em7]ausend Jahren W[D4]irkst du [C2]hier und jetzt",
+        "Ich erw[G]arte dich [G/B]weil du [C2]mir versprichst",
+        "[D4]Du bis[Em7]t  ein Gott der [D4]Wunder[C2]"
+      ]
+    },
+    {
+      "label": "Vers 2",
+      "lines": [
+        "Blinde,[G]  die sehn, [G/B]Ängste,  [C2] die fliehen",
+        "[D4]Stumme,[Em7]   die singen, nur J[C2]esus heilt",
+        "Mauern, s[G]ie  fallen, [G/B]wenn du  [C2]beginnst",
+        "[D4]Dein Reic[Em7]h  zu bau'n, und [D4]jeder [C2]   bekennt"
+      ]
+    },
+    {
+      "label": "Prechorus 2",
+      "lines": [
+        "Jesus[G]  du lebst  [G/B]     [C2]",
+        "[D4]Jesus[Em7]   du lebst [Em7]     [C2]"
+      ]
+    },
+    {
+      "label": "Bridge 1",
+      "lines": [
+        "Du bist nicht [G]tot, dein Grab ist [C2]leer",
+        "Du lebst in [Em7]uns, deine Kraft ist [C2]hier",
+        "Zeig dich in [G]Fülle, halt nichts zur[Am7]ück",
+        "Dafür preisen wir [Em7]dich. Dafür preisen wir [C2]dich"
+      ]
+    }
+  ]
+}

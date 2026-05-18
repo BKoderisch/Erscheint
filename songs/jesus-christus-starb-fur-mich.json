@@ -1,0 +1,49 @@
+{
+  "id": "jesus-christus-starb-fur-mich",
+  "title": "Jesus Christus starb für mich",
+  "subtitle": "",
+  "artist": "",
+  "key": "Em",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "Em",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "[Em]Jesus Christus starb für mich [B/D#]",
+        "[Em]Jesus Christus starb für dich [B/D#]",
+        "[G]Für die [D]ganze Welt starb [Em]er [B/D#]am [C]Kreuz",
+        "[Am]Er nahm [B/D#]unsre Schuld auf [E]sich"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[E]Herr ich [A]danke dir dass [E]du [B/D#]mich [C#m]liebst",
+        "[A]Dei -   ne [G#m]Gnade gilt auch [B/D#]mir",
+        "[E]Danke [A]Herr dass du die [E]Schuld [B/D#]ver - [C#m]gibst",
+        "[F#m]Ich will [E]leben [A]Herr mit [E]dir"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[Em]Jesus ist der Weg für mich [B/D#]",
+        "[Em]Jesus ist der Weg für dich [B/D#]",
+        "[G]Jesus [D]ist der Weg zum [Em]Va - [B/D#]ter - [C]haus",
+        "[Am]Er nahm [B/D#]unsre Schuld auf [E]sich"
+      ]
+    },
+    {
+      "label": "Verse 3",
+      "lines": [
+        "[Em]Jesus Christus er ruft mich [B/D#]",
+        "[Em]Jesus Christus er ruft dich [B/D#]",
+        "[G]Mach dich [D]auf und folge [Em]Je - [B/D#]sus [C]nach",
+        "[Am]Er nahm [B/D#]unsre Schuld auf [E]sich"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "du-bist-machtig",
+  "title": "Du bist mächtig",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "Du bist m[Am]ächtig",
+        "Du bist [Fmaj7]heilig",
+        "Unbez[Dm7]wingbar[Em7]",
+        "In deiner [Am]Kraft"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "Auferst[Am]anden,",
+        "Du bist [Fmaj7]Sieger",
+        "Hast be[Dm7]kämpft[Em7]",
+        "Den Tod mit [Am]Macht"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Ha     -   [D]le   -  [A]lu  -  ja",
+        "[G]Rufen w[D]ir dir z[A]u",
+        "[G]Ha     -   [D]le   -  [A]lu  -  ja",
+        "[G]Rufen w[D]ir dir [Esus]zu   [E]"
+      ]
+    }
+  ]
+}

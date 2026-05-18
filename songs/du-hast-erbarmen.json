@@ -1,0 +1,32 @@
+{
+  "id": "du-hast-erbarmen",
+  "title": "Du Hast Erbarmen",
+  "subtitle": "Albert Frey",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[C]Du hast Erba[F2]rmen und zertritt[G4]st all meine Schuld  [C]",
+        "[C]Du hilfst mir au[F2]f in deiner Tre[C/E]ue und Geduld  [G4]",
+        "[C]Du nimmst mir me[F2]ine Last nichts ist[G4] für dich zu schwer  [Am7]",
+        "[Dm7]Du wirfst all m[C/E]eine Sünden ti[F2]ef hinab ins Meer  [G4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Am]Wer ist ein [F2]Gott wie du      [G4]",
+        "Der die [C/E]Sünde ver[F2]zeiht und das U[C]nrecht verg[G4]ibt",
+        "[Am]Wer ist ein [F2]Gott wie du      [G4]",
+        "Nicht für i[C/E]mmer bleibt [F2]dein Zorn bes[C]tehn denn du [G]liebst",
+        "es G[F2]nädig zu sein     [C]         [G4]          [F2]"
+      ]
+    }
+  ]
+}

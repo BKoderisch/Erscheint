@@ -1,5 +1,133 @@
 'use strict';
 
+// ── Transposition ─────────────────────────────────────────────────────────────
+
+const SHARPS = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const FLATS  = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
+const KEY_CYCLE = ['C','Db','D','Eb','E','F','F#','G','Ab','A','Bb','B'];
+
+function noteIdx(n) {
+  const i = SHARPS.indexOf(n);
+  return i >= 0 ? i : FLATS.indexOf(n);
+}
+
+const FLAT_ROOTS = new Set(['F','Bb','Eb','Ab','Db','Gb']);
+function preferFlat(key) {
+  const r = (key || '').match(/^[A-G][b#]?/)?.[0] || '';
+  return r.endsWith('b') || FLAT_ROOTS.has(r);
+}
+
+function transposeNote(note, steps, flat) {
+  const i = noteIdx(note); if (i < 0) return note;
+  const j = ((i + steps) % 12 + 12) % 12;
+  return flat ? FLATS[j] : SHARPS[j];
+}
+
+function transposeChord(chord, steps, flat) {
+  if (!steps) return chord;
+  return chord.replace(
+    /^([A-G][#b]?)([^/]*)(\/([A-G][#b]?)(.*))?$/,
+    (_, root, qual, _bassSlash, bass, bassQual) => {
+      const r = transposeNote(root, steps, flat);
+      const b = bass ? '/' + transposeNote(bass, steps, flat) + (bassQual || '') : '';
+      return r + qual + b;
+    }
+  );
+}
+
+function keySteps(from, to) {
+  const f = noteIdx((from || '').match(/^[A-G][b#]?/)?.[0] || '');
+  const t = noteIdx((to   || '').match(/^[A-G][b#]?/)?.[0] || '');
+  return (f < 0 || t < 0) ? 0 : ((t - f + 12) % 12);
+}
+
+function shiftKey(key, delta) {
+  const root = (key || '').match(/^[A-G][b#]?/)?.[0] || '';
+  const qual = key ? key.slice(root.length) : '';
+  let idx = KEY_CYCLE.indexOf(root);
+  if (idx < 0) { const j = noteIdx(root); idx = j >= 0 ? j : 0; }
+  return KEY_CYCLE[((idx + delta) % 12 + 12) % 12] + qual;
+}
+
+// ── Key / Capo helpers ────────────────────────────────────────────────────────
+
+const KEY_OPTIONS = [
+  'C','Db','D','Eb','E','F','F#','G','Ab','A','Bb','B',
+  'Cm','C#m','Dm','Ebm','Em','Fm','F#m','Gm','G#m','Am','Bbm','Bm',
+];
+
+const KEY_OPTIONS_HTML = '<option value="">—</option>' +
+  '<optgroup label="Dur">' +
+    KEY_OPTIONS.slice(0,12).map(k => `<option value="${k}">${k}</option>`).join('') +
+  '</optgroup>' +
+  '<optgroup label="Moll">' +
+    KEY_OPTIONS.slice(12).map(k => `<option value="${k}">${k}</option>`).join('') +
+  '</optgroup>';
+
+const CAPO_OPTIONS_HTML = '<option value="">—</option>' +
+  Array.from({length:12},(_,i)=>`<option value="${i+1}">Capo ${i+1}</option>`).join('');
+
+function populateKeySelects() {
+  document.querySelectorAll('#sheet-key, #sheet-playkey').forEach(el => {
+    el.innerHTML = KEY_OPTIONS_HTML;
+  });
+}
+
+function detectKey(rawText) {
+  // Extract chords as { root (semitone 0-11), isMinor }
+  const chords = [];
+  const re = /\[([A-G][#b]?[^\]]*)\]/g;
+  let m;
+  while ((m = re.exec(rawText)) !== null) {
+    const rm = m[1].trim().match(/^([A-G][#b]?)(m(?!aj)|dim)?/i);
+    if (!rm) continue;
+    const root = noteIdx(rm[1]);
+    if (root < 0) continue;
+    const qual = (rm[2] || '').toLowerCase();
+    chords.push({ root, isMinor: qual === 'm' || qual === 'dim' });
+  }
+  if (!chords.length) return '';
+
+  // Diatonic intervals and expected chord qualities for major / natural-minor
+  const MAJ_DEG  = new Set([0,2,4,5,7,9,11]);
+  const MIN_DEG  = new Set([0,2,3,5,7,8,10]);
+  // Also allow V-major in minor (harmonic minor)
+  const MAJ_QUAL = { 0:false, 2:true, 4:true, 5:false, 7:false, 9:true, 11:null };
+  const MIN_QUAL = { 0:true, 2:null, 3:false, 5:true, 7:true, 8:false, 10:false };
+
+  // Flat-preferred tonic semitones (F Bb Eb Ab Db Gb)
+  const FLAT_TONICS = new Set([5,10,3,8,1,6]);
+
+  let bestKey = '', bestScore = -1;
+
+  for (const isMajor of [true, false]) {
+    const degrees = isMajor ? MAJ_DEG  : MIN_DEG;
+    const quals   = isMajor ? MAJ_QUAL : MIN_QUAL;
+
+    for (let tonic = 0; tonic < 12; tonic++) {
+      let score = 0;
+      for (const { root, isMinor } of chords) {
+        const interval = ((root - tonic) % 12 + 12) % 12;
+        if (!degrees.has(interval)) {
+          // Allow V-major in minor keys (harmonic minor)
+          if (!isMajor && interval === 7 && !isMinor) score += 1;
+          continue;
+        }
+        score += 2;
+        const expMinor = quals[interval];
+        if (expMinor !== null && expMinor === isMinor) score += 1;
+        if (interval === 0) score += 1; // tonic bonus
+      }
+      if (score > bestScore) {
+        bestScore = score;
+        const rootName = FLAT_TONICS.has(tonic) ? FLATS[tonic] : SHARPS[tonic];
+        bestKey = rootName + (isMajor ? '' : 'm');
+      }
+    }
+  }
+  return bestKey;
+}
+
 // ── State ─────────────────────────────────────────────────────────────────────
 
 let ws;
@@ -16,6 +144,7 @@ let sheetLabels    = [];     // labels being edited in the sheet
 let searchResults  = null;   // null = not in search mode, array = search results
 let availSearch    = '';     // search query in arrangement editor available-songs list
 let dragSrcIdx     = null;  // index of item currently being dragged
+let previewChords  = localStorage.getItem('erscheint-preview-chords') === '1';
 
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 
@@ -305,7 +434,21 @@ function renderSongList() {
     li.querySelector('[data-action="delete"]').addEventListener('click', (e) => {
       e.stopPropagation(); confirmDeleteSong(li, song.id, song.title);
     });
-    li.addEventListener('click', () => send({ type: 'show_song', songId: song.id }));
+    li.addEventListener('click', () => {
+      let playKey, capo;
+      if (activeArrId) {
+        const arr = arrangements.find((a) => a.id === activeArrId);
+        if (arr) {
+          const item = getItems(arr).find((i) => i.type === 'song' && i.id === song.id);
+          playKey = item?.playKey || undefined;
+          capo    = item?.capo    ?? undefined;
+        }
+      }
+      send({ type: 'show_song', songId: song.id,
+        ...(playKey != null ? { playKey } : {}),
+        ...(capo    != null ? { capo }    : {}),
+      });
+    });
     ul.appendChild(li);
   }
 }
@@ -462,14 +605,22 @@ async function openSheet(mode, songId = null) {
   const textEl   = document.getElementById('sheet-text');
   const submitEl = document.getElementById('sheet-submit');
 
+  populateKeySelects();
+
   if (mode === 'edit' && songId) {
     titleEl.textContent  = 'Song bearbeiten';
     submitEl.textContent = 'Speichern';
     try {
       const song = await fetch(`/api/songs/${songId}`).then((r) => r.json());
       nameEl.value = song.title;
-      textEl.value = sectionsToText(song.sections);
+      textEl.value = song.rawText || sectionsToText(song.sections);
       sheetLabels  = [...(song.labels || [])];
+      document.getElementById('sheet-artist').value   = song.artist   || '';
+      document.getElementById('sheet-subtitle').value = song.subtitle || '';
+      document.getElementById('sheet-key').value      = song.key      || '';
+      document.getElementById('sheet-capo').value     = song.capo     || '';
+      document.getElementById('sheet-tempo').value    = song.tempo    != null ? song.tempo : '';
+      document.getElementById('sheet-playkey').value  = song.playKey  || '';
     } catch { toast('Fehler beim Laden', 'error'); return; }
   } else {
     titleEl.textContent  = 'Song hinzufügen';
@@ -477,6 +628,12 @@ async function openSheet(mode, songId = null) {
     nameEl.value = '';
     textEl.value = '';
     sheetLabels  = [];
+    document.getElementById('sheet-artist').value   = '';
+    document.getElementById('sheet-subtitle').value = '';
+    document.getElementById('sheet-key').value      = '';
+    document.getElementById('sheet-capo').value     = '';
+    document.getElementById('sheet-tempo').value    = '';
+    document.getElementById('sheet-playkey').value  = '';
   }
 
   renderSheetLabels();
@@ -489,19 +646,46 @@ function closeSheet() {
   document.getElementById('sheet-overlay').classList.remove('open');
   editingSongId = null;
   sheetLabels   = [];
+  document.getElementById('sheet-artist').value   = '';
+  document.getElementById('sheet-subtitle').value = '';
+  document.getElementById('sheet-key').value      = '';
+  document.getElementById('sheet-capo').value     = '';
+  document.getElementById('sheet-tempo').value    = '';
+  document.getElementById('sheet-playkey').value  = '';
 }
 
 document.getElementById('fab').addEventListener('click',          () => openSheet('add'));
 document.getElementById('sheet-close').addEventListener('click',  closeSheet);
 document.getElementById('sheet-cancel').addEventListener('click', closeSheet);
+
+document.getElementById('btn-detect-key').addEventListener('click', () => {
+  const rawText = document.getElementById('sheet-text').value;
+  const key = detectKey(rawText);
+  if (key) {
+    document.getElementById('sheet-key').value = key;
+    if (!document.getElementById('sheet-playkey').value) {
+      document.getElementById('sheet-playkey').value = key;
+    }
+  } else {
+    toast('Keine Akkorde gefunden', 'error');
+  }
+});
 document.getElementById('sheet-overlay').addEventListener('click', (e) => {
   if (e.target === document.getElementById('sheet-overlay')) closeSheet();
 });
 
 document.getElementById('sheet-submit').addEventListener('click', async () => {
-  const title   = document.getElementById('sheet-name').value.trim();
-  const rawText = document.getElementById('sheet-text').value.trim();
-  const btn     = document.getElementById('sheet-submit');
+  const title    = document.getElementById('sheet-name').value.trim();
+  const rawText  = document.getElementById('sheet-text').value.trim();
+  const artist   = document.getElementById('sheet-artist').value.trim();
+  const subtitle = document.getElementById('sheet-subtitle').value.trim();
+  const key      = document.getElementById('sheet-key').value.trim();
+  const capoRaw  = document.getElementById('sheet-capo').value.trim();
+  const tempoRaw = document.getElementById('sheet-tempo').value.trim();
+  const playKey  = document.getElementById('sheet-playkey').value.trim();
+  const capo     = capoRaw  ? (parseInt(capoRaw,  10) || 0) : 0;
+  const tempo    = tempoRaw ? (parseInt(tempoRaw, 10) || null) : null;
+  const btn      = document.getElementById('sheet-submit');
 
   if (!title) { document.getElementById('sheet-name').focus(); return; }
 
@@ -510,14 +694,14 @@ document.getElementById('sheet-submit').addEventListener('click', async () => {
     if (editingSongId) {
       await fetch(`/api/songs/${editingSongId}`, {
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, rawText: rawText || undefined, labels: sheetLabels }),
+        body: JSON.stringify({ title, rawText: rawText || undefined, labels: sheetLabels, artist, subtitle, key, capo, tempo, playKey }),
       });
       toast(`„${title}" gespeichert`, 'success');
     } else {
       if (!rawText) { document.getElementById('sheet-text').focus(); btn.disabled = false; return; }
       await fetch('/api/songs', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, rawText, labels: sheetLabels }),
+        body: JSON.stringify({ title, rawText, labels: sheetLabels, artist, subtitle, key, capo, tempo, playKey }),
       });
       toast(`„${title}" hinzugefügt`, 'success');
     }
@@ -660,9 +844,30 @@ function renderArrEditor() {
         <span class="drag-handle">⠿</span>
         <span class="arr-song-num">${songNum}</span>
         <span class="arr-song-title">${escHtml(song.title)}</span>
+        <select class="arr-key-select" draggable="false" title="Spieltonart">${KEY_OPTIONS_HTML}</select>
+        <select class="arr-capo-select" draggable="false" title="Capo">${CAPO_OPTIONS_HTML}</select>
         <button class="move-btn" draggable="false" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
         <button class="move-btn" draggable="false" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
         <button class="card-btn danger" draggable="false" title="Entfernen">✕</button>`;
+
+      const keySelect  = li.querySelector('.arr-key-select');
+      const capoSelect = li.querySelector('.arr-capo-select');
+      keySelect.value  = item.playKey || song.playKey || song.key || '';
+      capoSelect.value = item.capo != null ? String(item.capo) : '';
+
+      const saveItemOverrides = () => {
+        const arr = arrangements.find((a) => a.id === editingArrId);
+        if (!arr) return;
+        const its = [...getItems(arr)];
+        its[idx] = { ...its[idx] };
+        const newKey  = keySelect.value  || undefined;
+        const newCapo = capoSelect.value ? parseInt(capoSelect.value, 10) : undefined;
+        if (newKey)  its[idx].playKey = newKey;  else delete its[idx].playKey;
+        if (newCapo != null) its[idx].capo = newCapo; else delete its[idx].capo;
+        saveArrItems(its);
+      };
+      keySelect.addEventListener('change',  saveItemOverrides);
+      capoSelect.addEventListener('change', saveItemOverrides);
     }
 
     const [upBtn, downBtn, removeBtn] = li.querySelectorAll('button');
@@ -793,6 +998,41 @@ async function addSeparator(label) {
 
 // ── Song preview panel ────────────────────────────────────────────────────────
 
+function buildPreviewChordGroup(chord, text) {
+  const g = document.createElement('span');
+  g.className = 'preview-chord-group';
+  if (chord) {
+    const c = document.createElement('span');
+    c.className = 'preview-chord';
+    c.textContent = chord;
+    g.appendChild(c);
+  }
+  const t = document.createElement('span');
+  t.className = 'preview-chord-text';
+  t.textContent = text || ' ';
+  g.appendChild(t);
+  return g;
+}
+
+function renderPreviewLine(rawLine, tSteps = 0, tFlat = false) {
+  const p = document.createElement('p');
+  p.className = 'preview-line';
+  const hasChords = /\[[^\]]+\]/.test(rawLine);
+  if (!previewChords || !hasChords) {
+    p.textContent = rawLine.replace(/\[[^\]]*\]/g, '');
+    return p;
+  }
+  p.className = 'preview-line preview-line-chords';
+  const firstBracket = rawLine.indexOf('[');
+  if (firstBracket > 0) p.appendChild(buildPreviewChordGroup('', rawLine.slice(0, firstBracket)));
+  const regex = /\[([^\]]+)\]([^\[]*)/g;
+  let match;
+  while ((match = regex.exec(rawLine)) !== null) {
+    p.appendChild(buildPreviewChordGroup(transposeChord(match[1], tSteps, tFlat), match[2]));
+  }
+  return p;
+}
+
 async function updateSongPreview() {
   const empty   = document.getElementById('preview-empty');
   const content = document.getElementById('preview-content');
@@ -807,6 +1047,30 @@ async function updateSongPreview() {
     const song = await fetch(`/api/songs/${currentSongId}`).then((r) => r.json());
     document.getElementById('preview-song-title').textContent = song.title;
 
+    const metaEl = document.getElementById('preview-meta');
+    metaEl.innerHTML = '';
+    const addChip = (text, extraClass) => {
+      const chip = document.createElement('span');
+      chip.className = 'preview-meta-item' + (extraClass ? ' ' + extraClass : '');
+      chip.textContent = text;
+      metaEl.appendChild(chip);
+    };
+    if (song.artist)        addChip(song.artist);
+    if (song.subtitle)      addChip(song.subtitle);
+    if (song.key) {
+      if (song.playKey && song.playKey !== song.key) {
+        addChip(`${song.key} →`, 'key');
+        addChip(song.playKey, 'key');
+      } else {
+        addChip(song.key, 'key');
+      }
+    }
+    if (song.capo > 0)      addChip(`Capo ${song.capo}`);
+    if (song.tempo)         addChip(`${song.tempo} BPM`);
+
+    const tSteps = previewChords ? keySteps(song.key || '', song.playKey || song.key || '') : 0;
+    const tFlat  = preferFlat(song.playKey || song.key || '');
+
     const sectionsEl = document.getElementById('preview-sections');
     sectionsEl.innerHTML = '';
     for (const section of song.sections) {
@@ -819,10 +1083,7 @@ async function updateSongPreview() {
         div.appendChild(lbl);
       }
       for (const line of section.lines) {
-        const p = document.createElement('p');
-        p.className = 'preview-line';
-        p.textContent = line;
-        div.appendChild(p);
+        div.appendChild(renderPreviewLine(line, tSteps, tFlat));
       }
       sectionsEl.appendChild(div);
     }
@@ -859,6 +1120,21 @@ document.getElementById('arr-avail-search').addEventListener('input', (e) => {
   availSearch = e.target.value;
   renderArrAvailList();
 });
+
+// ── Preview chord toggle ──────────────────────────────────────────────────────
+
+function updatePreviewChordBtn() {
+  document.getElementById('preview-chord-btn').classList.toggle('active', previewChords);
+}
+
+document.getElementById('preview-chord-btn').addEventListener('click', () => {
+  previewChords = !previewChords;
+  localStorage.setItem('erscheint-preview-chords', previewChords ? '1' : '0');
+  updatePreviewChordBtn();
+  updateSongPreview();
+});
+
+updatePreviewChordBtn();
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 

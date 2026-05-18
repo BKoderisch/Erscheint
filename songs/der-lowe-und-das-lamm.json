@@ -1,0 +1,54 @@
+{
+  "id": "der-lowe-und-das-lamm",
+  "title": "Der Löwe Und Das Lamm",
+  "subtitle": "",
+  "artist": "",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Wenn J[D]esus wiederkommt,",
+        "beugt sich alle [Em7]Welt vor i[G2]hm.",
+        "[D]Ketten brechen, wenn",
+        "zerbrochne Herzen [Em7]ihn vere[G2]hrn.",
+        "Denn wer kann unsern G[A4]ott aufhalten?   [D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Denn er ist der Löwe, der L[A4]öwe von J[Bm7]uda.",
+        "Sein Brüllen ist mächtig, er k[A4]ämpft unsre K[G2]ämpfe.",
+        "Und jeder wird sich v[A4]or ihm beugen.   [D]",
+        "Denn er ist das Lamm, gesc[A4]hlachtet für u[Bm7]ns,",
+        "für die Sünden der Welt, und s[A4]ein Blut bef[G2]reit.",
+        "Und jeder wird sich b[A4]eugen vor dem Löwen und dem [G2]Lamm.",
+        "Jeder wird sich v[A4]or ihm beugen.   [D]       [Em7]               [G2]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Kommt, [D]öffnet ihm das Tor",
+        "und bahnt den Weg dem H[Em7]errn der H[G2]errn.",
+        "Der G[Bm7]ott, der uns erlöst,",
+        "ist h[A4]ier und setzt Gefangne f[G2]rei.",
+        "Denn wer kann unsern G[A4]ott aufhalten?    [D]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "[Em7]Wer kann unsern Got[D/F#]t aufhalten?",
+        "[G2]Wer kann unsern Got[A4]t aufhalten?",
+        "[Em7]Wer kann unsern Got[D/F#]t aufhalten?",
+        "[G2]Niemand hält ihn auf![A4]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "majestat",
+  "title": "Majestät",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "rawText": "{c: VERSE 1}\n[Em]Hier [D]bin [Cmaj7]ich, kle[G/B]in vor deiner Herrlich[Cmaj7]keit.\n[G/B]Deine Gnade hat mich befr[D/F#]eit!      [B]\n[Em]Hier [D]bin [Cmaj7]ich, ken[G/B]ne meine Sünde [Cmaj7]gut,\n[G/B]doch du machst mich rein durch dein B[D/F#]lut.        [B]\n{eop}\n\n{c: PRECHORUS}\n[Em]Ich f[D/F#]and j[G]a die allergrößte [Em]Lie - [D/F#]be   da[G],\nwo du dein Leben g[A/C#]abst,\ndas größte Opfer [C]war[D4]st.     [C]      [D4]\n{eop}\n\n{soc}\n[G]Majestät[D],   M[Em]ajestä[C2]t,\nich b[G]in, wie deine Gnade mich f[D]and,\nleer und [Em]dennoch leb ich in deiner H[C2]and.\n{eoc}\n\n{c: VERSE 2}\n[Em]Hier [D]bin [Cmaj7]ich, de[G/B]mütig, weil du mich li[Cmaj7]ebst.\nVer[G/B]geben kann ich, weil du verg[D/F#]ibst.     [B]\n[Em]Hier [D]bin [Cmaj7]ich, we[G/B]iß nur, dich verlangt nach [Cmaj7]mir,\n[G/B]geheiligt durch das Feuer in [D/F#]dir.        [B]\n{eop}\n\n{soc}\n[G]Majestät[D],    [Em]Majest[C2]ät,\nverä[G]ndert bin ich für alle Z[D]eit\nin der N[Em]ähe deiner Herrlich[C2]keit.\n{eoc}",
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[Em]Hier [D]bin [Cmaj7]ich, kle[G/B]in vor deiner Herrlich[Cmaj7]keit.",
+        "[G/B]Deine Gnade hat mich befr[D/F#]eit!      [B]",
+        "[Em]Hier [D]bin [Cmaj7]ich, ken[G/B]ne meine Sünde [Cmaj7]gut,",
+        "[G/B]doch du machst mich rein durch dein B[D/F#]lut.        [B]"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "[Em]Ich f[D/F#]and j[G]a die allergrößte [Em]Lie - [D/F#]be   da[G],",
+        "wo du dein Leben g[A/C#]abst,",
+        "das größte Opfer [C]war[D4]st.     [C]      [D4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Majestät[D],   M[Em]ajestä[C2]t,",
+        "ich b[G]in, wie deine Gnade mich f[D]and,",
+        "leer und [Em]dennoch leb ich in deiner H[C2]and."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[Em]Hier [D]bin [Cmaj7]ich, de[G/B]mütig, weil du mich li[Cmaj7]ebst.",
+        "Ver[G/B]geben kann ich, weil du verg[D/F#]ibst.     [B]",
+        "[Em]Hier [D]bin [Cmaj7]ich, we[G/B]iß nur, dich verlangt nach [Cmaj7]mir,",
+        "[G/B]geheiligt durch das Feuer in [D/F#]dir.        [B]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Majestät[D],    [Em]Majest[C2]ät,",
+        "verä[G]ndert bin ich für alle Z[D]eit",
+        "in der N[Em]ähe deiner Herrlich[C2]keit."
+      ]
+    }
+  ]
+}

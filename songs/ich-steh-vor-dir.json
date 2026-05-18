@@ -1,0 +1,64 @@
+{
+  "id": "ich-steh-vor-dir",
+  "title": "Ich steh vor dir",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "[G]Du bist der Ursprung des Lebens",
+        "[C2]Du warst von Anfang an da",
+        "[G/B]Du hast die Erde ge - [Em]schaffen",
+        "Durch dich bin ich [C2]  hier"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "[G]Du kennst sie all meine Fehler",
+        "Du [C2]starbst am Kreuz für meine Schuld",
+        "[G/B]Du trugst die Last meiner [Em]Sünden",
+        "Darum bin ich [C2]  frei"
+      ]
+    },
+    {
+      "label": "PRE-CHORUS 1",
+      "lines": [
+        "Darum kann ich [C]nun [Am]  nichts Besseres [Em]tun",
+        "Ich geb dir mein [C]Herz o Herr [D]",
+        "Nimm du mich [Em]  ganz hin"
+      ]
+    },
+    {
+      "label": "VERS 3",
+      "lines": [
+        "[G]So leb ich nun als Erlöster",
+        "[C2]Und dein Geist er lebt in mir",
+        "[G/B]Mein Leben soll dich be - [Em]zeugen",
+        "Dafür bin ich [C2]  hier"
+      ]
+    },
+    {
+      "label": "PRE-CHORUS 2",
+      "lines": [
+        "Darum kann ich [C]nun [Am]  nichts Besseres [Em]tun [G]",
+        "Ich geb dir mein [Am7]Herz o Herr [D]  nimm du mich [C]  ganz hin"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "[C]  Ich [G]steh vor [D]dir mit er - [Em]hobnen Händen",
+        "[C]  Weil [G]du dein [D]Leben [Em]für mich gabst",
+        "[C]  Ich [G]steh vor [D]dir hab mich [Em]hingegeben",
+        "[C]Ich ge - [G]höre [D]dir [(Em)  (Zum Ch.)]"
+      ]
+    }
+  ]
+}

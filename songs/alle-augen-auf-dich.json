@@ -1,0 +1,46 @@
+{
+  "id": "alle-augen-auf-dich",
+  "title": "Alle Augen auf dich",
+  "subtitle": "",
+  "artist": "Adonia",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "Ich k[D]omm zu dir, du siehst mich an",
+        "dein [A]Blick durchbricht den Alltagswahn",
+        "Bei [Bm]dir zu sein, tut immer wieder g[G]ut",
+        "In d[D]einer Nähe komm ich an",
+        "ein [A]Ort, an dem ich echt sein kann",
+        "Bei [Bm]dir bin ich, so wie ich bin, gen[G]ug"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Alle Augen auf d[D]ich, den Gott, der größer [A]ist",
+        "Alle Augen auf d[Bm]ich, wir heben unsern B[G]lick",
+        "Alle Augen auf d[D]ich, den Gott, der größer [A]ist",
+        "Alle Augen auf d[Bm]ich, du weitest unsre S[G]icht",
+        "Alle Augen auf",
+        "[D]Oh, oh, oh, oh, [A]oh     [Bm]     [G]"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "Will [D]mich nicht um mich selber drehn",
+        "mit n[A]euen Perspektiven sehn",
+        "Will s[Bm]püren, dass du mich unendlich l[G]iebst",
+        "Ich s[D]uch den Blick in dein Gesicht",
+        "In d[A]einem Licht erkenne ich",
+        "die S[Bm]puren, die du durch mein Leben z[G]iehst"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "dir-gebuhrt-die-ehre",
+  "title": "Dir gebührt die Ehre",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "Dir gebührt die [C]Ehre und Anb[Am9]etung",
+        "Wir erh[Dm7]eben unsre Hände",
+        "Wir erh[F]eben Deinen N[G]am’"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Denn Du bist g[C]roß",
+        "Du tust große Wunder g[Am]roß",
+        "Niemand anders ist wie [F]Du",
+        "[Dm7]Niemand and[G4]ers ist wie Du"
+      ]
+    }
+  ]
+}

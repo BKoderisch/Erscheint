@@ -1,0 +1,36 @@
+{
+  "id": "du-bist-der-hochste",
+  "title": "Du bist der Höchste",
+  "subtitle": "Ich erhebe dich",
+  "artist": "Pete Sanchez Jr.",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Vers",
+      "lines": [
+        "Du [C]bist der [Dm7]Höchste o [G7sus]Herr",
+        "Über [G7]allen [C]Er [Em]  - [Em7]  [Am]den",
+        "Du bist er - [Dm7]hoben über [G]alle [F/G]Göt - [C]ter",
+        "[C/E]Du bist der [Dm7]Höchste o [G7sus]Herr",
+        "Über allen [C/E]Er [E/G#]- [Am]den",
+        "Du bist er - [Dm7]hoben",
+        "Über [Dm7/G]alle [F/G]Göt - ter [Cmaj7/G]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Ich er - [C]hebe dich ich er - [G/C]hebe dich",
+        "[Em7]Ich er - [F2]hebe [F]dich [Dm7]",
+        "O [C]Herr [G]",
+        "Ich er - [C]hebe dich ich er - [G/C]hebe dich",
+        "[Em7]Ich er - [F2]hebe [F]dich [Dm7]",
+        "O [C]Herr"
+      ]
+    }
+  ]
+}

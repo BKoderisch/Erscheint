@@ -1,0 +1,67 @@
+{
+  "id": "hoher",
+  "title": "Höher",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Du sagst w[G]o die Sonne aufgeht,",
+        "Du bes[G4]timmst den Lauf der Z[G]eit,",
+        "Zeigst der D[C2]unkelheit die G[Em7]renzen",
+        "Und du s[C2]pannst den Himmel w[D4]eit."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Du liebst d[G]en, der’s nicht verdient hat,",
+        "Hilfst dem S[G4]chwachen aufzust[G]ehn,",
+        "Wählst den [C2]Tod für meine R[Em7]ettung,",
+        "Gibst mir K[C2]raft, nach vorn zu s[D4]ehn."
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "Es gibt k[C2]einen, der dir g[G]leicht.",
+        "[D]Du mein [D/F#]Gott bist"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G/B]größer, h[C2]öher, w[D4]eiter als der H[D]immel",
+        "und [G/B]deine L[C2]iebe ist t[D4]iefer als das M[D]eer.",
+        "Und [G/B]was du s[C2]agst, bleibt, es b[Em]leibt für alle Z[D]eit.",
+        "Darum [G/B]halt ich fe[C2]st an d[D4]ir, dem Sc[D]höpfer der Welt."
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "dem S[D]chöpfer der W[G]elt   [G2]",
+        "Jesus du st[C2]ehst hoch über all[G/B]em.",
+        "Ich will dich [Am7]ehren mit allem in m[D4]ir.",
+        "Ich werd deine W[C2]ege niemals ganz vers[G/B]tehn,",
+        "ich kann dich nicht g[Am7]reifen, doch mein Herz kann dich s[D4]ehn.",
+        "[D]Gott, du bist"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G/B]größer, h[C2]öher, w[D4]eiter als der H[D]immel",
+        "und [G/B]deine L[C2]iebe ist t[D4]iefer als das M[D]eer.",
+        "Und [G/B]was du s[C2]agst, bleibt, es b[Em]leibt für alle Z[D]eit.",
+        "Darum [G/B]halt ich fe[C2]st an d[D4]ir."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "ich-kann-nicht-schweigen",
+  "title": "Ich Kann Nicht Schweigen",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[E]Ich kann nicht [E/D#]schweigen,",
+        "von [C#m7]dem, was du geta[A2]n hast.",
+        "[E]Du gabst dein L[E/D#]eben,",
+        "um [C#m7]mich zu bef[A2]rei'n.",
+        "[E]Ich kann nicht le[E/D#]ugnen,",
+        "was [C#m7]du für mich bed[A2]eutest.",
+        "[E]Mein ganzes [E/D#]Leben",
+        "ge[C#m7]hört dir all[A2]ein."
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "Und w[B]enn ich daran denke,",
+        "wie s[F#m7]ehr du mich liebst",
+        "und [B4]was ich dir verdanke,",
+        "dann [F#m7]jubelt mein Herz."
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[E]Ich kann nicht a[E/G#]nders, als zu s[A2]ingen.   [B4]",
+        "[E]Ich kann nicht a[E/G#]nders, als von d[A2]ir zu erz[B4]ähl'n.",
+        "[E]Ich kann nicht a[E/G#]nders, als dich p[A2]reisen",
+        "mein [B4]ganzes Leben [E]lang[E/G#].            [A2]          [B4]"
+      ]
+    }
+  ]
+}

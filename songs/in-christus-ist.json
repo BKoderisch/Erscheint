@@ -1,0 +1,71 @@
+{
+  "id": "in-christus-ist",
+  "title": "In Christus Ist",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "INTERLUDE",
+      "lines": [
+        "Am7  Em7 - G  D  A4"
+      ]
+    },
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "In C[F]hristus [C]ist mein g[F]anzer H[G]alt.",
+        "[C]Er ist mein [F]Licht, mein [G4]Heil, mein L[C]ied,",
+        "der E[F]ckstein u[C]nd der f[F]este G[G]rund,",
+        "[C]sicherer H[F]alt in S[G4]turm und W[C]ind.",
+        "Wer l[C/E]iebt wie e[F]r, stillt m[C/E]eine A[G4]ngst,[G]",
+        "bringt F[C/E]rieden m[F]ir mit[Am7]ten im K[G4]ampf[G]?",
+        "Mein T[F]rost ist e[C]r, in a[F]llem L[G]eid.",
+        "[C]In seiner L[F]iebe f[G4]ind ich H[C]alt."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Das e[F]wge W[C]ort, als M[F]ensch geb[G]orn.",
+        "[C]Gott offenb[F]art in e[G4]inem K[C]ind.",
+        "Der H[F]err der W[C]elt, verl[F]acht, verh[G]öhnt",
+        "[C]und von den S[F]einen a[G4]bgele[C]hnt.",
+        "Doch [C/E]dort am K[F]reuz, wo [C/E]Jesus s[G4]tarb  [G]",
+        "und [C/E]Gottes Z[F]orn ein [Am7]Ende f[G4]and,  [G]",
+        "trug e[F]r die S[C]chuld der g[F]anzen W[G]elt.",
+        "[C]Durch seine W[F]unden [G4]bin ich h[C]eil."
+      ]
+    },
+    {
+      "label": "VERSE 3",
+      "lines": [
+        "Sie l[F]egten i[C]hn ins k[F]ühle G[G]rab.",
+        "[C]Dunkel umf[F]ing das L[G4]icht der W[C]elt.",
+        "Doch m[F]orgens f[C]rüh am d[F]ritten T[G]ag",
+        "[C]wurde die N[F]acht vom L[G4]icht erh[C]ellt.",
+        "Der T[C/E]od bes[F]iegt, das [C/E]Grab ist [G4]leer,   [G]",
+        "der F[C/E]luch der [F]Sünde [Am7]ist nicht m[G4]ehr.[G]",
+        "Denn i[F]ch bin s[C]ein, und e[F]r ist m[G]ein.",
+        "[C]mit seinem B[F]lut macht [G4]er mich r[C]ein."
+      ]
+    },
+    {
+      "label": "VERSE 4",
+      "lines": [
+        "Nun h[F]at der T[C]od die M[F]acht verl[G]orn.",
+        "[C]Ich bin durch C[F]hristus n[G4]eu geb[C]orn.",
+        "Mein L[F]eben l[C]iegt in s[F]einer H[G]and",
+        "[C]vom ersten A[F]temz[G4]uge a[C]n.",
+        "Und k[C/E]eine M[F]acht in d[C/E]ieser W[G4]elt   [G]",
+        "kann m[C/E]ich ihm r[F]auben, [Am7]der mich [G4]hält,  [G]",
+        "bis a[F]n das [C]Ende d[F]ieser Z[G]eit,",
+        "[C]wenn er ersc[F]heint in H[G4]errlichk[C]eit."
+      ]
+    }
+  ]
+}

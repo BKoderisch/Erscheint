@@ -1,0 +1,61 @@
+{
+  "id": "bahnt-einen-weg-unserm-gott",
+  "title": "Bahnt Einen Weg Unserm Gott",
+  "subtitle": "",
+  "artist": "Albert Frey",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[G]Bahnt einen W[C]eg unserm G[D]ott    [C]     [D]",
+        "[G]Der uns erlö[C]st aus der No[D]t     [Em]         [D]",
+        "[G]Er ist der Kö[C]nig der K[D]öni[Em]ge er hat am",
+        "[Am]Kreuz gesiegt d[C]urch seinen Tod[D4]        [D]"
+      ]
+    },
+    {
+      "label": "",
+      "lines": [
+        "[G]Bahnt einen W[C]eg unserm G[D]ott    [C]     [D]",
+        "[G]Der uns erw[C]ählt als sein Vo[D]lk   [Em]         [D]",
+        "[G]Mit ihm zu h[C]errschen in E[D]wigk[Em]eit",
+        "Öffnet die H[Am]erzen und m[C]acht euch ber[D4]eit   [D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Dein R[Bm7]eich k[C2]omme O H[D]err",
+        "erh[G]ebe dich i[Em7]n deiner M[D]acht",
+        "Dir sei E[G]hre und R[Bm7]uhm und M[C2]ajest[D]ät",
+        "Deine [Am]Herrl[G]ichk[D]eit ist h[C2]ier"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Dein Reich komme O Herr",
+        "erhebe dich in deiner Macht",
+        "Dir sei Ehre und Ruhm und Majestät",
+        "Deine [Am]Herrl[G]ichk[D]eit ist h[C2]ier   [D4]          [D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Dein R[Bm7]eich k[C2]omme O H[D4]err [D]",
+        "erh[G]ebe dich [Em7]in deiner M[D4]acht[D]",
+        "Dir sei E[G]hre und R[Bm7]uhm und [C2]Majes[D4]tät   [D]",
+        "Deine [Am]Herrl[G]ichk[D]eit",
+        "Deine [Am]Herrl[G]ichk[D]eit",
+        "Deine [Am]Herrl[G]ichk[D]eit",
+        "Ist h[D#]ier     [F]       [G]       [D#]          [F]       [F4]         [A#]"
+      ]
+    }
+  ]
+}

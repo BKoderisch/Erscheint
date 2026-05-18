@@ -1,0 +1,67 @@
+{
+  "id": "alles-was-atmet",
+  "title": "Alles Was Atmet",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "INTERLUDE",
+      "lines": [
+        "[G]  [D]  [A]  ([G]  [A])"
+      ]
+    },
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[C]Unser G[G]ott ist h[A]eilig,",
+        "[G]unser G[D]ott ist m[A]ächtig.",
+        "[C]Lobt den H[G]errn im H[A]immel,",
+        "[G]lobt ihn a[D]uf der [A]Erde!",
+        "[C]Lobt den H[G]errn mit S[D]ingen",
+        "[G]lobt den H[D]errn mit T[A]anzen!"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "Lobt ihn voll F[C]reude,",
+        "lobt ihn von H[G]erzen,",
+        "lobt unsern G[A]ott!"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Alles, was a[C]tmet, [G]lobe den [A]Herrn,",
+        "Alles, was a[C]tmet, [G]lobe den [D]Herrn!",
+        "Halle[F]luja, Hallel[D/F#]uja, alles, was a[E/G#]tmet,",
+        "[C]lobe[G] den H[A]errn!"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[C]Lobt den H[G]errn mit T[A]rommeln,",
+        "[G]lobt den H[D]errn mit Z[A]imbeln!",
+        "[C]Lobt ihn m[G]it Tromp[A]eten,",
+        "[G]lobt ihn a[D]uf den S[A]aiten!",
+        "[C]Spielt zu s[G]einer E[D]hre,",
+        "[G]gebt ihm e[D]uer B[A]estes!"
+      ]
+    },
+    {
+      "label": "ENDING",
+      "lines": [
+        "Alles, was a[Am]tmet, alles, was atmet,",
+        "Alles, was a[Am]tmet, alles, was atmet,",
+        "Alles, was a[C]tmet, [G]lobe den [A]Herrn!",
+        "Alles, was a[C]tmet, [G]lobe den [A]Herrn!"
+      ]
+    }
+  ]
+}

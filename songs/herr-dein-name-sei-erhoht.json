@@ -1,0 +1,33 @@
+{
+  "id": "herr-dein-name-sei-erhoht",
+  "title": "Herr Dein Name Sei Erhöht",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[G]Herr dein Na[C]me sei erhö[D]ht        [C]",
+        "[G]Herr ich sin[C]ge dir zur Eh[D]re      [C]",
+        "[G]Danke das[C]s du in mir leb[D]st      [C]",
+        "[G]Danke fü[C]r deine Erlös[D]ung     [C]       [D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Du kamst vom Him[C]mel herab[D] zeigst un[C]s den Weg",
+        "[G]Herr du ha[C]st am Kreuz bezah[D]lt für me[C]ine Schuld",
+        "[G]Und sie leg[C]ten dich ins Gr[D]ab",
+        "Doch du [Em7]stiegst zum Himmel [Am7]auf",
+        "D        C  (G)",
+        "Herr dein Name sei erhöht"
+      ]
+    }
+  ]
+}

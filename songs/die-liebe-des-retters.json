@@ -1,0 +1,45 @@
+{
+  "id": "die-liebe-des-retters",
+  "title": "Die Liebe Des Retters",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Ich da[C2]nke Dir, Jesus, dass es D[G/B]eine Güte war,",
+        "[Am7]die den Preis bezahlte und m[Em]ich errettet h[G/D]at.",
+        "Ich da[C2]nke Dir Jesus, dass es D[G/B]eine Gnade war,",
+        "[Am7]die die Sünde aller Welt a[Em]uf die Schulter n[D4]ahm.  [C2]         [D4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Die [Em7]Liebe des R[C2]etters  [G]    hat triumph[D4]iert. [D]",
+        "Als [Em7]Du am Kreuz den T[C2]od besiegtest, w[G]urd ich erlöst, w[D4]urd ich erl[D]öst."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Ich da[C2]nke Dir, Jesus, denn der T[G/B]od hat nicht gesiegt,",
+        "[Am7]weil du auferstanden bist und n[Em]icht im Grabe b[G/D]liebst.",
+        "Ich da[C2]nke Dir, Jesus, für d[G/B]as, was Du mir gibst,",
+        "ein L[Am7]eben für die Ewigkeit, [Em]weil Du in mir l[D4]ebst.  [C2]         [D4]"
+      ]
+    },
+    {
+      "label": "BRIDGE 4x",
+      "lines": [
+        "Vollbra[Am7]cht, vollbracht, es [Em7]ist vollbracht.",
+        "Der W[G]eg ist jetzt frei in D[D4]eine Gegenw[D]art."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "alles-aus-liebe",
+  "title": "Alles aus Liebe",
+  "subtitle": "",
+  "artist": "Felix Kittke",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "",
+      "lines": [
+        "[D/Gb]Jesus ich bek[G2]enne dir h[A]eut und h[D]ier",
+        "[Em7]viel zu oft vertr[Bm7]au ich nur mi[A4]r                 [A]",
+        "könnt ich s[D/Gb]ingen wie die E[G2]ngel, oder gl[A]auben wie ein F[Bm]els",
+        "[G2]ohne deine L[A]iebe bin ich nic[D4]hts   [D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Oh Herr, [G2]alles was ich t[D]ue",
+        "soll aus L[Bm7]iebe nur gesch[A4]ehn",
+        "Jesus, h[G2]ilf mir so zu l[D]eben",
+        "Lass mich [Bm7]sehen und verst[A4]ehn",
+        "Lehr mich [G2]in der Einheit D[D]emut",
+        "wir sind [Bm7]alle auf dem W[A4]eg",
+        "deine Gn[G2]ade macht es m[D]öglich",
+        "weil da[Bm7]s Kreuz dafür st[A4]eht         [(Db)]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[D/Gb]Jesus ich bek[G2]enne dir h[A]eut und h[D]ier",
+        "[Em7]viel zu oft vertr[Bm7]au ich nur mi[A4]r                 [A]",
+        "[D/Gb]Sicherheit und W[G2]ert s[A]uch ich in der W[Bm]elt",
+        "doch o[G2]hne deine L[A]iebe bin ich nic[D4]hts   [D]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "[A/Db]Deine Liebe r[Bm7]eicht",
+        "nur d[G2]eine Liebe re[D]icht",
+        "aus d[Em7]einer Liebe [Bm7]leben re[A4]icht",
+        "[A/Db]Deine Gnade r[Bm7]eicht",
+        "nur d[G2]eine Gnade r[D]eicht",
+        "aus d[Em7]einer Gnade [Bm7]leben re[A4]icht"
+      ]
+    }
+  ]
+}

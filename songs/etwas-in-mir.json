@@ -1,0 +1,58 @@
+{
+  "id": "etwas-in-mir",
+  "title": "Etwas In Mir",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "",
+      "lines": [
+        "Etwas In Mir"
+      ]
+    },
+    {
+      "label": "VERSE",
+      "lines": [
+        "Etwas in [G]mir",
+        "zeigt mir, d[C]ass es d[D]ich wirklich gib[G]t.",
+        "Ich bin gew[G]iss,",
+        "dass du l[C]ebst, mich k[D]ennst und mich lie[G]bst."
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "Du b[C]ringst mich zum L[D4]achen,",
+        "machst dass [C]mein Herz sing[G]t.",
+        "Du [C]bringst mich zum T[D4]anzen,",
+        "meine S[C]eele schwing[G]t.",
+        "Ich a[C]tme a[D4]uf in deiner G[C]egenwa[Em]rt.",
+        "[C2]Herr, du allein[D4]          [C2]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Gibst mir Freude die von [G]innen komm[C]t,   [D4]",
+        "[C]Freude, die mir n[G]iemand [C]nim[D4]mt.",
+        "[C]Herr, du machst mein [Em]Leben hell   [Em7]",
+        "[C]mit dem Licht deiner Lie[D4]be.    [D]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Du machst mein Leben h[G]ell.  [C]       [D4]",
+        "Du machst [C]mein Leben h[G]ell. [C]        [D4]",
+        "Du machst [C]mein Leben h[Em]ell        [Em7]",
+        "[C]mit dem licht deiner Lie[D4]be.    [D]",
+        "Etwas in mir  [G]"
+      ]
+    }
+  ]
+}

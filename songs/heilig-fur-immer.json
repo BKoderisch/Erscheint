@@ -1,0 +1,62 @@
+{
+  "id": "heilig-fur-immer",
+  "title": "Heilig für immer",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse",
+      "lines": [
+        "Tau[G]send Genrationen k[C2]nien in Anbet[G]ung",
+        "sie [Em7]singen, Alle E[D4]hre sei dem La[C2]mm",
+        "Und [G]wer uns schon vorausging",
+        "und [C2]wer noch glauben [G]wird",
+        "sie [Em7]singen, Alle E[D4]hre sei dem La[C2]mm"
+      ]
+    },
+    {
+      "label": "PreChorus",
+      "lines": [
+        "Dein N[C2]ame ist höh[Em7]er",
+        "dein N[D]ame ist größer",
+        "und n[Em7]ichts reicht an dich he[C2]ran",
+        "Kein T[C2]hron, keine Herrscha[Em7]ft",
+        "kein R[D]eich und keine Weltmacht",
+        "nein, n[Em7]ichts reicht an dich her[Am7]an"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Und der Himmel sin[C2]gt, h[Em7]ei - - l[D]ig",
+        "Alle Schöpfung sin[G/B]gt, hei - - - [Em7]lig",
+        "Du bist hoch erh[Am7]öht, hei - - l[D]ig",
+        "heilig für im[G]mer     [G4]         [G]"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[G]Hat er dir vergeben und h[C2]at er dich erl[G]öst",
+        "Dann s[Emin7]ing ihm dieses L[D4]ied für alle Z[C2]eit",
+        "[G]Wenn er dich befreit hat und [C2]du zu ihm geh[G]örst",
+        "dann [Emin7]sing ihm dieses Lie[D4]d für alle Z[C2]eit",
+        "Wir s[Emin7]ingen dieses L[D4]ied in Ewigk[C2]eit"
+      ]
+    },
+    {
+      "label": "Chorus 2",
+      "lines": [
+        "Hör dein V[G/B]olk, es sin[C2]gt, h[Em7]ei - - l[D]ig",
+        "dir, dem Herrn der He[G/B]rrn, hei - - [Em7]lig",
+        "denn du bist und ble[Am7]ibst hei - l[D]ig",
+        "heilig für im[G]mer      [G4]        [G]"
+      ]
+    }
+  ]
+}

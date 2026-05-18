@@ -1,0 +1,40 @@
+{
+  "id": "allein-deine-gnade-genugt",
+  "title": "Allein deine Gnade genügt",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Chorus",
+      "lines": [
+        "All[G]ein deine Gn[Am7]ade genüg[G]t,    [C]",
+        "die i[G]n meiner Schwa[Am7]chheit [Cmaj7]Stärke mir g[D]ibt.",
+        "Ich [C]geb' dir mein L[G]eben und [B7]was mich be[Em]wegt.",
+        "All[C]ein deine Gn[D]ade genüg[G]t."
+      ]
+    },
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Ich m[C]uss mich nicht lä[D]nger um Li[Bm7]ebe bemü[Em]h'n,",
+        "ich h[C]abe Vertra[D]uen zu d[Bm7]ir.       [A#m7]               [Em]",
+        "Du [C]hast meine S[D7]ünde getilg[Bm7]t durch dein B[Em]lut,",
+        "und [A7]Gnade ist für mich genu[C]g.  [D]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Das B[C]lut Jesu läss[D]t mich gere[Bm7]cht vor dir st[Em]eh'n,",
+        "es h[C]at alle Sc[D]huld ges[Bm7]ühnt.  [A#m7]              [Em]",
+        "Die G[C]nade hat ü[D7]ber Geri[Bm7]cht triumph[Em]iert,",
+        "und n[A7]un bin ich frei in d[C]ir.   [D]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "das-glaube-ich",
+  "title": "Das glaube ich",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[C2]Ich glaube an den V[Em]ater d[D]en Schöpfer aller[G/B] Welt",
+        "[C2]Gott all - [Em]mäch[D]tig        [G/B]",
+        "[C2]Durch den Geist empf[Em]angen k[D]am Christus in die[G/B] Welt",
+        "[C2]Jesus mein Ret[D4]ter"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Ja ich glaub an Gott den Va[Am]ter",
+        "[C2]Und an Christus seinen Soh[D4]n",
+        "[Em]An den Heiligen Geist der Wa[D4]hrheit",
+        "[C2]An den dreieinen[D4] Gott",
+        "[G]Ja ich glaub an die Aufersteh[Am]ung",
+        "[C2]Das Leben nach dem Tod[D4]",
+        "[Em]Ich glaube an deinen [C2]Namen [D4]Jesus   [(G)]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[C2]Mein Richter und mein A[Em]nwalt [D]gekreuzigt unte[G/B]r Leid",
+        "[C2]Vergebung ist[Em]   in di[D]r       [G/B]",
+        "[C2]Du stiegst ins Reich der T[Em]oten s[D]tandst auf in Herrlic[G/B]hkeit",
+        "[C2]Und herrschst in Ewigk[D4]eit"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Ja ich g[C2]laub [Em]    an di[D4]ch        [G/B]",
+        "Dass du [C2]auferst[Em]anden b[D4]ist      [G/B]",
+        "Ja ich g[C2]laub [Em]    an Chr[D4]istus unsern H[G]errn"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Ja ich glaub dass wir ewig leb[Am]en",
+        "[C2]Dass die Jungfrau den Sohn geba[D4]r",
+        "[Em]Die Gemeinschaft der Kinder Go[D4]ttes",
+        "[C2]Die Kirche unsres [D4]Herrn",
+        "[G]Ja ich glaub an die Aufersteh[Am]ung",
+        "[C2]Wenn Jesus wiederkom[D4]mt",
+        "[Em]Ich glaube an deinen N[C2]amen Je[D4]sus"
+      ]
+    }
+  ]
+}

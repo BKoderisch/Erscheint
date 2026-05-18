@@ -1,0 +1,47 @@
+{
+  "id": "herr-ich-komme-zu-dir",
+  "title": "Herr Ich Komme Zu Dir",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[G]Herr, ich k[C]omme zu D[G]ir,",
+        "und ich s[C]teh' vor Dir, [G]so wie ich b[D]in",
+        "[G]Alles [Am7]was mich bew[G/B]egt lege i[C2]ch vor Dich h[D4]in.   [D]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[G]Herr, ich k[C]omme zu D[G]ir,",
+        "und ich s[C]chütte mein H[G]erz bei Dir a[D]us.",
+        "[G]Was mich h[Am7]indert ganz [G/B]bei Dir zu s[C2]ein räume a[D4]us!  [D]"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "[Em]Meine Sorgen sind D[Bm]ir nicht verborgen,",
+        "[C]Du wirst sorgen für m[G]ich.",
+        "[Em]Voll Vertrauen will ic[Bm]h auf Dich schauen.",
+        "[A/C#]Herr, ich baue auf D[Am7]ich!"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Gib mir ein n[C]eues u[G/B]ngeteiltes H[D]erz.",
+        "Lege ein n[C]eues L[G/B]ied in meinen M[D]und.",
+        "Fülle mich [C]neu mit [G/B]Deinem Geist,",
+        "denn [Am7]Du bew[C]irkst dein L[D]ob in [G]mir."
+      ]
+    }
+  ]
+}

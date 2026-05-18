@@ -1,0 +1,65 @@
+{
+  "id": "auge-im-sturm",
+  "title": "Auge Im Sturm",
+  "subtitle": "",
+  "artist": "",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[D]Herr, ich s[A/C#]uche Deine R[Bm]uhe",
+        "[D]fern vom Ge[A/C#]töse dieser W[Bm]elt!",
+        "[D]Ich hör jetzt auf mit a[A/C#]llem, was ich [Bm]tue",
+        "[D]und tu` das eine,[A/C#] das im Leben z[Bm]ählt."
+      ]
+    },
+    {
+      "label": "PRECHORUS 1",
+      "lines": [
+        "Ich [Em]geh` im Geist jetzt [Em7]vor Dir auf die K[A4]nie",
+        "und [Em]höre auf die S[Em7]timme meines H[C2]errn.  [A4]        [A]",
+        "[D]Führe Du mein I[A/C#]nnerstes zur R[Bm]uhe,    [Bm7]",
+        "und [Em]lass Dein Feuer m[G2]eine Hast verz[D]ehren!"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Du bist ein st[D]arker T[A/C#]urm,",
+        "du bist das A[G/B]uge im S[D]turm.",
+        "Du [D/F#]sprichst zum a[G2]ufgewühlten Meer",
+        "meiner S[D]eele in mir, Herr,",
+        "Friede mit [Em7]Dir, Friede mit D[A4]ir!   [A]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Friede mit[Em7] Dir,     [G2]      Friede mit Dir!"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[D]Herr, ich s[A/C#]uche Deinen F[Bm]rieden,",
+        "[D]das, was die W[A/C#]elt nicht geben k[Bm]ann,",
+        "in H[D]armonie und[A/C#] tief versöhnt zu [Bm]leben,",
+        "denn d[D]as fängt erst in D[A/C#]einer Nähe [Bm]an!"
+      ]
+    },
+    {
+      "label": "PRECHORUS 2",
+      "lines": [
+        "Ich [Em]löse mich von [Em7]allen Ambiti[A4]onen",
+        "und [Em]werd` so still wie ein g[Em7]rad gestilltes K[C2]ind! [A4]         [A]",
+        "Denn D[D]u hast mehr für [A/C#]mich als Illus[Bm]ionen,  [Bm7]",
+        "Dein [Em]Rat für mich verw[G2]eht nicht mit dem W[D]ind!"
+      ]
+    }
+  ]
+}

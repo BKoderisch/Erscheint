@@ -1,0 +1,66 @@
+{
+  "id": "dir-gehort-mein-lob",
+  "title": "Dir Gehört Mein Lob",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[G]Dir ge[D]hört mein Lob,",
+        "wenn dein S[Em7]egen in [C]Strömen fließt,",
+        "du mir m[G]ehr als gen[D]ügend gibst.",
+        "[Em7]Dir gehört mein Lob.[C]",
+        "[G]Und dir ge[D]hört mein Lob,",
+        "auch wenn i[Em7]ch mich verl[C]oren fühl.",
+        "In der [G]Wüste und [D]ohne Ziel.",
+        "[Em7]Dir gehört mein Lob.[C]"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "[G]Jeder Segen, [D]den du schenkst,",
+        "wird[Em7] zum Lob für d[C]ich.",
+        "[G]Und selbst, wenn ich im [D]Dunkeln steh,",
+        "Herr[Em7], gilt das für m[C]ich."
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Jesus, dir geh[G]ört all mein L[D]ob,",
+        "dir gehört mein L[Em7]ob.         [C]",
+        "Jesus, dir geh[G]ört all mein L[D]ob",
+        "Deinen Namen [Em7]prei - se[D] ich, H[C]err."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[G]Dir ge[D]hört mein Lob,",
+        "wenn die [Em7]Sonne am H[C]immel scheint,",
+        "es das L[G]eben gut m[D]it mir meint.",
+        "[Em7]Dir gehört mein Lob.[C]",
+        "[G]Und dir ge[D]hört mein Lob,",
+        "wenn der [Em7]Weg auch nicht e[C]infach ist,",
+        "sich mein L[G]obpreis mit L[D]eiden mischt.",
+        "[Em7]Dir gehört mein Lob.[C]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "[G]Egal, was du mir g[D]ibst,",
+        "[Em7]egal, was du mir n[C]immst.",
+        "[G]Du bist und bleibst mein [D]Gott.",
+        "[Em7]Nur dir gehört mein L[C]ob."
+      ]
+    }
+  ]
+}

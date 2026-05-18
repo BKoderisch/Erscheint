@@ -182,8 +182,6 @@
       text-transform: uppercase; letter-spacing: .06em;
       color: var(--text-2);
       margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
     }
 
     .preview-sections { flex: 1; }
@@ -420,6 +418,19 @@
       flex-shrink: 0;
     }
     .arr-song-title { flex: 1; font-size: .9rem; font-weight: 600; }
+    .arr-key-select, .arr-capo-select {
+      padding: 4px 4px; flex-shrink: 0;
+      background: var(--surf-2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); color: var(--text);
+      font-size: .8rem; text-align: center; outline: none; cursor: pointer;
+      appearance: none; -webkit-appearance: none;
+    }
+    .arr-key-select  { width: 64px; }
+    .arr-capo-select { width: 52px; }
+    .arr-key-select:focus, .arr-capo-select:focus { border-color: var(--accent); }
+    .arr-key-select option, .arr-capo-select option {
+      background: var(--surf-3); color: var(--text);
+    }
     .move-btn {
       width: 28px; height: 28px;
       background: transparent; border: none;
@@ -774,6 +785,55 @@
     .panel.active { display: block; }
     .arr-list-view { display: block; }
     .arr-list-view.hidden { display: none; }
+
+    /* ── Sheet meta rows ────────────────────────────────────────────────────── */
+    .sheet-meta-row { display: flex; gap: 10px; }
+    .sheet-meta-col { flex: 1; }
+
+    /* ── Preview meta chips ─────────────────────────────────────────────────── */
+    .preview-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+    .preview-meta-item {
+      font-size: .75rem; color: var(--text-2);
+      background: var(--surf-2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 2px 7px;
+    }
+    .preview-meta-item.key {
+      color: var(--accent-hi);
+      border-color: rgba(59,130,246,.35);
+      background: var(--accent-dim);
+    }
+
+    /* ── Preview chord groups ────────────────────────────────────────────────── */
+    .preview-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .preview-header-label {
+      font-size: .65rem; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--text-3);
+    }
+    .preview-chord-toggle {
+      padding: 3px 10px;
+      background: var(--surf-2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); color: var(--text-3);
+      font-size: .75rem; font-weight: 600; cursor: pointer;
+      transition: background .1s, color .1s, border-color .1s;
+    }
+    .preview-chord-toggle:hover { background: var(--surf-3); color: var(--text-2); }
+    .preview-chord-toggle.active {
+      background: var(--accent-dim); border-color: rgba(59,130,246,.4);
+      color: var(--accent-hi);
+    }
+    .preview-chord-group {
+      display: inline-flex; flex-direction: column;
+      align-items: flex-start; vertical-align: bottom;
+    }
+    .preview-chord {
+      font-size: .65em; font-weight: 700;
+      color: var(--accent-hi); line-height: 1.2; white-space: pre;
+    }
+    .preview-chord-text { white-space: pre; }
   </style>
 </head>
 <body>
@@ -907,9 +967,14 @@
 
   <!-- ── Song preview (wide screens) ──────────────────────────────────────── -->
   <aside class="song-preview" id="song-preview">
+    <div class="preview-header">
+      <span class="preview-header-label">Vorschau</span>
+      <button class="preview-chord-toggle" id="preview-chord-btn">♩ Akkorde</button>
+    </div>
     <div class="preview-empty" id="preview-empty">Kein Song aktiv</div>
     <div id="preview-content" style="display:none">
       <div class="preview-song-title" id="preview-song-title"></div>
+      <div class="preview-meta" id="preview-meta"></div>
       <div class="preview-sections" id="preview-sections"></div>
     </div>
   </aside>
@@ -934,10 +999,45 @@
         <input class="field" id="sheet-name" type="text" placeholder="z. B. Amazing Grace" autocomplete="off">
       </div>
       <div class="sheet-field-wrap">
+        <div class="sheet-meta-row">
+          <div class="sheet-meta-col">
+            <label class="sheet-label" for="sheet-artist">Interpret</label>
+            <input class="field" id="sheet-artist" type="text" placeholder="z. B. Hillsong" autocomplete="off">
+          </div>
+          <div class="sheet-meta-col">
+            <label class="sheet-label" for="sheet-subtitle">Untertitel</label>
+            <input class="field" id="sheet-subtitle" type="text" placeholder="Untertitel" autocomplete="off">
+          </div>
+        </div>
+      </div>
+      <div class="sheet-field-wrap">
+        <div class="sheet-meta-row">
+          <div class="sheet-meta-col" style="flex: 0 0 auto;">
+            <label class="sheet-label" for="sheet-key">Original</label>
+            <div style="display:flex;gap:4px;align-items:center;">
+              <select class="field" id="sheet-key" style="width:90px;cursor:pointer;appearance:none;-webkit-appearance:none;text-align:center;padding-right:6px;"></select>
+              <button type="button" id="btn-detect-key" class="btn-ghost" style="padding:5px 8px;font-size:.75rem;white-space:nowrap;" title="Tonart aus Akkorden erkennen">🔍 Erkennen</button>
+            </div>
+          </div>
+          <div class="sheet-meta-col" style="flex: 0 0 auto;">
+            <label class="sheet-label" for="sheet-playkey">Spieltonart</label>
+            <select class="field" id="sheet-playkey" style="width:90px;cursor:pointer;appearance:none;-webkit-appearance:none;text-align:center;padding-right:6px;"></select>
+          </div>
+          <div class="sheet-meta-col" style="flex: 0 0 70px;">
+            <label class="sheet-label" for="sheet-capo">Capo</label>
+            <input class="field" id="sheet-capo" type="number" min="0" max="12" placeholder="0" style="width:70px">
+          </div>
+          <div class="sheet-meta-col" style="flex: 0 0 90px;">
+            <label class="sheet-label" for="sheet-tempo">Tempo</label>
+            <input class="field" id="sheet-tempo" type="number" placeholder="BPM" style="width:90px">
+          </div>
+        </div>
+      </div>
+      <div class="sheet-field-wrap">
         <label class="sheet-label" for="sheet-text">Liedtext</label>
         <textarea class="sheet-textarea" id="sheet-text"
           placeholder="Strophe 1:&#10;Zeile eins&#10;Zeile zwei&#10;&#10;Refrain:&#10;Zeile drei&#10;Zeile vier"></textarea>
-        <p class="sheet-hint">Abschnitte wie „Strophe 1:", „Refrain:", „Bridge:" werden automatisch erkannt.</p>
+        <p class="sheet-hint">Abschnitte wie „Strophe 1:", „Refrain:", „Bridge:" werden automatisch erkannt. Akkorde im ChordPro-Format werden unterstützt: [G], [Am], [C/E]&nbsp;…</p>
       </div>
       <div class="sheet-field-wrap">
         <label class="sheet-label">Labels</label>

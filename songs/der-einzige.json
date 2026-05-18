@@ -1,0 +1,60 @@
+{
+  "id": "der-einzige",
+  "title": "Der Einzige",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[Am]Heilig [Fmaj7]bist Du, H[G]err.",
+        "[Am]Du bist [Fmaj7]heilig, H[G]err.",
+        "[Am]Du sitzt [Fmaj7]auf dem T[G]hron,",
+        "zu Deinen F[Dm7]üßen fühl [G]ich mich w[Am]ohl, [Am7]",
+        "[Fmaj7]kniend vor D[G]einem [C]Thron."
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Staunend singe [Am]ich zu D[F]ir: Du bist h[C]eilig![G/B]",
+        "Deine H[Am]errlichkeit st[F]rahlt so s[G4]chön.",
+        "Mein B[G]lick hebt sich zu [Am]Dir und s[F]ieht: Du bist h[C]eilig[G/B]!",
+        "[Dm7]Deine Schönheit w[Am]ird nie ver[G4]gehn.[G]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[Am]Würdig [Fmaj7]bist Du, H[G]err.",
+        "[Am]Du bist w[Fmaj7]ürdig, H[G]err.",
+        "[Am]Du sitzt [Fmaj7]auf dem T[G]hron,",
+        "für alle [Dm7]Zeiten bleibst D[G]u mein G[Am]ott, [Am7]",
+        "[Fmaj7]herrschend auf D[G]einem Th[C]ron."
+      ]
+    },
+    {
+      "label": "BRIDGE 4x",
+      "lines": [
+        "[Am]Du bist der Einzige, dem[Fmaj7] dieses Lob gebührt.",
+        "[C]Heilig bist D[Em]u!"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Staunend singe ||: i[Am]ch zu D[F]ir: Du bist h[C]eilig! [E/G#]",
+        "Deine H[Am]errlichkeit st[F]rahlt so sc[G4]hön.",
+        "Mein B[G]lick hebt sich zu [Am]Dir und s[F]ieht: Du bist h[C]eilig[G/B]!",
+        "[Dm7]Deine Schönheit w[Am]ird nie ver[G]gehn. Staunend singe :||",
+        "[Dm7]Deine Schönheit w[Am]ird nie verg[G]ehn.",
+        "[Dm7]Deine Schönheit w[Am]ird nie verg[G]ehn."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "geist-des-vaters",
+  "title": "Geist des Vaters",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[G]Geist des Va[G4]ters     D[G]u durchdri[G4]ngst mich",
+        "[G]Heilger Ge[G4]ist komm     [G]und erfü[G4]lle mich[D]",
+        "[C2]Komm erfülle mich[G]       [G4]         [G]       [G4]",
+        "[G]Herr ich bra[G4]uche    [G] Deine Lie[G4]be",
+        "[G]Und ich such[G4]e     [G]Deine Ge[G4]genwar[D]t",
+        "[C2]Komm erfülle mich[G]      [G4]         [G]       [G4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Am]Mach mich durch De[D]ine Gnade He[G]rr",
+        "Vo[D/F#]llkommen rein  [Em]",
+        "[Am]Lass Deine Lieb[D]e wieder neu[G]",
+        "[D/F#]In mir sein[Em7]             [D]"
+      ]
+    },
+    {
+      "label": "ENDING",
+      "lines": [
+        "[C2]Ich such Dich i[G/B]ch brauch Dich",
+        "[C2]Ich liebe Deine Nä[D4]he   [D]"
+      ]
+    }
+  ]
+}

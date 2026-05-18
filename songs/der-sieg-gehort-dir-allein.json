@@ -1,0 +1,57 @@
+{
+  "id": "der-sieg-gehort-dir-allein",
+  "title": "Der Sieg gehört dir allein",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[G]Wenn ich nichts andres als Kampf seh,",
+        "kannst du den S[C2]ieg sehn.",
+        "[Em]Wenn ich vor mir nur den Berg seh,",
+        "siehst [D4]du ihn schon[C2] versetzt.",
+        "[G]Und wenn ich durchs finstre Tal geh,",
+        "dann wirst du m[C2]itgehn.",
+        "[Em]Es gibt nichts zu fürchten,",
+        "weil d[D4]u mich nie[G] verlässt.   [G4]         [G]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Und wenn ich k[C2]ämpf, dann a[G]uf meinen K[D4]nien, heb die [Em]Hände",
+        "zu di[C2]r. Mein G[G]ott, der Sieg gehört [D4]dir allei[Em]n.",
+        "Und jede A[C2]ngst leg [G]ich vor dich [D4]hin, durch die N[Em]acht",
+        "sing ich [C2]dir. Mein G[G]ott, der Sieg gehört [D4]dir allein[G].     [C2]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[G]Bist du, mein Gott, für mich,",
+        "wer steht mir entg[C2]egen?",
+        "[Em]Es ist nichts unmöglich,",
+        "wenn[D4] ich dich be[C2]i mir hab.",
+        "[G]Ich seh den Staub und die Asche,",
+        "du Schönheit und Se[C2]gen.",
+        "[Em]Seh ich vor mir nur ein Kreuz,",
+        "siehst du s[D4]chon das leer[G]e Grab.   [G4]         [G]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Wie eine Fe[G]stung stellst du dich v[D4]or uns.",
+        "Nichts kann der M[Em]acht und Stärke G[D4]ottes widers[C2]tehn.",
+        "Du strahlst in den Sch[G]atten, siegst in allen Kä[D4]mpfen.",
+        "Nichts kann [Em]der Macht und[D4] Stärke Go[C2]ttes [*D4]widerstehn."
+      ]
+    }
+  ]
+}

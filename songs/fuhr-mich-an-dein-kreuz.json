@@ -1,0 +1,57 @@
+{
+  "id": "fuhr-mich-an-dein-kreuz",
+  "title": "Führ mich an dein Kreuz",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[Am]An deinem Kre[Em/G]uz wird mein Herz stil[F]l",
+        "Denn d[C]u He[G]rr",
+        "[Am]Sahst meine Sch[Em/G]uld nahmst sie auf dich[F]",
+        "Durch d[C]ein Blu[G]t        [Dm7]"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "Alles was mir w[G4]ertvoll w[G]ar",
+        "Bed[Am]eutet m[G]ir nichts m[F2]ehr"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Führ mich an dein [Fmaj7]Kreuz wo die L[C]iebe fl[G]oss",
+        "Lass mich vor dir k[Fmaj7]nien nimm mein L[C]eben h[G]in",
+        "Mache mich ganz [Fmaj7]neu ich geh[C]öre di[G]r",
+        "Und führ mich    [Dm9]",
+        "[Fmaj7]führ mich a[G]n dein Kre[Am]uz      [Em/G]                 [F2]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[Am]Du warst mir gle[Em/G]ich als Mensch versuc[F]ht",
+        "Und d[C]och G[G]ott",
+        "[Am]Das Wort wurde Fle[Em/G]isch trug meine Sch[F]uld",
+        "Und besi[C]egte den T[G]od     [Dm7]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "An dein H[C]erz   [Fmaj7]                [G4]         [G]",
+        "An dein H[C]erz   [Fmaj7]                [G4]         [G]",
+        "Führ mich an dein H[C]erz  [Fmaj7]               [G4]         [G]",
+        "Führ mich an dein H[C]erz  [Fmaj7]               [G4]         [G]"
+      ]
+    }
+  ]
+}

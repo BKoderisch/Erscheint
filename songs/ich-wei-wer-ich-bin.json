@@ -1,0 +1,55 @@
+{
+  "id": "ich-wei-wer-ich-bin",
+  "title": "Ich weiß wer ich bin",
+  "subtitle": "Wen der Sohn befreit",
+  "artist": "",
+  "key": "A",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "A",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "[A5]  Wer bin ich, dass der König kam und [F#m]mich    [E]emp - [A5]fing",
+        "[A5]  War verlorn, doch Er nahm mich an. Oh wie [F#m]Er    [E]mich [D]liebt",
+        "Oh wie [F#m]Er    [E]mich  [D]liebt"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "[A5]  Endlich frei, voller Gnade hat, Er [F#m]mich    [E]er  -  [A5]löst",
+        "[A5]  War Sklave der Sünde doch, Jesus [F#m]starb    [E]für    [D]mich",
+        "Ja Er [F#m]starb    [E]für    [D]mich"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "Wen der [A]Sohn befreit, oh ist [E]wirklich frei",
+        "Ich bin [F#m]Got -  [E]tes    [D]Kind, ja, Sein  [A]  Kind",
+        "",
+        "Denn in [A]Seinem Haus ist ein [E]Platz für mich",
+        "Ich bin [F#m]Got - [E]tes    [D]Kind, ja, Sein  [A]  Kind"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Du er - [F#m]wählst mich und ver - [E/G#]lässt nicht",
+        "Durch [A]Dich weiß ich wer ich [D]bin",
+        "Du bist [F#m]für mich, willst mein [E/G#]Bestes",
+        "Durch [A]Dich weiß ich wer ich [D]bin"
+      ]
+    },
+    {
+      "label": "TAG",
+      "lines": [
+        "(Oh) Durch [F#m]Dich weiß ich [E/G#]wer ich [D]bin  (Beim 1. Mal zu Ch.2)",
+        "Ja durch [A]Dich weiß ich [E/G#]wer ich [D]bin  (Zu Ch.2)"
+      ]
+    }
+  ]
+}

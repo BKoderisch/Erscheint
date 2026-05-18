@@ -1,0 +1,13 @@
+{
+  "id": "erfullt",
+  "name": "Erfüllt",
+  "songIds": [
+    "all-i-need-is-you"
+  ],
+  "items": [
+    {
+      "type": "song",
+      "id": "all-i-need-is-you"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "freiheit-der-kinder-gottes",
+  "title": "Freiheit Der Kinder Gottes",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[C]Du mac[D]hst mich fre[G/B]i von kra[C]nker Religion,",
+        "[C]von Ang[D]st und Men[G/B]schenfurc[C]ht.",
+        "[C]Du mac[D]hst mich fre[G/B]i von mei[C]ner Illusion,",
+        "[C]von mei[D]ner Leb[G/B]ensfluch[C2]t.",
+        "[C]Du mac[D]hst mich fre[G/B]i, zu stau[C]nen wie ein Kind,",
+        "[C]das aus[D] Vertra[G/B]uen lebt[C].",
+        "[C]Du mac[D]hst mich fre[G/B]i, zu tan[C]zen wie der Wind,",
+        "[C]von dein[D]em Gei[G/B]st beweg[C2]t."
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Das ist die F[C]reiheit der K[D]inder G[Em]ottes,",
+        "das [D]ist die F[C]reiheit, die [D]du uns g[G]ibst.",
+        "Das [D]ist die F[C]reiheit der [D]Kinder G[Em]ottes,",
+        "D    C        D     G  (C2  G)",
+        "so ist die Freiheit, weil du uns liebst."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[C]Du mac[D]hst mich fre[G/B]i, Versage[C]n zu gestehn,",
+        "[C]zu wein[D]en, wen[G/B]n es schmerz[C]t.",
+        "[C]Du mac[D]hst mich fre[G/B]i, meine Fehl[C]er einzusehn,",
+        "[C]zu lach[D]en übe[G/B]r mich selb[C2]st.",
+        "[C]Du mac[D]hst mich fre[G/B]i zu tun[C], was mein Herz sagt,",
+        "[C]auch wenn's and[D]ern nic[G/B]ht gefällt[C].",
+        "[C]Du mac[D]hst mich fre[G/B]i von dem[C], der mich verklagt,",
+        "[C]vom Urt[D]eil dies[G/B]er Welt[C2]."
+      ]
+    },
+    {
+      "label": "BRIDGE 1",
+      "lines": [
+        "Du lässt uns F[Am7]reiheit, selbst zu ents[G/B]cheiden,",
+        "Tod oder L[C]eben, Fluch oder S[D]egen.",
+        "Du lässt uns F[Am7]reiheit, dich selbst zu[G/B] meiden,",
+        "doch deine L[C]iebe kommt uns entg[D]egen."
+      ]
+    },
+    {
+      "label": "BRIDGE 2",
+      "lines": [
+        "[G]Wo dein Geist ist, da ist Freiheit,   [D/F#]",
+        "[Em7]wo dein Geist ist, ist keine Furcht. [D]",
+        "[C]Wo dein Geist ist, da ist Freiheit,  [Bm7]",
+        "[Am7]wo dein Geist ist, ist keine Furcht. [D]"
+      ]
+    }
+  ]
+}

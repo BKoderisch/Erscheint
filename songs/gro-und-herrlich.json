@@ -1,0 +1,41 @@
+{
+  "id": "gro-und-herrlich",
+  "title": "Groß und herrlich",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "[C]Preist ihn ihr Himmel und höhere Welt",
+        "[C]Singt ihm ihr Engel was ihm wohlgefällt",
+        "[F]Alle Welt soll [F/C]ju - [C]beln"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[C]Preist ihn ihr Sterne und Sonne und Mond",
+        "[C]Singt ihm der Himmel und Erde bewohnt",
+        "[F]Alle Welt soll [F/C]ju - [C]beln"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[C]Groß [Cmaj7]und [C]herr - [Cmaj7]lich",
+        "[Am]Ihm [Am9]sei [Am]Eh - [Am9]re",
+        "[F]Voller Gnade, [Am]Himmels - [Am/G]kö - [G]nig",
+        "[C]Stark [Cmaj7]und [C]mäch - [Cmaj7]tig",
+        "[Am]Er [Am9]tut [Am]Wun - [Am9]der",
+        "(1.)  [F]Zions Herrscher, [Am]König der [C/G]gan [G]- zen [C]Welt",
+        "(2.)  [F]Zions Herrscher, [Am]König der [C/G]ganzen [G]Welt (Zum Ch.)"
+      ]
+    }
+  ]
+}

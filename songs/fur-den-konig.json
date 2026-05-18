@@ -1,0 +1,58 @@
+{
+  "id": "fur-den-konig",
+  "title": "Für den König",
+  "subtitle": "Albert Frey",
+  "artist": "",
+  "key": "A",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "A",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[A]Für den [D]König [E]für den [A]Herrn",
+        "Für ihn g[D]eben [E]wir uns h[F#sus]in      [F#]",
+        "Seine E[D]hre [E]unser [F#m]Ziel",
+        "[A/C#]Nichts be - d[D]eutet uns j[Bm]emals so v[Esus]iel    [E]"
+      ]
+    },
+    {
+      "label": "",
+      "lines": [
+        "[A]Für den [D]König [E]für sein R[A]eich",
+        "Alle M[D]enschen s[E]ind hier [F#sus]gleich     [F#]",
+        "Lamm und [D]Löwe s[E]ind ver - [F#m]eint",
+        "[A/C#]Und das L[D]icht der Ge - [Bm]rechtigkeit [Esus]scheint    [E]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Alle E[A]hre [E]König [F#m]Jesus",
+        "[A/C#]Unsre   H[D]er - [F#m/A]zen sie f[Bm]lie - g[Bm/G#]en dir z[C#sus]u         [C#]",
+        "Wir er - h[F#m]eben [E]deinen N[A]amen",
+        "[C#7/E#]Der al - l[F#m]ein   w[A/C#]ahre  K[D]ö - n[Bm]ig bist d[Esus]u      [E]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[A]Für den [D]König [E]für sein S[A]chwert",
+        "Wort das [D]trifft und W[E]ahrheit [F#sus]lehrt     [F#]",
+        "Unsre F[D]reiheit g[E]aran - t[F#m]iert",
+        "[A/C#]Uns zum S[D]chutz unsre G[Bm]renzen mar - k[Esus]iert     [E]"
+      ]
+    },
+    {
+      "label": "",
+      "lines": [
+        "[A]Für den [D]König [E]für sein V[A]olk",
+        "Für die [D]Heerschar [E]die ihm [F#sus]folgt     [F#]",
+        "Ihm der [D]uns sein [E]Leben g[F#m]ibt",
+        "[A/C#]Lasst uns l[D]ieben so w[Bm]ie er uns l[Esus]iebt     [E]"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "herr-offne-du-mir-die-augen",
+  "title": "Herr Öffne Du Mir Die Augen",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Chorus",
+      "lines": [
+        "[E]Herr, öffne du mir die Augen.",
+        "[B/D#]Herr, öffne du mir das Herz.",
+        "Ich will dich [A2]sehen. Ich will dich [E]sehen. [E4]"
+      ]
+    },
+    {
+      "label": "VERSE",
+      "lines": [
+        "Ich will dich [B]sehn in deiner Pr[C#m7]acht,",
+        "[A2]leuchtend, erhoben und he[B4]rrlich.",
+        "[B]Gieß aus deine Liebe und M[C#m7]acht.",
+        "Wir singen: [F#m7]Heilig, heilig, h[B4]eilig."
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "[E]Heilig, heilig, heilig,",
+        "[B/D#]Heilig, heilig, heilig,",
+        "[A2]Heilig, heilig, heilig,",
+        "ich will dich s[E]ehen. [E4]"
+      ]
+    }
+  ]
+}

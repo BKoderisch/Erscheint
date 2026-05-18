@@ -1,0 +1,32 @@
+{
+  "id": "du-bist-erhoben",
+  "title": "Du bist erhoben",
+  "subtitle": "",
+  "artist": "",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse",
+      "lines": [
+        "[D]Du bist erhoben für i[Bm]mmer gehört dir der[G2] Thron",
+        "Wir b[G2]eten dich [A]an",
+        "[D]Du bist erhoben in E[Bm]wigkeit loben",
+        "Und [G]bet[A]en [G]wir [A]dich [B4]an    [B]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Em]Du b[D]ist der H[A/C#]err",
+        "[Bm7]Der in [F#m7]Wahrheit re[G2]giert [D/F#]",
+        "[Em]Deiner M[D]ajes[A/C#]tät",
+        "[Bm7]Alle    [F#m7]Ehre geb[G2]üüüüü[D/F#]ührt",
+        "[Em]Du bist er[D/F#]hoben für [G2]immer ge[A4]hört dir der T[G2]hron [A4]"
+      ]
+    }
+  ]
+}

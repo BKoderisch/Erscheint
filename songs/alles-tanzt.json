@@ -1,0 +1,71 @@
+{
+  "id": "alles-tanzt",
+  "title": "Alles Tanzt",
+  "subtitle": "",
+  "artist": "YADA Worship",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "[Em]Dieses Gefühl, ein [G]neuer Rhythmus",
+        "[D]Der in mir Leben w[A]eckt",
+        "[Em]Ich breche frei aus a[G]lten Mauern",
+        "[D]Hinein in Ewig[A]keit"
+      ]
+    },
+    {
+      "label": "Pre-Chorus",
+      "lines": [
+        "Es ist [Em]Freude [G]hier",
+        "alles um mi[D]ch bebt, alles um mic[A]h lebt",
+        "Es ist [Em]Freude [G]hier",
+        "Ich kann nicht wid[D]erstehen, kann nicht wide[A]rstehen"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Em]Alles tanzt, niemand [G]kann es mir nehmen",
+        "Mit [D]allem was ich bin meinem K[A]önig zu singen",
+        "[Em]Du allein, du allein, [G]du bist genug",
+        "Meine F[D]reude ist die F[A]reude an dir"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[Em]Ich weiß genau, du [G]hast noch viel mehr",
+        "[D]Von dieser Leichtigk[A]eit",
+        "[Em]Ein Vorgeschmack von d[G]em was wartet",
+        "[D]In deiner Gegenwa[A]rt"
+      ]
+    },
+    {
+      "label": "Pre-Chorus",
+      "lines": [
+        "Es ist [Em]Freude [G]hier",
+        "alles um mi[D]ch bebt, alles um mic[A]h lebt",
+        "Es ist [Em]Freude [G]hier",
+        "Ich kann nicht wid[D]erstehen, kann nicht wide[A]rstehen"
+      ]
+    },
+    {
+      "label": "Bridge",
+      "lines": [
+        "[Em]Freude, [G]Freude, D[D]u allein bist die [A]Freude in mir",
+        "[Em]Freude, [G]Freude, D[D]u allein bist die [A]Freude in mir"
+      ]
+    },
+    {
+      "label": "",
+      "lines": [
+        "Ende C"
+      ]
+    }
+  ]
+}

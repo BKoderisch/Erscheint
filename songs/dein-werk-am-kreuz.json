@@ -1,58 +1,64 @@
 {
   "id": "dein-werk-am-kreuz",
   "title": "Dein Werk am Kreuz",
+  "subtitle": "",
+  "artist": "Nina Gligorovski",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
   "labels": [],
   "sections": [
     {
-      "label": "Vers 1",
+      "label": "Verse 1",
       "lines": [
-        "Es ist alles nur Gnade, unverdiente Gnade",
-        "Ich kann nichts tun um dir mehr zu gefall'n",
-        "Du siehst mich gerecht, heilig und rein",
-        "Durch dich kann ich sein, durch dich bin ich frei"
+        "Es ist alles nur Gna[E]de, unverdiente Gnade",
+        "Ich kann nichts tu[A]n um dir mehr zu gefall'n",
+        "Du siehst mich gerec[C#m]ht, heilig und rein",
+        "Durch dich kann ich sei[A]n, durch dich bin ich frei"
       ]
     },
     {
-      "label": "Pre-Chorus",
+      "label": "Prechorus",
       "lines": [
-        "Ich seh mich mit dir gekreuzigt",
-        "Mit dir auferstanden",
-        "Versetzt in dein Reich",
-        "Für immer eins mit dir",
-        "Dein Geist lebt jetzt in mir",
-        "Ich hab alles in dir",
-        "Du bist immer mit mir",
-        "Ich bin dein"
+        "Ich seh mich mit dir gekre[F#m]uzigt",
+        "Mit dir aufersta[A]nden",
+        "Versetzt in dein Re[C#m]ich",
+        "Für immer e[B]ins mit dir",
+        "Dein Geist lebt jetzt [F#m]in mir",
+        "Ich hab alles [A]in dir",
+        "Du bist immer m[C#m]it mir",
+        "Ich bin de[B]in"
       ]
     },
     {
-      "label": "Chorus",
+      "label": "Chorus 1",
       "lines": [
-        "Jesus, dein Werk am Kreuz ist für immer genug",
-        "Dein Blut reicht aus für jede Nation",
-        "Der Weg ist jetzt frei zu deinem heiligen Thron",
-        "Liebe war, ist und bleibt deine Motivation"
+        "J[A]esus, dein Werk am Kreuz ist für [E]immer genug",
+        "Dein B[B]lut reicht aus für [C#m]jede Nation",
+        "Der W[A]eg ist jetzt frei zu deinem he[E]iligen Thron",
+        "Liebe w[B]ar, ist und bleibt deine M[C#m]otivation"
       ]
     },
     {
-      "label": "Vers 2",
+      "label": "Verse 2",
       "lines": [
-        "Du hast alles vollbracht, du hast alles getan",
-        "Damit ich in Ewigkeit bei dir sein kann",
-        "Doch es beginnt schon jetzt, die Zeit ist nun da",
-        "In der wir deine Herrlichkeit offenbar'n"
+        "Du hast alles vollbra[E]cht, du hast alles getan",
+        "Damit ich in Ewigke[A]it bei dir sein kann",
+        "Doch es beginnt schon je[C#m]tzt, die Zeit ist nun da",
+        "In der wir deine He[A]rrlichkeit offenbar'n"
       ]
     },
     {
       "label": "Bridge",
       "lines": [
-        "Ich habe Gottes Gnade und seine",
-        "Gerechtigkeit empfangen",
-        "Kann nun in der Kraft des neuen Lebens herrschen",
-        "Ich bin kein Sklave mehr",
-        "Der Tod kann mich nicht halten",
-        "Der Feind hat nichts mehr in mir",
-        "Ich bin frei durch Jesus"
+        "Ich habe G[C#m]ottes Gnade und seine",
+        "Ger[Amaj7]echtigkeit empfangen",
+        "Kann nun [F#m]in der Kraft des neuen Lebens w[B]andeln",
+        "Ich bin kein Sk[C#m]lave mehr",
+        "Der Tod kann mich nicht h[Amaj7]alten",
+        "Der Feind hat nichts mehr [F#m]in mir",
+        "Ich bin frei durch J[B]esus"
       ]
     }
   ]

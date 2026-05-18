@@ -1,0 +1,31 @@
+{
+  "id": "herr-im-glanz-deiner-majestat",
+  "title": "Herr Im Glanz Deiner Majestät",
+  "subtitle": "",
+  "artist": "",
+  "key": "Em",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "Em",
+  "labels": [],
+  "sections": [
+    {
+      "label": "CHORUS",
+      "lines": [
+        "Herr im [Em]Glanz deiner Majes - [Em/D]tät",
+        "Auf den [Cmaj7]Stufen vor deinem [Em/B]Thron",
+        "Stehen [Am7]wir in deinem [Bm7]Licht",
+        "Und singen dir [Em]Lieder   [(E)]"
+      ]
+    },
+    {
+      "label": "VERS",
+      "lines": [
+        "Du o [Am7]Herr      [D7]   bist die Quelle des [C/G]Le - [G]bens [Cmaj7]",
+        "Und von [Am/F#]dir      [B7]   leben [Em]wir",
+        "Du o [Am7]Herr      [D7]   bist die Quelle des [C/G]Le - [G]bens [Cmaj7]",
+        "Und von [Fmaj7]dir      [Dm7]   leben [Bsus]wir      [B]"
+      ]
+    }
+  ]
+}

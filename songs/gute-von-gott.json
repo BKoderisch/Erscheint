@@ -1,0 +1,56 @@
+{
+  "id": "gute-von-gott",
+  "title": "Güte von Gott",
+  "subtitle": "",
+  "artist": "",
+  "key": "Ab",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "Ab",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Ich lieb dich [Ab]Herr, nie ver[Db]lässt mich deine [Ab]Gnade",
+        "[Eb/G]Jeden  [Fm7]Tag hältst du [Db]mich in der [Eb(4)]Hand",
+        "Vom Moment, wenn ich er[Fm7]wache [Db]  bis ich mich [Ab]schlafen leg [Eb/G]   [Fm7]",
+        "Sing ich [Db]von deiner [Eb(4)]Güte mein [Ab]Gott"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Db2]Mein ganzes Leben warst du [Ab]treu Herr",
+        "[Db2]Mein ganzes Leben warst du [Ab]so so [Eb(4)]gut",
+        "[Db2]Solang ich kann, solang ich [Ab]atme  [Eb/G]   [Fm7]",
+        "(1.)  Sing ich [Db2]von deiner [Eb(4)]Güte mein [Ab]Gott",
+        "(2.)  Sing ich [Db2]von deiner [Eb(4)]Güte mein [Fm7]Gott  (z. Tag)"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Ich lieb dein [Ab]Wort, du führst [Db]mich auch durch das [Ab]Feuer",
+        "In [Eb/G]tiefster  [Fm7]Nacht bist du [Db]nah wie kein [Eb(4)]andrer",
+        "Ich kenne dich als [Fm7]Vater    [Db]  ich kenne dich [Ab]als Freund [Eb/G]   [Fm7]",
+        "Ich leb [Db]in deiner [Eb(4)]Güte mein [Ab]Gott"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "[Ab/C]  Deine Güte [Db2]sie jagt mir nach, sie [Eb(4)]jagt mir immer [Ab]nach",
+        "[Ab/C]  Deine Güte [Db2]sie jagt mir nach, sie [Eb(4)]jagt mir immer [Ab]nach",
+        "Alles [Ab/C]was ich bin leg ich [Db2]vor dich hin, ich [Eb(4)]gebe alles [Fm7]dir",
+        "[Ab/C]  Deine Güte [Db2]sie jagt mir nach, sie [Eb(4)]jagt mir immer [Ab]nach"
+      ]
+    },
+    {
+      "label": "TAG",
+      "lines": [
+        "Sing ich [Db2]von deiner [Eb(4)]Güte mein [Ab]Gott"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "komm-jetzt-ist-die-zeit-wir-beten-an",
+  "title": "Komm, jetzt ist die zeit wir beten an",
+  "subtitle": "",
+  "artist": "Brian Doerksen",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[G]Komm, jetzt ist die Zeit, wir [G4]beten a[G]n.",
+        "[D]Komm, jetzt ist die Zeit, gib [Am]ihm d[G/B]ein He[Cmaj7]rz.",
+        "[G]Komm, so wie du bist und b[G4]ete a[G]n.",
+        "[D]Komm, so wie du bist vor [Am]dein[G/B]en Got[Cmaj7]t.",
+        "[G]Komm."
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[C]Jede Zunge wird dich bek[G]ennen als Gott,",
+        "[C]jeder wird sich beugen vor d[G]ir.",
+        "[C]Doch der größte Schatz bleibt für d[Em]ie bestehn,",
+        "die je[C]tzt schon mit dir g[D4]ehn. [D]        [E4]          [E]"
+      ]
+    }
+  ],
+  "rawText": "VERSE:\n[G]Komm, jetzt ist die Zeit, wir [G4]beten a[G]n.\n[D]Komm, jetzt ist die Zeit, gib [Am]ihm d[G/B]ein He[Cmaj7]rz.\n[G]Komm, so wie du bist und b[G4]ete a[G]n.\n[D]Komm, so wie du bist vor [Am]dein[G/B]en Got[Cmaj7]t.\n[G]Komm.\n\nChorus:\n[C]Jede Zunge wird dich bek[G]ennen als Gott,\n[C]jeder wird sich beugen vor d[G]ir.\n[C]Doch der größte Schatz bleibt für d[Em]ie bestehn,\ndie je[C]tzt schon mit dir g[D4]ehn. [D]        [E4]          [E]"
+}

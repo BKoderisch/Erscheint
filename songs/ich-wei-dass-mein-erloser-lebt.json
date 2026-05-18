@@ -1,0 +1,53 @@
+{
+  "id": "ich-wei-dass-mein-erloser-lebt",
+  "title": "Ich Weiß, Dass Mein Erlöser Lebt",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "[C#m]Komm, k[A]omm[E] du S[B]ohn des [C#m]Höchst[A]en! [E]      [B/D#]",
+        "[C#m]Komm hera[A]b, zerre[E]iß die F[B]instern[C#m]is!       [B/D#]             [A]      [B]",
+        "[C#m]Komm, k[A]omm[E] du H[B]err des H[C#m]imm[A]els!  [E]      [B/D#]",
+        "[C#m]Komm, mein t[A]reuer F[E]reund, verl[B]ass mich n[C#m]icht!   [B/D#]             [E]       [F#]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Ich we[C#m]iß, dass m[A]ein Erl[E]öser l[B]ebt!",
+        "Ich we[C#m]iß, dass e[A]r hoch o[E]ben s[B/D#]teht,",
+        "hoch ü[C#m]ber al[A]l dem St[E]aub der W[B]elt!",
+        "Ich w[A]eiß, dass mein Erl[A2]öser lebt!"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[C#m]Hei - l[A]ig,[E] dein H[B]aus ist [C#m]hei - l[A]ig, [E]     [B/D#]",
+        "[C#m]und aus S[A]taub und Schm[E]erz erh[B]ebst du mi[C#m]ch.       [B/D#]             [A]       [B]",
+        "[E] - - wig, der Weg ist e -  - wig!",
+        "Ich [C#m]weiß, ich w[A]erde le[E]ben, w[B]eil du b[C#m]ist.      [B/D#]             [E]      [F#]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Ich we[C#m]iß, dass m[A]ein Erl[E]öser l[B]ebt!",
+        "Ich we[C#m]iß, dass e[A]r hoch o[E]ben s[B/D#]teht,",
+        "hoch ü[C#m]ber al[A]l dem St[E]aub der W[B]elt!",
+        "Ich w[A]eiß, dass mein Erl[F#]öser lebt!",
+        "Ich we[C#m]iß, dass m[A]ein Erl[E]öser l[B]ebt!",
+        "Ich we[C#m]iß, dass e[A]r hoch o[E]ben s[B/D#]teht,",
+        "hoch ü[C#m]ber al[A]l dem St[E]aub der W[B]elt!",
+        "Ich w[A]eiß, dass mein Erl[A2]öser lebt!"
+      ]
+    }
+  ]
+}

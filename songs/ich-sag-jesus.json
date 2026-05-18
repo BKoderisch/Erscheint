@@ -1,0 +1,58 @@
+{
+  "id": "ich-sag-jesus",
+  "title": "Ich sag Jesus",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "sections": [
+    {
+      "label": "Vers 1",
+      "lines": [
+        "[C]Ich sprech aus den [C4]heilgen Namen J[C]esus",
+        "[Am7]Über jede S[F2/A]eele, jedes He[Am7]rz",
+        "Ich [F2]weiß genau bei dir herrscht tiefer Friede",
+        "Ich sag Je[C]sus  [C4]      [C]     [C4]"
+      ]
+    },
+    {
+      "label": "Vers 2",
+      "lines": [
+        "[C]Ich sprech aus den [C4]heilgen Namen J[C]esus",
+        "Ich [Am7]hör nicht auf bis [F2/A]jede Kette br[Am7]icht",
+        "Ich p[F2]roklamiere Hoffnung echte Fr[Dm7]eiheit",
+        "Ich sag J[C]esus  [C4]      [C]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Du bist das [G]Leben, du [C/E]bist der [F2]Heiler",
+        "Du bist [C]  die Kraft  [C4]     [C]",
+        "Spreng jede F[G]estung, brenn [C/E]wie ein [F2]Feuer",
+        "Strahl in [C]  der Nacht [C4]      [C]     [C4]"
+      ]
+    },
+    {
+      "label": "Vers 3",
+      "lines": [
+        "[C]Ich sprech aus den h[C4]eilgen Namen J[C]esus",
+        "[Am7]Über Furcht und [F2/A]über jede A[Am7]ngst",
+        "Zu j[F2]edem Herzen voller Depressi[Dm7]onen",
+        "Ich sag Je[C]sus  [C4]      [C]"
+      ]
+    },
+    {
+      "label": "Bridge",
+      "lines": [
+        "Ruft [C]Jesus von den Bergen, [C4]Jesus in di[C]e Stadt [G/B]",
+        "[Am7]Jesus in das Dunkel über [F2/A]jeden bösen [Am7]Feind  [C/E]",
+        "[F2]Für meine Familie, ich s[Dm7]prech das heilge Wort",
+        "J[C]esus    [C4]"
+      ]
+    }
+  ]
+}

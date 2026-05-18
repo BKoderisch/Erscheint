@@ -1,0 +1,49 @@
+{
+  "id": "ich-tauche-ein",
+  "title": "Ich tauche ein",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[E]Wenn ich hier vor dir st[E/G#]ehe   [E]  deine starke Gnade [E/G#]sehe",
+        "[A2]dann ergreift mich deine L[B7]iebe",
+        "[E]Du nimmst mich in deine [E/G#]Arme, [E]   Friede hüllt mich ein für i[E/G#]mmer",
+        "[A2]Ich tauch ein ins Gnadenm[B7]eer"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "Du [F#m7]weckst mich a[C#m]uf, Gna[E]de zieht mi[B]ch zu dir",
+        "denn [F#m7]dir geh[C#m]ört mein He[B]rz",
+        "Die [F#m7]Angst verg[C#m]eht, ich a[E2]tme ein, nehm d[B]eine",
+        "Liebe [A2]an, deine Liebe a[E]n"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[E]Wenn ich mich auch ver[E/G#]irre,    [E]  richt ich meine Augen z[E/G#]u dir",
+        "[A2]Herr des Alls so wundersch[B7]ön",
+        "[E]Hier bei dir bin ich s[E/G#]icher,   [E]  deine Herrlichkeit erg[E/G#]reift mich",
+        "[A2]Du nur bist mein Zufluchtso[B7]rt"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[E]Denn deine Liebe ist so [F#m7]weit und tief, ewig umstr[C#m7]ömt sie mich",
+        "Und nun schau i[A2]ch auf dich",
+        "[E]Jesus, du bist alles, w[F#m7]as ich such",
+        "Ich bete u[C#m7]nd ich ruf, ich will d[A2]ich kennen, Herr"
+      ]
+    }
+  ]
+}

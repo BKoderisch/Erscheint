@@ -1,0 +1,52 @@
+{
+  "id": "befreit-durch-deine-gnade",
+  "title": "Befreit Durch Deine Gnade",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[E]Befreit durch deine Gnade,",
+        "ers[B/D#]chließt sich mir ein neuer Horiz[A2]ont.",
+        "Wie gut du von mir denkst war mir nicht [E]klar.",
+        "[B/D#]Lass mich durch deine Augen sehn[A2],",
+        "erkennen welchen Mensch du in mir [F#m7]siehst.",
+        "Und mach mir [B4]klar:  [A2]     was du sagst ist w[E]ahr[E4].        [E]      [E4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[E]Deine Gnade r[B/D#]eicht bis ans Ende der W[F#m7]elt.",
+        "Von [A2]dir geliebt macht mein Leben S[E]inn.",
+        "Meine schönste Melod[B/D#]ie erzählt nun für alle [F#m7]Zeit",
+        "[A2]von deiner Liebe, die bleibt."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Erg[E]riffen von der Wahrheit,",
+        "fängt m[B/D#]eine Seele langsam an zu s[A2]ehn.",
+        "Durchbohrte Hände öffnen mir das H[E]erz.",
+        "[B/D#]Lass mich jetzt glauben und verstehn[A2],",
+        "dass du mich wirklich liebst so wie ich [F#m7]bin.",
+        "Und mach mir [B4]klar:  [A2]     was du sagst ist w[E]ahr[E4].        [E]      [E4]"
+      ]
+    },
+    {
+      "label": "ENDING",
+      "lines": [
+        "[A2]von deiner Liebe, die bleib[E]t.",
+        "[D2]von deiner Liebe, die bleib[Cmaj7]t.",
+        "[Am]von deiner Liebe, die bleib[E]t."
+      ]
+    }
+  ]
+}

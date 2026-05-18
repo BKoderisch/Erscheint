@@ -1,0 +1,47 @@
+{
+  "id": "ich-will-dich-anbeten",
+  "title": "Ich Will Dich Anbeten",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "E",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[E]Licht dieser [Bsus]Welt du strahlst i[F#m]n unsrer Nacht auf",
+        "[E]Leuchtest den [Bsus]Weg lässt mich se[A2]hn",
+        "[E]Herr deine [Bsus]Schönheit lässt m[F#m]ich anbeten",
+        "[E]Ewig werd [Bsus]ich vor dir ste[A2]hn"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[B7sus]Ich will dich an[E]beten will mich vor dir b[B/D#]eugen",
+        "Will dir sagen [C#m7]du nur bist mein G[A2]ott",
+        "Denn du allein bist [E]herrlich du allein bist w[B/D#]ürdig",
+        "Du nur bist voll[C#m7]kommen gut zu m[A2]ir"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[E]Herr aller Z[Bsus]eiten du [F#m]bist hoch erhaben",
+        "[E]Herrlich im H[Bsus]immel erh[A2]öht",
+        "[E]Doch voller [Bsus]Demut kamst [F#m]du auf die Erde",
+        "[E]Zeigst worin L[Bsus]iebe beste[A2]ht"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Herr [B/D#]nie be - [E/G#]greife ic[A2]h die Last",
+        "Die [B/D#]du am K[E/G#]reuz getr[A2]agen hast"
+      ]
+    }
+  ]
+}

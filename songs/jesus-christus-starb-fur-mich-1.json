@@ -1,0 +1,39 @@
+{
+  "id": "jesus-christus-starb-fur-mich-1",
+  "title": "Jesus du bist König",
+  "subtitle": "",
+  "artist": "",
+  "key": "C",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "C",
+  "labels": [],
+  "rawText": "{c:Verse 1}\n[F]Jesus, [Dm7]du bist König [Gm7]mitten [C7]unter uns,\n[F]du hast die [Dm7]Macht in deiner [Eb]Hand.[C7]\n\n{c:Verse 2}\n[F]Du hast [Dm7]überwunden [Gm7]all das [C7]Böse,\n[F]du hast ge[Dm7]löst des Todes [Eb]Band.[C7]\n\n{c:Chorus 1}\nDu [C7/Bb]bist       [Am7]Kö  -   [Dm7]nig, \n[Gm7]ja, in alle [C7]Ewigkeit.\nDu [C7/Bb]bist [Am7]Kö[Dm7]nig, \n[Gm7]König voller [C7]Herrlichkeit.\nDu [C7/Bb]bist [Am7]Kö - [Dm7]nig, \nund [Gm7]dir sei Ehre [C7]in Ewig[F]keit.[Bb/F]  [F]",
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "[F]Jesus, [Dm7]du bist König [Gm7]mitten [C7]unter uns,",
+        "[F]du hast die [Dm7]Macht in deiner [Eb]Hand.[C7]"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[F]Du hast [Dm7]überwunden [Gm7]all das [C7]Böse,",
+        "[F]du hast ge[Dm7]löst des Todes [Eb]Band.[C7]"
+      ]
+    },
+    {
+      "label": "Chorus 1",
+      "lines": [
+        "Du [C7/Bb]bist       [Am7]Kö  -   [Dm7]nig,",
+        "[Gm7]ja, in alle [C7]Ewigkeit.",
+        "Du [C7/Bb]bist [Am7]Kö[Dm7]nig,",
+        "[Gm7]König voller [C7]Herrlichkeit.",
+        "Du [C7/Bb]bist [Am7]Kö - [Dm7]nig,",
+        "und [Gm7]dir sei Ehre [C7]in Ewig[F]keit.[Bb/F]  [F]"
+      ]
+    }
+  ]
+}

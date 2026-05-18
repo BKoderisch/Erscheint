@@ -1,0 +1,53 @@
+{
+  "id": "heilig-heilig-das-lamm-gottes",
+  "title": "Heilig heilig das Lamm Gottes",
+  "subtitle": "",
+  "artist": "",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [],
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "[D]  Heilig heilig [Am7]  das Lamm Gottes",
+        "[C]  Das geopfert [G]ist",
+        "[D]  Lob und Ehre [Am7]  sei dir dem König",
+        "[C]  Auf dem Gnaden - [G]thron"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "[D]  Heilig heilig heilig [Am7]  ist der Herr Gott allmächtig",
+        "[C]  Der war und ist und der da [G]kommt",
+        "[D]  Die ganze Schöpfung singt und",
+        "[Am7]  Preist dich den König",
+        "[C]  Du bist mir alles Herr",
+        "Und [G]ich will dich ehren [(D)]  (Schluss)"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "[D]  Wenn dein Name [Am7]  nur erwähnt wird",
+        "[C]  Wirkst du Wunder unter [G]uns",
+        "[D]  Jesus in deinem Namen",
+        "[Am7]  Ist die Kraft zum Leben",
+        "[C]  Welch Geheimnis öff - [G]  net sich"
+      ]
+    },
+    {
+      "label": "VERS 3",
+      "lines": [
+        "[D]  Deine Schönheit [Am7]  ist unbeschreiblich",
+        "[C]  Dein Licht strahlt heller [G]als die Sonne",
+        "[D]  Lobpreis und Ehre Weisheit",
+        "[Am7]  Und Macht sei dir allein",
+        "[C]  Nur dir dem einzig wahren [G]  Gott"
+      ]
+    }
+  ]
+}

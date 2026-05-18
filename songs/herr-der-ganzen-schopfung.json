@@ -1,46 +1,49 @@
 {
   "id": "herr-der-ganzen-schopfung",
   "title": "Herr der ganzen Schöpfung",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
   "labels": [],
   "sections": [
     {
-      "label": "Vers 1",
+      "label": "VERS 1",
       "lines": [
-        "Herr der ganzen Schöpfung,",
-        "du spannst den Himmel weit.",
-        "Dein Licht erfüllt das Universum,",
-        "du regierst in Herrlichkeit."
+        "[Dsus]     [Em7]Herr der ganzen [C2]Schöpfung",
+        "[Dsus]  Du [Em7]spannst den Himmel  [C2]  weit",
+        "[Dsus]  Dein Licht er - [Em7]füllt das Uni - [C2]versum",
+        "[Dsus]  Du re - [Em7]gierst in Herrlich   [C2]- keit"
       ]
     },
     {
-      "label": "Chorus",
+      "label": "CHORUS 1",
       "lines": [
-        "Deine Größe erfüllt das ganze All.",
-        "Du bist heilig, heilig.",
-        "Und klein vor dir ist selbst der Sterne Zahl.",
-        "Du bist heilig, heilig,",
-        "du beherrschst alle Welt,",
-        "du beherrschst alle Welt."
+        "[G]Deine Größe erfüllt das ganze [Dsus]All    [D]",
+        "Du bist hei - [Am7]lig    hei - [C]lig",
+        "Und [G]klein vor dir ist selbst der Sterne [Dsus]Zahl    [D]",
+        "Du bist [Am7]hei - lig    [C]hei - lig",
+        "[C]Du be - [D/C]herrschst alle [C2]Welt",
+        "[C]Du be - [D/C]herrschst alle [C2]Welt"
       ]
     },
     {
-      "label": "Vers 2",
+      "label": "VERS 2",
       "lines": [
-        "Schon am frühen Morgen",
-        "freu ich mich an deinem Licht.",
-        "Und später, wenn die Nacht hereinbricht,",
-        "weiß ich: Du verlässt mich nicht."
+        "[Dsus]     [Em7]Schon am frühen [C2]Morgen",
+        "[Dsus]  Freu ich [Em7]mich an deinem [C2]Licht",
+        "[Dsus]  Und später [Em7]wenn die Nacht he - [C2]reinbricht",
+        "[Dsus]  Weiß ich [Em7]du verlässt mich  [C2]  nicht"
       ]
     },
     {
-      "label": "Bridge",
+      "label": "BRIDGE",
       "lines": [
-        "Halleluja, wir erheben",
-        "unseren Gott.",
-        "Halleluja, wir erheben",
-        "unseren Gott.",
-        "Halleluja, wir erheben",
-        "unseren Gott."
+        "[Am11]  Halleluja (wir er - [C2]heben [Dsus]unseren Gott)",
+        "[Am11]  Halleluja (wir er - [C2]heben [Dsus]unseren Gott)",
+        "[Am11]  Halleluja (wir er - [C2]heben [Dsus]unseren Gott)"
       ]
     }
   ]
