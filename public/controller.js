@@ -269,7 +269,7 @@ function renderSongList() {
       e.stopPropagation(); openSheet('edit', song.id);
     });
     li.querySelector('[data-action="delete"]').addEventListener('click', (e) => {
-      e.stopPropagation(); deleteSong(song.id, song.title);
+      e.stopPropagation(); confirmDeleteSong(li, song.id, song.title);
     });
     li.addEventListener('click', () => send({ type: 'show_song', songId: song.id }));
     ul.appendChild(li);
@@ -280,6 +280,30 @@ function updateSongHighlight() {
   document.querySelectorAll('.song-card').forEach((el) => {
     el.classList.toggle('active', el.dataset.id === currentSongId);
   });
+}
+
+function confirmDeleteSong(li, id, title) {
+  // If confirmation is already showing on this card, ignore
+  if (li.querySelector('.delete-confirm')) return;
+
+  const actions = li.querySelector('.song-card-actions');
+  actions.style.opacity = '1';
+
+  const confirm = document.createElement('div');
+  confirm.className = 'delete-confirm';
+  confirm.innerHTML = `
+    <span class="delete-confirm-label">Löschen?</span>
+    <button class="delete-confirm-yes">Ja</button>
+    <button class="delete-confirm-no">Nein</button>`;
+
+  confirm.querySelector('.delete-confirm-yes').addEventListener('click', (e) => {
+    e.stopPropagation(); deleteSong(id, title);
+  });
+  confirm.querySelector('.delete-confirm-no').addEventListener('click', (e) => {
+    e.stopPropagation(); confirm.remove(); actions.style.opacity = '';
+  });
+
+  actions.replaceWith(confirm);
 }
 
 async function deleteSong(id, title) {

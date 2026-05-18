@@ -28,13 +28,18 @@
         "Reiß Mauern ein, die mich von dir trennen",
         "Brich alles auf, was dich in mir eingrenzt",
         "Dein Plan ist größer",
-        "Dein Plan ist größer",
-        "Schluss",
+        "Dein Plan ist größer"
+      ]
+    },
+    {
+      "label": "Schluss",
+      "lines": [
         "Vor dir leg ich alles hin",
         "Du bist alles, was ich will",
         "Alles geb ich dir, Herr",
         "(Alles geb ich dir, Herr)"
       ]
     }
-  ]
+  ],
+  "labels": []
 }

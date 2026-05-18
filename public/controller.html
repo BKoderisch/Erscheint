@@ -269,6 +269,30 @@
     .card-btn:hover { background: var(--surf-3); color: var(--text); }
     .card-btn.danger:hover { background: var(--red-dim); color: var(--red); }
 
+    /* ── Delete confirmation ────────────────────────────────────────────────── */
+    .delete-confirm {
+      display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+    }
+    .delete-confirm-label {
+      font-size: .8rem; color: var(--red); font-weight: 600;
+    }
+    .delete-confirm-yes {
+      padding: 4px 10px;
+      background: var(--red-dim); border: 1px solid rgba(239,68,68,.35);
+      border-radius: var(--radius-sm); color: var(--red);
+      font-size: .8rem; font-weight: 700; cursor: pointer;
+      transition: background .1s;
+    }
+    .delete-confirm-yes:hover { background: rgba(239,68,68,.3); }
+    .delete-confirm-no {
+      padding: 4px 10px;
+      background: var(--surf-2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); color: var(--text-2);
+      font-size: .8rem; font-weight: 600; cursor: pointer;
+      transition: background .1s;
+    }
+    .delete-confirm-no:hover { background: var(--surf-3); }
+
     /* ── Empty state ────────────────────────────────────────────────────────── */
     .empty-state {
       text-align: center; padding: 40px 20px;
