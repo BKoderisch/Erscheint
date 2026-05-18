@@ -3,14 +3,17 @@
 // ── State ─────────────────────────────────────────────────────────────────────
 
 let ws;
-let songs        = [];
-let arrangements = [];
+let songs          = [];
+let arrangements   = [];
 let currentSongId  = null;
 let activeArrId    = null;
 let editingArrId   = null;
 let editingSongId  = null;   // null = add mode, string = edit mode
 let displayWindow  = null;
 let searchQuery    = '';
+let activeLabel    = null;   // label currently used as filter
+let sheetLabels    = [];     // labels being edited in the sheet
+let searchResults  = null;   // null = not in search mode, array = search results
 
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 
@@ -132,35 +135,103 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
 async function loadSongs() {
   songs = await fetch('/api/songs').then((r) => r.json());
   document.getElementById('songs-badge').textContent = songs.length;
+  renderLabelFilterStrip();
   renderSongList();
   updateNowPlaying();
 }
 
-function visibleSongs() {
+// ── Label colors ──────────────────────────────────────────────────────────────
+
+const LABEL_PALETTE = [
+  { bg: 'rgba(59,130,246,.18)',  color: '#93c5fd', border: 'rgba(59,130,246,.35)'  }, // blue
+  { bg: 'rgba(139,92,246,.18)', color: '#c4b5fd', border: 'rgba(139,92,246,.35)'  }, // violet
+  { bg: 'rgba(236,72,153,.18)', color: '#f9a8d4', border: 'rgba(236,72,153,.35)'  }, // pink
+  { bg: 'rgba(16,185,129,.18)', color: '#6ee7b7', border: 'rgba(16,185,129,.35)'  }, // emerald
+  { bg: 'rgba(245,158,11,.18)', color: '#fcd34d', border: 'rgba(245,158,11,.35)'  }, // amber
+  { bg: 'rgba(6,182,212,.18)',  color: '#67e8f9', border: 'rgba(6,182,212,.35)'   }, // cyan
+  { bg: 'rgba(249,115,22,.18)', color: '#fdba74', border: 'rgba(249,115,22,.35)'  }, // orange
+  { bg: 'rgba(132,204,22,.18)', color: '#bef264', border: 'rgba(132,204,22,.35)'  }, // lime
+];
+
+function labelPalette(str) {
+  let h = 0;
+  for (const c of str) h = (h * 31 + c.charCodeAt(0)) & 0x7fffffff;
+  return LABEL_PALETTE[h % LABEL_PALETTE.length];
+}
+
+function labelChipEl(text, removable = false) {
+  const p = labelPalette(text);
+  const span = document.createElement('span');
+  span.className = 'label-chip' + (removable ? ' removable' : '');
+  span.style.setProperty('--chip-bg',     p.bg);
+  span.style.setProperty('--chip-color',  p.color);
+  span.style.setProperty('--chip-border', p.border);
+  span.textContent = text;
+  if (removable) {
+    const x = document.createElement('span');
+    x.className = 'chip-x'; x.textContent = '×';
+    span.appendChild(x);
+  }
+  return span;
+}
+
+// ── Label filter strip ────────────────────────────────────────────────────────
+
+function renderLabelFilterStrip() {
+  const strip = document.getElementById('label-filter-strip');
+  strip.innerHTML = '';
+
+  const all = [...new Set(songs.flatMap((s) => s.labels || []))].sort();
+  if (all.length === 0) return;
+
+  for (const label of all) {
+    const p   = labelPalette(label);
+    const btn = document.createElement('button');
+    btn.className = 'label-filter-chip' + (label === activeLabel ? ' active' : '');
+    btn.style.setProperty('--chip-bg',     p.bg);
+    btn.style.setProperty('--chip-color',  p.color);
+    btn.style.setProperty('--chip-border', p.border);
+    btn.textContent = label;
+    btn.addEventListener('click', () => {
+      activeLabel = activeLabel === label ? null : label;
+      renderLabelFilterStrip();
+      renderSongList();
+    });
+    strip.appendChild(btn);
+  }
+}
+
+// ── Song list ─────────────────────────────────────────────────────────────────
+
+function baseList() {
   let list = songs;
   if (activeArrId) {
     const arr = arrangements.find((a) => a.id === activeArrId);
     if (arr) list = arr.songIds.map((id) => songs.find((s) => s.id === id)).filter(Boolean);
   }
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    list = list.filter((s) => s.title.toLowerCase().includes(q));
-  }
+  if (activeLabel) list = list.filter((s) => (s.labels || []).includes(activeLabel));
   return list;
+}
+
+async function runSearch(q) {
+  const results = await fetch(`/api/search?q=${encodeURIComponent(q)}`).then((r) => r.json());
+  // If arr or label filter active, restrict results to that subset
+  const base = new Set(baseList().map((s) => s.id));
+  return results.filter((r) => base.has(r.id));
 }
 
 function renderSongList() {
   const ul = document.getElementById('song-list');
   ul.innerHTML = '';
 
-  const visible = visibleSongs();
-  const allEmpty = songs.length === 0;
-  const searchEmpty = !allEmpty && visible.length === 0 && searchQuery;
+  const displayList = searchResults !== null ? searchResults : baseList();
+  const allEmpty    = songs.length === 0;
+  const noResults   = !allEmpty && displayList.length === 0;
 
-  document.getElementById('songs-empty').style.display      = allEmpty ? '' : 'none';
-  document.getElementById('songs-no-results').style.display = searchEmpty ? '' : 'none';
+  document.getElementById('songs-empty').style.display      = allEmpty  ? '' : 'none';
+  document.getElementById('songs-no-results').style.display = noResults ? '' : 'none';
 
-  for (const song of visible) {
+  for (const song of displayList) {
     const li = document.createElement('li');
     li.className = 'song-card' + (song.id === currentSongId ? ' active' : '');
     li.dataset.id = song.id;
@@ -169,23 +240,36 @@ function renderSongList() {
       ? `${song.sectionCount} ${song.sectionCount === 1 ? 'Abschnitt' : 'Abschnitte'}`
       : '';
 
+    // Highlight query term in matchContext
+    let contextHtml = '';
+    if (song.matchType === 'content' && song.matchContext) {
+      const esc   = escHtml(song.matchContext);
+      const q     = escHtml(searchQuery);
+      const hi    = esc.replace(new RegExp(q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi'), '<mark>$&</mark>');
+      contextHtml = `<div class="song-card-context">↳ ${hi}</div>`;
+    }
+
     li.innerHTML = `
       <div class="song-card-body">
         <div class="song-card-title">${escHtml(song.title)}</div>
         ${meta ? `<div class="song-card-meta">${meta}</div>` : ''}
+        ${contextHtml}
+        <div class="song-card-labels"></div>
       </div>
       <div class="song-card-actions">
-        <button class="card-btn" data-action="edit" title="Bearbeiten">✎</button>
+        <button class="card-btn" data-action="edit"   title="Bearbeiten">✎</button>
         <button class="card-btn danger" data-action="delete" title="Löschen">✕</button>
       </div>`;
 
+    // Render label chips
+    const labelsEl = li.querySelector('.song-card-labels');
+    for (const lbl of (song.labels || [])) labelsEl.appendChild(labelChipEl(lbl));
+
     li.querySelector('[data-action="edit"]').addEventListener('click', (e) => {
-      e.stopPropagation();
-      openSheet('edit', song.id);
+      e.stopPropagation(); openSheet('edit', song.id);
     });
     li.querySelector('[data-action="delete"]').addEventListener('click', (e) => {
-      e.stopPropagation();
-      deleteSong(song.id, song.title);
+      e.stopPropagation(); deleteSong(song.id, song.title);
     });
     li.addEventListener('click', () => send({ type: 'show_song', songId: song.id }));
     ul.appendChild(li);
@@ -202,15 +286,27 @@ async function deleteSong(id, title) {
   await fetch(`/api/songs/${id}`, { method: 'DELETE' });
   if (currentSongId === id) send({ type: 'blank' });
   toast(`„${title}" gelöscht`);
+  searchResults = null;
   await loadSongs();
   if (editingArrId) renderArrEditor();
 }
 
 // ── Search ────────────────────────────────────────────────────────────────────
 
+let searchDebounce = null;
+
 document.getElementById('search-input').addEventListener('input', (e) => {
   searchQuery = e.target.value.trim();
-  renderSongList();
+  clearTimeout(searchDebounce);
+  if (!searchQuery) {
+    searchResults = null;
+    renderSongList();
+    return;
+  }
+  searchDebounce = setTimeout(async () => {
+    searchResults = await runSearch(searchQuery);
+    renderSongList();
+  }, 180);
 });
 
 // ── Arrangement banner ────────────────────────────────────────────────────────
@@ -245,6 +341,34 @@ function sectionsToText(sections) {
   }).join('\n\n');
 }
 
+function renderSheetLabels() {
+  const container = document.getElementById('sheet-labels-list');
+  container.innerHTML = '';
+  for (const lbl of sheetLabels) {
+    const chip = labelChipEl(lbl, true);
+    chip.addEventListener('click', () => {
+      sheetLabels = sheetLabels.filter((l) => l !== lbl);
+      renderSheetLabels();
+    });
+    container.appendChild(chip);
+  }
+}
+
+document.getElementById('sheet-label-add').addEventListener('click', () => {
+  const input = document.getElementById('sheet-label-input');
+  const val   = input.value.trim();
+  if (val && !sheetLabels.includes(val)) {
+    sheetLabels.push(val);
+    renderSheetLabels();
+  }
+  input.value = '';
+  input.focus();
+});
+
+document.getElementById('sheet-label-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); document.getElementById('sheet-label-add').click(); }
+});
+
 async function openSheet(mode, songId = null) {
   editingSongId = mode === 'edit' ? songId : null;
   const titleEl  = document.getElementById('sheet-title-text');
@@ -259,14 +383,17 @@ async function openSheet(mode, songId = null) {
       const song = await fetch(`/api/songs/${songId}`).then((r) => r.json());
       nameEl.value = song.title;
       textEl.value = sectionsToText(song.sections);
+      sheetLabels  = [...(song.labels || [])];
     } catch { toast('Fehler beim Laden', 'error'); return; }
   } else {
     titleEl.textContent  = 'Song hinzufügen';
     submitEl.textContent = 'Hinzufügen';
     nameEl.value = '';
     textEl.value = '';
+    sheetLabels  = [];
   }
 
+  renderSheetLabels();
   document.getElementById('sheet-overlay').classList.add('open');
   setTimeout(() => nameEl.focus(), 250);
 }
@@ -274,6 +401,7 @@ async function openSheet(mode, songId = null) {
 function closeSheet() {
   document.getElementById('sheet-overlay').classList.remove('open');
   editingSongId = null;
+  sheetLabels   = [];
 }
 
 document.getElementById('fab').addEventListener('click',          () => openSheet('add'));
@@ -295,14 +423,14 @@ document.getElementById('sheet-submit').addEventListener('click', async () => {
     if (editingSongId) {
       await fetch(`/api/songs/${editingSongId}`, {
         method: 'PUT', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, rawText: rawText || undefined }),
+        body: JSON.stringify({ title, rawText: rawText || undefined, labels: sheetLabels }),
       });
       toast(`„${title}" gespeichert`, 'success');
     } else {
       if (!rawText) { document.getElementById('sheet-text').focus(); btn.disabled = false; return; }
       await fetch('/api/songs', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, rawText }),
+        body: JSON.stringify({ title, rawText, labels: sheetLabels }),
       });
       toast(`„${title}" hinzugefügt`, 'success');
     }

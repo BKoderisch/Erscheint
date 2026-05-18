@@ -94,13 +94,48 @@ app.get('/display', (_req, res) => res.sendFile(path.join(__dirname, 'public', '
 
 // ── Songs API ─────────────────────────────────────────────────────────────────
 
-app.get('/api/songs', (_req, res) => {
-  const songs = fs.readdirSync(SONGS_DIR)
+function songSummary(s) {
+  return { id: s.id, title: s.title, sectionCount: s.sections ? s.sections.length : 0, labels: s.labels || [] };
+}
+
+function loadAllSongs() {
+  return fs.readdirSync(SONGS_DIR)
     .filter((f) => f.endsWith('.json'))
-    .map((f) => { try { const s = JSON.parse(fs.readFileSync(path.join(SONGS_DIR, f), 'utf8')); return { id: s.id, title: s.title, sectionCount: s.sections ? s.sections.length : 0 }; } catch { return null; } })
+    .map((f) => { try { return JSON.parse(fs.readFileSync(path.join(SONGS_DIR, f), 'utf8')); } catch { return null; } })
     .filter(Boolean)
     .sort((a, b) => a.title.localeCompare(b.title, 'de'));
-  res.json(songs);
+}
+
+app.get('/api/songs', (_req, res) => {
+  res.json(loadAllSongs().map(songSummary));
+});
+
+// GET /api/search?q=term — full-text search (title → label → lyrics)
+app.get('/api/search', (req, res) => {
+  const q = (req.query.q || '').toLowerCase().trim();
+  if (!q) return res.json([]);
+
+  const titleHits = [], labelHits = [], contentHits = [];
+
+  for (const song of loadAllSongs()) {
+    if (song.title.toLowerCase().includes(q)) {
+      titleHits.push({ ...songSummary(song), matchType: 'title' });
+      continue;
+    }
+    if ((song.labels || []).some((l) => l.toLowerCase().includes(q))) {
+      labelHits.push({ ...songSummary(song), matchType: 'label' });
+      continue;
+    }
+    for (const section of (song.sections || [])) {
+      const hit = section.lines.find((l) => l.toLowerCase().includes(q));
+      if (hit) {
+        contentHits.push({ ...songSummary(song), matchType: 'content', matchContext: hit });
+        break;
+      }
+    }
+  }
+
+  res.json([...titleHits, ...labelHits, ...contentHits]);
 });
 
 app.get('/api/songs/:id', (req, res) => {
@@ -110,10 +145,10 @@ app.get('/api/songs/:id', (req, res) => {
 });
 
 app.post('/api/songs', (req, res) => {
-  const { title, rawText } = req.body;
+  const { title, rawText, labels } = req.body;
   if (!title || !rawText) return res.status(400).json({ error: 'title and rawText required' });
   const id = uniqueId(SONGS_DIR, title);
-  const song = { id, title, sections: parseRawText(rawText) };
+  const song = { id, title, labels: labels || [], sections: parseRawText(rawText) };
   fs.writeFileSync(path.join(SONGS_DIR, `${id}.json`), JSON.stringify(song, null, 2));
   res.status(201).json(song);
 });
@@ -122,11 +157,12 @@ app.put('/api/songs/:id', (req, res) => {
   const file = path.join(SONGS_DIR, `${req.params.id}.json`);
   if (!fs.existsSync(file)) return res.status(404).json({ error: 'Not found' });
   const existing = JSON.parse(fs.readFileSync(file, 'utf8'));
-  const { title, rawText } = req.body;
+  const { title, rawText, labels } = req.body;
   const updated = {
     ...existing,
     title: title || existing.title,
     sections: rawText ? parseRawText(rawText) : existing.sections,
+    labels: labels !== undefined ? labels : (existing.labels || []),
   };
   fs.writeFileSync(file, JSON.stringify(updated, null, 2));
   res.json(updated);

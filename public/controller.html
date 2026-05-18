@@ -518,6 +518,72 @@
     @keyframes toast-in { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
     @keyframes toast-out { to { opacity:0; transform: translateY(-8px); } }
 
+    /* ── Label chips ────────────────────────────────────────────────────────── */
+    .label-chip {
+      display: inline-flex; align-items: center; gap: 3px;
+      padding: 2px 8px; border-radius: 99px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .02em;
+      white-space: nowrap; flex-shrink: 0;
+      background: var(--chip-bg, rgba(59,130,246,.18));
+      color: var(--chip-color, #93c5fd);
+      border: 1px solid var(--chip-border, rgba(59,130,246,.3));
+    }
+    .label-chip.removable { cursor: pointer; }
+    .label-chip.removable:hover { opacity: .75; }
+    .label-chip .chip-x { opacity: .6; margin-left: 1px; }
+
+    /* filter strip */
+    .label-filter-strip {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .label-filter-chip {
+      padding: 4px 11px; border-radius: 99px;
+      font-size: .75rem; font-weight: 600;
+      background: var(--surf-2); border: 1px solid var(--border);
+      color: var(--text-2); cursor: pointer;
+      transition: background .1s, color .1s, border-color .1s;
+    }
+    .label-filter-chip:hover { background: var(--surf-3); color: var(--text); }
+    .label-filter-chip.active {
+      background: var(--chip-bg, var(--accent-dim));
+      border-color: var(--chip-border, rgba(59,130,246,.4));
+      color: var(--chip-color, var(--accent-hi));
+    }
+
+    /* match context on search results */
+    .song-card-context {
+      font-size: .73rem; color: var(--text-3);
+      margin-top: 2px; font-style: italic;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .song-card-context mark {
+      background: rgba(59,130,246,.25); color: var(--accent-hi);
+      border-radius: 2px; padding: 0 1px; font-style: normal;
+    }
+
+    /* label row on song card */
+    .song-card-labels {
+      display: flex; gap: 4px; flex-wrap: wrap; margin-top: 4px;
+    }
+
+    /* sheet label input area */
+    .label-input-row {
+      display: flex; gap: 6px; align-items: center; margin-bottom: 8px;
+    }
+    .label-input-row input { flex: 1; }
+    .label-input-row button {
+      padding: 9px 14px;
+      background: var(--surf-3); border: 1px solid var(--border-hi);
+      border-radius: var(--radius-sm); color: var(--text-2);
+      font-size: .85rem; white-space: nowrap;
+      transition: background .1s;
+    }
+    .label-input-row button:hover { background: var(--border-hi); color: var(--text); }
+    .sheet-labels-list {
+      display: flex; flex-wrap: wrap; gap: 5px; min-height: 24px;
+    }
+
     /* ── Responsive ─────────────────────────────────────────────────────────── */
     @media (min-width: 540px) {
       .main { padding: 20px 24px 100px; }
@@ -597,6 +663,7 @@
         <span class="search-icon">⌕</span>
         <input class="search-input" id="search-input" type="search" placeholder="Songs durchsuchen …" autocomplete="off">
       </div>
+      <div class="label-filter-strip" id="label-filter-strip"></div>
       <ul class="song-list" id="song-list"></ul>
       <div class="empty-state" id="songs-empty" style="display:none">
         <div class="empty-state-icon">♪</div>
@@ -673,6 +740,14 @@
         <textarea class="sheet-textarea" id="sheet-text"
           placeholder="Strophe 1:&#10;Zeile eins&#10;Zeile zwei&#10;&#10;Refrain:&#10;Zeile drei&#10;Zeile vier"></textarea>
         <p class="sheet-hint">Abschnitte wie „Strophe 1:", „Refrain:", „Bridge:" werden automatisch erkannt.</p>
+      </div>
+      <div class="sheet-field-wrap">
+        <label class="sheet-label">Labels</label>
+        <div class="label-input-row">
+          <input class="field" id="sheet-label-input" type="text" placeholder="Label eingeben …" autocomplete="off">
+          <button id="sheet-label-add">+ Hinzufügen</button>
+        </div>
+        <div class="sheet-labels-list" id="sheet-labels-list"></div>
       </div>
       <div class="sheet-actions">
         <button class="btn-ghost" id="sheet-cancel">Abbrechen</button>
