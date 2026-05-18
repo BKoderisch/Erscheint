@@ -671,9 +671,9 @@ function renderArrEditor() {
     }
 
     const [upBtn, downBtn, removeBtn] = li.querySelectorAll('button');
-    upBtn.addEventListener('click',     () => moveItem(arr, idx, -1));
-    downBtn.addEventListener('click',   () => moveItem(arr, idx,  1));
-    removeBtn.addEventListener('click', () => removeItem(arr, idx));
+    upBtn.addEventListener('click',     () => moveItem(idx, -1));
+    downBtn.addEventListener('click',   () => moveItem(idx,  1));
+    removeBtn.addEventListener('click', () => removeItem(idx));
 
     // ── Drag & drop ──────────────────────────────────────────────────────────
     li.draggable = true;
@@ -712,11 +712,12 @@ function renderArrEditor() {
       if (dragSrcIdx < insertAt) insertAt--;
       if (dragSrcIdx === insertAt) return;
 
-      const its = [...getItems(arr)];
+      const currentArr = arrangements.find((a) => a.id === editingArrId);
+      if (!currentArr) return;
+      const its = [...getItems(currentArr)];
       const [moved] = its.splice(dragSrcIdx, 1);
       its.splice(insertAt, 0, moved);
-      arr.items = its;
-      saveArr(arr).then(() => renderArrEditor());
+      saveArrItems(its);
     });
 
     ul.appendChild(li);
@@ -747,52 +748,52 @@ function renderArrAvailList() {
       li.className = 'avail-row';
       li.innerHTML = `<span class="avail-title">${escHtml(song.title)}</span>
         <button class="add-btn-small">+ Hinzufügen</button>`;
-      li.querySelector('button').addEventListener('click', () => addArrSong(arr, song.id));
+      li.querySelector('button').addEventListener('click', () => addArrSong(song.id));
       availUl.appendChild(li);
     });
   }
 }
 
-async function saveArr(arr) {
-  const items = getItems(arr);
+async function saveArrItems(items) {
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (!arr) return;
   arr.items   = items;
   arr.songIds = items.filter((i) => i.type === 'song').map((i) => i.id);
   await fetch(`/api/arrangements/${arr.id}`, {
     method: 'PUT', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ items: arr.items, songIds: arr.songIds }),
   });
-  const idx = arrangements.findIndex((a) => a.id === arr.id);
-  if (idx !== -1) arrangements[idx] = { ...arrangements[idx], items: arr.items, songIds: arr.songIds };
   if (activeArrId === arr.id) renderSongList();
+  renderArrEditor();
 }
 
-async function moveItem(arr, idx, dir) {
+async function moveItem(idx, dir) {
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (!arr) return;
   const items = [...getItems(arr)];
   const [item] = items.splice(idx, 1);
   items.splice(idx + dir, 0, item);
-  arr.items = items;
-  await saveArr(arr);
-  renderArrEditor();
+  await saveArrItems(items);
 }
 
-async function removeItem(arr, idx) {
+async function removeItem(idx) {
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (!arr) return;
   const items = [...getItems(arr)];
   items.splice(idx, 1);
-  arr.items = items;
-  await saveArr(arr);
-  renderArrEditor();
+  await saveArrItems(items);
 }
 
-async function addArrSong(arr, songId) {
-  arr.items = [...getItems(arr), { type: 'song', id: songId }];
-  await saveArr(arr);
-  renderArrEditor();
+async function addArrSong(songId) {
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (!arr) return;
+  await saveArrItems([...getItems(arr), { type: 'song', id: songId }]);
 }
 
-async function addSeparator(arr, label) {
-  arr.items = [...getItems(arr), { type: 'separator', label }];
-  await saveArr(arr);
-  renderArrEditor();
+async function addSeparator(label) {
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (!arr) return;
+  await saveArrItems([...getItems(arr), { type: 'separator', label }]);
 }
 
 // ── Song preview panel ────────────────────────────────────────────────────────
@@ -851,8 +852,7 @@ document.getElementById('arr-sep-btn').addEventListener('click', () => {
   const input = document.getElementById('arr-sep-input');
   const label = input.value.trim();
   if (!label) { input.focus(); return; }
-  const arr = arrangements.find((a) => a.id === editingArrId);
-  if (arr) addSeparator(arr, label);
+  addSeparator(label);
   input.value = '';
 });
 
