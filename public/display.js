@@ -113,6 +113,8 @@ function bestFontSize(container, numCols) {
 
 // ── Layout engine ─────────────────────────────────────────────────────────────
 
+const MIN_FONT = 10;
+
 function applyBestLayout() {
   if (!currentSong) return;
 
@@ -124,22 +126,24 @@ function applyBestLayout() {
   // Hide during calculation — prevents flickering at intermediate font sizes
   container.style.visibility = 'hidden';
 
-  const portrait = window.innerHeight > window.innerWidth;
+  let bestCols = 1, bestSize = 0, bestWrap = true;
 
-  if (portrait) {
-    buildLayout(container, currentSong, 1, true);
-    container.style.fontSize = `${bestFontSize(container, 1)}px`;
-  } else {
-    let bestCols = 1, bestSize = 0;
-    for (const cols of [1, 2, 3]) {
-      buildLayout(container, currentSong, cols, false);
-      const size = bestFontSize(container, cols);
-      if (size > bestSize) { bestSize = size; bestCols = cols; }
-      if (size >= 200) break;
-    }
-    buildLayout(container, currentSong, bestCols, false);
-    container.style.fontSize = `${bestSize}px`;
+  // Single column with word-wrap — works well for portrait / few sections
+  buildLayout(container, currentSong, 1, true);
+  const sz1 = bestFontSize(container, 1);
+  if (sz1 > bestSize) { bestSize = sz1; bestCols = 1; bestWrap = true; }
+
+  // Multi-column without wrap — helps long songs in any orientation
+  for (const cols of [2, 3]) {
+    buildLayout(container, currentSong, cols, false);
+    const sz = bestFontSize(container, cols);
+    if (sz > bestSize) { bestSize = sz; bestCols = cols; bestWrap = false; }
+    if (sz >= 200) break;
   }
+
+  buildLayout(container, currentSong, bestCols, bestWrap);
+  // Never go below MIN_FONT — overflowing is better than unreadable text
+  container.style.fontSize = `${Math.max(bestSize, MIN_FONT)}px`;
 
   container.style.visibility = 'visible';
 }
