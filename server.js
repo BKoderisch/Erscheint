@@ -50,14 +50,18 @@ function parseRawText(rawText) {
   const lines = rawText.split(/\r?\n/);
   const sections = [];
   let current = null;
+  let prevBlank = true; // treat start-of-text as "after blank line"
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
     if (!line) {
       if (current && current.lines.length > 0) { sections.push(current); current = null; }
+      prevBlank = true;
       continue;
     }
-    const isHeader = SECTION_HEADER.test(line) || (line.endsWith(':') && line.length < 40);
+    // Colon-fallback only fires at block boundaries to avoid false positives on lyric lines like "Staunend singe ich zu dir:"
+    const isHeader = SECTION_HEADER.test(line) || (prevBlank && line.endsWith(':') && line.length < 40);
+    prevBlank = false;
     if (isHeader) {
       if (current && current.lines.length > 0) sections.push(current);
       current = { label: line.replace(/:$/, '').trim(), lines: [] };
