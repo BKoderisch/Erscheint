@@ -35,6 +35,7 @@ function connectWS() {
     currentSongId = msg.type === 'song' ? msg.songId : null;
     updateNowPlaying();
     updateSongHighlight();
+    updateSongPreview();
   };
 }
 
@@ -675,6 +676,50 @@ async function addArrSong(arr, songId) {
   arr.songIds = [...arr.songIds, songId];
   await saveArr(arr);
   renderArrEditor();
+}
+
+// ── Song preview panel ────────────────────────────────────────────────────────
+
+async function updateSongPreview() {
+  const empty   = document.getElementById('preview-empty');
+  const content = document.getElementById('preview-content');
+
+  if (!currentSongId) {
+    empty.style.display   = '';
+    content.style.display = 'none';
+    return;
+  }
+
+  try {
+    const song = await fetch(`/api/songs/${currentSongId}`).then((r) => r.json());
+    document.getElementById('preview-song-title').textContent = song.title;
+
+    const sectionsEl = document.getElementById('preview-sections');
+    sectionsEl.innerHTML = '';
+    for (const section of song.sections) {
+      const div = document.createElement('div');
+      div.className = 'preview-section';
+      if (section.label) {
+        const lbl = document.createElement('span');
+        lbl.className = 'preview-section-label';
+        lbl.textContent = section.label;
+        div.appendChild(lbl);
+      }
+      for (const line of section.lines) {
+        const p = document.createElement('p');
+        p.className = 'preview-line';
+        p.textContent = line;
+        div.appendChild(p);
+      }
+      sectionsEl.appendChild(div);
+    }
+
+    empty.style.display   = 'none';
+    content.style.display = '';
+  } catch {
+    empty.style.display   = '';
+    content.style.display = 'none';
+  }
 }
 
 // ── Utility ───────────────────────────────────────────────────────────────────
