@@ -184,7 +184,7 @@ app.delete('/api/songs/:id', (req, res) => {
 app.get('/api/arrangements', (_req, res) => {
   const list = fs.readdirSync(ARR_DIR)
     .filter((f) => f.endsWith('.json'))
-    .map((f) => { try { const a = JSON.parse(fs.readFileSync(path.join(ARR_DIR, f), 'utf8')); return { id: a.id, name: a.name, songIds: a.songIds }; } catch { return null; } })
+    .map((f) => { try { const a = JSON.parse(fs.readFileSync(path.join(ARR_DIR, f), 'utf8')); return { id: a.id, name: a.name, songIds: a.songIds, items: a.items }; } catch { return null; } })
     .filter(Boolean)
     .sort((a, b) => a.name.localeCompare(b.name, 'de'));
   res.json(list);

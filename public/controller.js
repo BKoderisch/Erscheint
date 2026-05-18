@@ -14,6 +14,7 @@ let searchQuery    = '';
 let activeLabel    = null;   // label currently used as filter
 let sheetLabels    = [];     // labels being edited in the sheet
 let searchResults  = null;   // null = not in search mode, array = search results
+let availSearch    = '';     // search query in arrangement editor available-songs list
 
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 
@@ -134,6 +135,17 @@ document.querySelectorAll('.tab-btn').forEach((btn) => {
   btn.addEventListener('click', () => switchTab(btn.dataset.tab));
 });
 
+// ── Arrangement item helpers ──────────────────────────────────────────────────
+
+function getItems(arr) {
+  if (arr.items) return arr.items;
+  return (arr.songIds || []).map((id) => ({ type: 'song', id }));
+}
+
+function getArrSongIds(arr) {
+  return getItems(arr).filter((i) => i.type === 'song').map((i) => i.id);
+}
+
 // ── Songs ─────────────────────────────────────────────────────────────────────
 
 async function loadSongs() {
@@ -208,11 +220,23 @@ function renderLabelFilterStrip() {
 // ── Song list ─────────────────────────────────────────────────────────────────
 
 function baseList() {
-  let list = songs;
   if (activeArrId) {
     const arr = arrangements.find((a) => a.id === activeArrId);
-    if (arr) list = arr.songIds.map((id) => songs.find((s) => s.id === id)).filter(Boolean);
+    if (arr) {
+      const result = [];
+      for (const item of getItems(arr)) {
+        if (item.type === 'song') {
+          const song = songs.find((s) => s.id === item.id);
+          if (song) result.push(song);
+        } else if (item.type === 'separator') {
+          result.push({ _sep: true, label: item.label });
+        }
+      }
+      if (activeLabel) return result.filter((i) => i._sep || (i.labels || []).includes(activeLabel));
+      return result;
+    }
   }
+  let list = songs;
   if (activeLabel) list = list.filter((s) => (s.labels || []).includes(activeLabel));
   return list;
 }
@@ -236,6 +260,16 @@ function renderSongList() {
   document.getElementById('songs-no-results').style.display = noResults ? '' : 'none';
 
   for (const song of displayList) {
+    // Separator divider (only when not in search mode)
+    if (song._sep) {
+      if (searchResults !== null) continue;
+      const li = document.createElement('li');
+      li.className = 'song-sep';
+      li.textContent = song.label || '—';
+      ul.appendChild(li);
+      continue;
+    }
+
     const li = document.createElement('li');
     li.className = 'song-card' + (song.id === currentSongId ? ' active' : '');
     li.dataset.id = song.id;
@@ -586,8 +620,7 @@ document.getElementById('arr-name-input').addEventListener('keydown', (e) => {
 
 function openArrEditor(id) {
   editingArrId = id;
-  const arr = arrangements.find((a) => a.id === id);
-  document.getElementById('arr-editor-name').textContent = arr.name;
+  availSearch  = '';
   document.getElementById('arr-list-view').classList.add('hidden');
   document.getElementById('arr-editor').classList.add('open');
   renderArrEditor();
@@ -604,30 +637,55 @@ function renderArrEditor() {
   const arr = arrangements.find((a) => a.id === editingArrId);
   if (!arr) return;
 
-  // Ordered songs
-  const ul = document.getElementById('arr-song-list');
+  document.getElementById('arr-editor-name').textContent = arr.name;
+
+  const items = getItems(arr);
+  const ul    = document.getElementById('arr-song-list');
   ul.innerHTML = '';
-  arr.songIds.forEach((songId, idx) => {
-    const song = songs.find((s) => s.id === songId);
-    if (!song) return;
+
+  let songNum = 0;
+  items.forEach((item, idx) => {
     const li = document.createElement('li');
-    li.className = 'arr-song-row';
-    li.innerHTML = `
-      <span class="arr-song-num">${idx + 1}</span>
-      <span class="arr-song-title">${escHtml(song.title)}</span>
-      <button class="move-btn" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
-      <button class="move-btn" title="Nach unten" ${idx === arr.songIds.length - 1 ? 'disabled' : ''}>▼</button>
-      <button class="card-btn danger" title="Entfernen">✕</button>`;
+
+    if (item.type === 'separator') {
+      li.className = 'arr-sep-row';
+      li.innerHTML = `
+        <span class="arr-sep-text">${escHtml(item.label || '—')}</span>
+        <button class="move-btn" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
+        <button class="move-btn" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
+        <button class="card-btn danger" title="Entfernen">✕</button>`;
+    } else {
+      const song = songs.find((s) => s.id === item.id);
+      if (!song) return;
+      songNum++;
+      li.className = 'arr-song-row';
+      li.innerHTML = `
+        <span class="arr-song-num">${songNum}</span>
+        <span class="arr-song-title">${escHtml(song.title)}</span>
+        <button class="move-btn" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
+        <button class="move-btn" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
+        <button class="card-btn danger" title="Entfernen">✕</button>`;
+    }
+
     const [upBtn, downBtn, removeBtn] = li.querySelectorAll('button');
-    upBtn.addEventListener('click',    () => moveArrSong(arr, idx, -1));
-    downBtn.addEventListener('click',  () => moveArrSong(arr, idx,  1));
-    removeBtn.addEventListener('click',() => removeArrSong(arr, songId));
+    upBtn.addEventListener('click',     () => moveItem(arr, idx, -1));
+    downBtn.addEventListener('click',   () => moveItem(arr, idx,  1));
+    removeBtn.addEventListener('click', () => removeItem(arr, idx));
     ul.appendChild(li);
   });
 
-  // Available songs
-  const inArr  = new Set(arr.songIds);
-  const avail  = songs.filter((s) => !inArr.has(s.id));
+  // Restore avail search input value (persists across re-renders)
+  document.getElementById('arr-avail-search').value = availSearch;
+  renderArrAvailList();
+}
+
+function renderArrAvailList() {
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (!arr) return;
+
+  const q      = availSearch.toLowerCase();
+  const inArr  = new Set(getArrSongIds(arr));
+  const avail  = songs.filter((s) => !inArr.has(s.id) && (!q || s.title.toLowerCase().includes(q)));
   const availUl = document.getElementById('arr-avail-list');
   const noAvail = document.getElementById('arr-avail-empty');
   availUl.innerHTML = '';
@@ -648,32 +706,43 @@ function renderArrEditor() {
 }
 
 async function saveArr(arr) {
+  const items = getItems(arr);
+  arr.items   = items;
+  arr.songIds = items.filter((i) => i.type === 'song').map((i) => i.id);
   await fetch(`/api/arrangements/${arr.id}`, {
     method: 'PUT', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ songIds: arr.songIds }),
+    body: JSON.stringify({ items: arr.items, songIds: arr.songIds }),
   });
   const idx = arrangements.findIndex((a) => a.id === arr.id);
-  if (idx !== -1) arrangements[idx] = { ...arrangements[idx], songIds: arr.songIds };
+  if (idx !== -1) arrangements[idx] = { ...arrangements[idx], items: arr.items, songIds: arr.songIds };
   if (activeArrId === arr.id) renderSongList();
 }
 
-async function moveArrSong(arr, idx, dir) {
-  const ids = [...arr.songIds];
-  const [item] = ids.splice(idx, 1);
-  ids.splice(idx + dir, 0, item);
-  arr.songIds = ids;
+async function moveItem(arr, idx, dir) {
+  const items = [...getItems(arr)];
+  const [item] = items.splice(idx, 1);
+  items.splice(idx + dir, 0, item);
+  arr.items = items;
   await saveArr(arr);
   renderArrEditor();
 }
 
-async function removeArrSong(arr, songId) {
-  arr.songIds = arr.songIds.filter((id) => id !== songId);
+async function removeItem(arr, idx) {
+  const items = [...getItems(arr)];
+  items.splice(idx, 1);
+  arr.items = items;
   await saveArr(arr);
   renderArrEditor();
 }
 
 async function addArrSong(arr, songId) {
-  arr.songIds = [...arr.songIds, songId];
+  arr.items = [...getItems(arr), { type: 'song', id: songId }];
+  await saveArr(arr);
+  renderArrEditor();
+}
+
+async function addSeparator(arr, label) {
+  arr.items = [...getItems(arr), { type: 'separator', label }];
   await saveArr(arr);
   renderArrEditor();
 }
@@ -727,6 +796,26 @@ async function updateSongPreview() {
 function escHtml(str) {
   return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
+
+// ── Arrangement editor event listeners ───────────────────────────────────────
+
+document.getElementById('arr-sep-btn').addEventListener('click', () => {
+  const input = document.getElementById('arr-sep-input');
+  const label = input.value.trim();
+  if (!label) { input.focus(); return; }
+  const arr = arrangements.find((a) => a.id === editingArrId);
+  if (arr) addSeparator(arr, label);
+  input.value = '';
+});
+
+document.getElementById('arr-sep-input').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') { e.preventDefault(); document.getElementById('arr-sep-btn').click(); }
+});
+
+document.getElementById('arr-avail-search').addEventListener('input', (e) => {
+  availSearch = e.target.value;
+  renderArrAvailList();
+});
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 

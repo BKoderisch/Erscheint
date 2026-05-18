@@ -677,6 +677,58 @@
       display: flex; flex-wrap: wrap; gap: 5px; min-height: 24px;
     }
 
+    /* ── Separator row in arrangement editor ───────────────────────────────── */
+    .arr-sep-row {
+      background: transparent; border: 1px dashed var(--border-hi);
+      border-radius: var(--radius); padding: 8px 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .arr-sep-text {
+      flex: 1; font-size: .8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em; color: var(--text-2);
+    }
+
+    /* ── Separator in main song list ────────────────────────────────────────── */
+    .song-sep {
+      display: flex; align-items: center; gap: 8px;
+      padding: 2px 0; margin: 2px 0;
+      color: var(--text-3); font-size: .7rem;
+      font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      pointer-events: none;
+    }
+    .song-sep::before, .song-sep::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ── Add separator form ─────────────────────────────────────────────────── */
+    .add-sep-row {
+      display: flex; gap: 8px; margin-top: 10px;
+    }
+    .add-sep-row input { flex: 1; }
+    .add-sep-btn {
+      padding: 9px 14px;
+      background: var(--surf-3); border: 1px solid var(--border-hi);
+      border-radius: var(--radius-sm); color: var(--text-2);
+      font-size: .85rem; white-space: nowrap;
+      transition: background .1s;
+    }
+    .add-sep-btn:hover { background: var(--border-hi); color: var(--text); }
+
+    /* ── Search in available songs ──────────────────────────────────────────── */
+    .avail-search-wrap { position: relative; margin-bottom: 10px; }
+    .avail-search-icon {
+      position: absolute; left: 10px; top: 50%; transform: translateY(-50%);
+      color: var(--text-3); font-size: .85rem; pointer-events: none;
+    }
+    .avail-search {
+      width: 100%; padding: 8px 10px 8px 32px;
+      background: var(--surf-2); border: 1px solid var(--border);
+      border-radius: var(--radius); color: var(--text);
+      font-size: .875rem; outline: none; transition: border-color .15s;
+    }
+    .avail-search:focus { border-color: var(--accent); }
+    .avail-search::placeholder { color: var(--text-3); }
+
     /* ── Responsive ─────────────────────────────────────────────────────────── */
     @media (min-width: 540px) {
       .main { padding: 20px 24px 100px; }
@@ -822,8 +874,16 @@
         </div>
         <span class="section-header">Reihenfolge</span>
         <ul class="arr-song-list" id="arr-song-list"></ul>
+        <div class="add-sep-row">
+          <input class="field" id="arr-sep-input" type="text" placeholder="Trenner-Text (z. B. Begrüßung)">
+          <button class="add-sep-btn" id="arr-sep-btn">+ Trenner</button>
+        </div>
         <div class="divider"></div>
         <span class="section-header">Song hinzufügen</span>
+        <div class="avail-search-wrap">
+          <span class="avail-search-icon">⌕</span>
+          <input class="avail-search" id="arr-avail-search" type="search" placeholder="Songs suchen …" autocomplete="off">
+        </div>
         <ul class="avail-list" id="arr-avail-list"></ul>
         <div class="empty-state" id="arr-avail-empty" style="display:none">
           <div class="empty-state-body">Alle Songs sind bereits im Arrangement.</div>
