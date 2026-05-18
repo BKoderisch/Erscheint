@@ -275,10 +275,6 @@ function renderSongList() {
     li.className = 'song-card' + (song.id === currentSongId ? ' active' : '');
     li.dataset.id = song.id;
 
-    const meta = song.sectionCount
-      ? `${song.sectionCount} ${song.sectionCount === 1 ? 'Abschnitt' : 'Abschnitte'}`
-      : '';
-
     // Highlight query term in matchContext
     let contextHtml = '';
     if (song.matchType === 'content' && song.matchContext) {
@@ -291,7 +287,6 @@ function renderSongList() {
     li.innerHTML = `
       <div class="song-card-body">
         <div class="song-card-title">${escHtml(song.title)}</div>
-        ${meta ? `<div class="song-card-meta">${meta}</div>` : ''}
         ${contextHtml}
         <div class="song-card-labels"></div>
       </div>
