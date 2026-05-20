@@ -114,15 +114,25 @@
       font-size: .7rem; text-transform: uppercase; letter-spacing: .1em;
       color: var(--text-3); padding: 4px 8px 8px;
     }
-    .monitor-item {
-      width: 100%; padding: 9px 12px;
-      background: transparent; border: none;
+    .monitor-item-row {
+      padding: 8px 4px;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .monitor-item-row:last-child { border-bottom: none; }
+    .monitor-item-label {
+      font-size: .85rem; color: var(--text);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .monitor-item-btns { display: flex; gap: 6px; }
+    .monitor-open-btn {
+      flex: 1; padding: 7px 0;
+      background: var(--surf-3); border: 1px solid var(--border);
       border-radius: var(--radius-sm); color: var(--text);
-      text-align: left; font-size: .9rem;
-      display: flex; align-items: center; gap: 10px;
+      font-size: .82rem; font-weight: 600; cursor: pointer;
       transition: background .1s;
     }
-    .monitor-item:hover { background: var(--surf-3); }
+    .monitor-open-btn:hover { background: var(--accent-dim); border-color: var(--accent); color: var(--accent-hi); }
     .monitor-badge {
       font-size: .65rem; background: var(--surf-3); color: var(--text-2);
       padding: 2px 6px; border-radius: 4px; margin-left: auto;
@@ -851,9 +861,7 @@
   <!-- ── Monitor dropdown ───────────────────────────────────────────────────── -->
   <div class="monitor-dropdown" id="monitor-dropdown">
     <div class="monitor-dropdown-title">Display öffnen auf</div>
-    <div id="monitor-items">
-      <button class="monitor-item" onclick="openDisplay(null)">🖥 Standardfenster</button>
-    </div>
+    <div id="monitor-items"></div>
   </div>
 
   <!-- ── Page content ───────────────────────────────────────────────────────── -->

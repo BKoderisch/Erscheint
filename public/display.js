@@ -230,8 +230,8 @@ function buildLayout(container, song, numCols, allowWrap) {
 // ── Binary search ─────────────────────────────────────────────────────────────
 
 function bestFontSize(container, numCols) {
-  const maxH = window.innerHeight * 0.9;
-  const maxW = window.innerWidth * 0.9;
+  const maxH = window.innerHeight * 0.96;
+  const maxW = window.innerWidth * 0.96;
   const cols = numCols > 1 ? [...container.querySelectorAll('.col')] : null;
 
   let lo = 4, hi = 200, best = lo;
@@ -336,3 +336,23 @@ async function shiftPlayKey(delta) {
 }
 
 connect();
+
+// ── Auto-fullscreen ───────────────────────────────────────────────────────────
+(function () {
+  if (new URLSearchParams(location.search).get('fullscreen') !== '1') return;
+  function tryFullscreen() {
+    document.documentElement.requestFullscreen({ navigationUI: 'hide' }).catch(() => {
+      // Activation not available yet — show a tap-to-fullscreen overlay
+      const btn = document.createElement('button');
+      btn.textContent = '⛶ Vollbild';
+      btn.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:14px 28px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:10px;color:#fff;font-size:18px;cursor:pointer;z-index:999;backdrop-filter:blur(8px)';
+      btn.addEventListener('click', () => { document.documentElement.requestFullscreen({ navigationUI: 'hide' }); btn.remove(); }, { once: true });
+      document.body.appendChild(btn);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', tryFullscreen, { once: true });
+  } else {
+    tryFullscreen();
+  }
+})();

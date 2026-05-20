@@ -219,36 +219,73 @@ document.addEventListener('click', () => {
   document.getElementById('monitor-dropdown').classList.remove('open');
 });
 
+// ── Monitor / screen selection ────────────────────────────────────────────────
+
+let screenList = [];
+
 async function loadMonitors() {
-  try {
-    const monitors = await fetch('/api/monitors').then((r) => r.json());
-    if (!monitors || !monitors.length) return;
-    const container = document.getElementById('monitor-items');
-    container.innerHTML = '';
-    monitors.forEach((m, i) => {
-      const btn = document.createElement('button');
-      btn.className = 'monitor-item';
-      btn.innerHTML = `🖥 Monitor ${i + 1}${m.primary ? ' <span class="monitor-badge">Primär</span>' : ''}`;
-      btn.title = `${m.name}  ${m.width}×${m.height}`;
-      btn.addEventListener('click', () => {
-        openDisplay(m);
-        document.getElementById('monitor-dropdown').classList.remove('open');
-      });
-      container.appendChild(btn);
-    });
-  } catch { /* keep default */ }
+  screenList = await getScreenList();
+  renderMonitorDropdown();
 }
 
-function openDisplay(monitor) {
+async function getScreenList() {
+  // 1) Modern Window Management API (Chrome 100+, requires permission)
+  if ('getScreenDetails' in window) {
+    try {
+      const sd = await window.getScreenDetails();
+      return sd.screens.map(s => ({
+        name:    s.label || s.devicePixelRatio ? `${s.width}×${s.height}` : 'Monitor',
+        x:       s.left,
+        y:       s.top,
+        width:   s.width,
+        height:  s.height,
+        primary: sd.currentScreen === s,
+      }));
+    } catch { /* permission denied — fall through */ }
+  }
+  // 2) Server-side (Windows PowerShell)
+  try {
+    const list = await fetch('/api/monitors').then(r => r.json());
+    if (list?.length) return list;
+  } catch {}
+  // 3) Fallback: current screen only
+  return [{ name: 'Aktueller Monitor', x: 0, y: 0, width: screen.width, height: screen.height, primary: true }];
+}
+
+function renderMonitorDropdown() {
+  const container = document.getElementById('monitor-items');
+  container.innerHTML = '';
+  screenList.forEach((m, i) => {
+    const row = document.createElement('div');
+    row.className = 'monitor-item-row';
+    row.innerHTML = `
+      <span class="monitor-item-label">🖥 ${escHtml(m.name || `Monitor ${i+1}`)}${m.primary ? ' <span class="monitor-badge">Primär</span>' : ''}</span>
+      <div class="monitor-item-btns">
+        <button class="monitor-open-btn" data-path="/display">Text</button>
+        <button class="monitor-open-btn" data-path="/chords">Akkorde</button>
+      </div>`;
+    row.querySelectorAll('.monitor-open-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        openDisplay(m, btn.dataset.path);
+        document.getElementById('monitor-dropdown').classList.remove('open');
+      });
+    });
+    container.appendChild(row);
+  });
+}
+
+function openDisplay(monitor, path = '/display') {
+  const url = `${path}?fullscreen=1`;
   const features = monitor
-    ? `left=${monitor.x},top=${monitor.y},width=${monitor.width},height=${monitor.height}`
-    : 'width=1280,height=720';
+    ? `left=${monitor.x},top=${monitor.y},width=${monitor.width},height=${monitor.height},popup=1`
+    : 'width=1280,height=720,popup=1';
+
   if (displayWindow && !displayWindow.closed) {
+    displayWindow.location.href = url;
     displayWindow.focus();
-    if (monitor) { displayWindow.moveTo(monitor.x, monitor.y); displayWindow.resizeTo(monitor.width, monitor.height); }
     return;
   }
-  displayWindow = window.open('/display', 'erscheint-display', features);
+  displayWindow = window.open(url, 'erscheint-display', features);
 }
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
