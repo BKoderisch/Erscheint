@@ -124,9 +124,99 @@
 }
 .meta-btn:hover, .meta-btn:active { background: rgba(255,255,255,.25); color: #fff; }
 
+/* ── Song sidebar ────────────────────────────────────────────────────────── */
+#sidebar-toggle {
+  display: none; /* shown via JS on /chords only */
+  position: fixed; top: 14px; left: 14px; z-index: 30;
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  color: #fff; font-size: 20px; cursor: pointer;
+  align-items: center; justify-content: center;
+  transition: background .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+#sidebar-toggle:hover { background: rgba(255,255,255,.22); }
+
+#sidebar-overlay {
+  display: none; position: fixed; inset: 0; z-index: 40;
+  background: rgba(0,0,0,.55); backdrop-filter: blur(3px);
+}
+#sidebar-overlay.open { display: block; }
+
+#song-sidebar {
+  position: fixed; top: 0; left: 0; bottom: 0; z-index: 50;
+  width: 300px;
+  background: #0a0a12; border-right: 1px solid rgba(255,255,255,.12);
+  display: flex; flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform .25s cubic-bezier(.4,0,.2,1);
+}
+#song-sidebar.open { transform: translateX(0); }
+
+.sidebar-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 16px 14px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  flex-shrink: 0;
+}
+.sidebar-header span {
+  flex: 1; font-size: 13px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+}
+#sidebar-close {
+  background: none; border: none; color: rgba(255,255,255,.5);
+  font-size: 20px; cursor: pointer; padding: 2px 4px; line-height: 1;
+  border-radius: 6px; transition: color .1s;
+}
+#sidebar-close:hover { color: #fff; }
+
+#sidebar-search {
+  margin: 10px 12px 8px; flex-shrink: 0;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px; padding: 9px 12px;
+  color: #fff; font-size: 14px; outline: none;
+  font-family: inherit;
+}
+#sidebar-search::placeholder { color: rgba(255,255,255,.3); }
+#sidebar-search:focus { border-color: rgba(255,255,255,.3); }
+
+#sidebar-list {
+  flex: 1; overflow-y: auto; list-style: none;
+  padding: 4px 8px 16px;
+}
+#sidebar-list::-webkit-scrollbar { width: 4px; }
+#sidebar-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
+
+.sidebar-song {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 10px; border-radius: 8px;
+  cursor: pointer; gap: 8px;
+  transition: background .1s;
+  -webkit-tap-highlight-color: transparent;
+}
+.sidebar-song:hover  { background: rgba(255,255,255,.09); }
+.sidebar-song.active { background: rgba(255,255,255,.13); }
+.sidebar-song-title  { flex: 1; font-size: 14px; font-weight: 600; color: #fff; }
+.sidebar-song-key    { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.4);
+                       background: rgba(255,255,255,.08); padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+.sidebar-empty       { padding: 20px 10px; font-size: 13px; color: rgba(255,255,255,.3); text-align: center; }
+
   </style>
 </head>
 <body>
+  <button id="sidebar-toggle" title="Songs">☰</button>
+
+  <div id="sidebar-overlay"></div>
+  <div id="song-sidebar">
+    <div class="sidebar-header">
+      <span>Songs</span>
+      <button id="sidebar-close" title="Schließen">✕</button>
+    </div>
+    <input id="sidebar-search" type="search" placeholder="Suchen …" autocomplete="off">
+    <ul id="sidebar-list"></ul>
+  </div>
+
   <div id="lyrics-container"></div>
 
   <div class="meta-overlay" id="meta-overlay" style="display:none">

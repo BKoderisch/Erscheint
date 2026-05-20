@@ -65,10 +65,16 @@ function updateTranspose() {
 
 // ── WebSocket ─────────────────────────────────────────────────────────────────
 
+let ws = null;
+
+function send(msg) {
+  if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify(msg));
+}
+
 function connect() {
-  const ws = new WebSocket(`ws://${location.host}`);
+  ws = new WebSocket(`ws://${location.host}`);
   ws.onmessage = (e) => handleMessage(JSON.parse(e.data));
-  ws.onclose   = () => setTimeout(connect, 2000);
+  ws.onclose   = () => { ws = null; setTimeout(connect, 2000); };
   ws.onerror   = () => ws.close();
 }
 
@@ -336,6 +342,80 @@ async function shiftPlayKey(delta) {
 }
 
 connect();
+
+// ── Song sidebar (chords page only) ──────────────────────────────────────────
+
+if (showChords) {
+  let sidebarSongs = [];
+  let sidebarOpen  = false;
+
+  const sidebar    = document.getElementById('song-sidebar');
+  const overlay    = document.getElementById('sidebar-overlay');
+  const toggleBtn  = document.getElementById('sidebar-toggle');
+  const closeBtn   = document.getElementById('sidebar-close');
+  const searchEl   = document.getElementById('sidebar-search');
+  const listEl     = document.getElementById('sidebar-list');
+
+  function openSidebar() {
+    sidebarOpen = true;
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    searchEl.value = '';
+    searchEl.focus();
+    renderSidebarList('');
+  }
+
+  function closeSidebar() {
+    sidebarOpen = false;
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  }
+
+  function renderSidebarList(query) {
+    const q = query.trim().toLowerCase();
+    const filtered = q
+      ? sidebarSongs.filter(s => s.title.toLowerCase().includes(q))
+      : sidebarSongs;
+
+    listEl.innerHTML = '';
+    for (const song of filtered) {
+      const li = document.createElement('li');
+      li.className = 'sidebar-song' + (song.id === currentSongId ? ' active' : '');
+      li.innerHTML = `<span class="sidebar-song-title">${escSidebar(song.title)}</span>`
+        + (song.key ? `<span class="sidebar-song-key">${escSidebar(song.playKey || song.key)}</span>` : '');
+      li.addEventListener('click', () => {
+        send({ type: 'show_song', songId: song.id });
+        closeSidebar();
+      });
+      listEl.appendChild(li);
+    }
+    if (!filtered.length) {
+      const li = document.createElement('li');
+      li.className = 'sidebar-empty';
+      li.textContent = 'Keine Songs gefunden';
+      listEl.appendChild(li);
+    }
+  }
+
+  function escSidebar(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  async function loadSidebarSongs() {
+    try {
+      sidebarSongs = await fetch('/api/songs').then(r => r.json());
+    } catch { sidebarSongs = []; }
+  }
+
+  toggleBtn.style.display = 'flex';
+  toggleBtn.addEventListener('click', () => sidebarOpen ? closeSidebar() : openSidebar());
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  searchEl.addEventListener('input', () => renderSidebarList(searchEl.value));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebarOpen) closeSidebar(); });
+
+  loadSidebarSongs();
+}
 
 // ── Auto-fullscreen ───────────────────────────────────────────────────────────
 (function () {
