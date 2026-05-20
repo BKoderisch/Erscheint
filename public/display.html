@@ -9,14 +9,15 @@
     body {
       background: #000;
       color: #fff;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      font-weight: 500;
+      font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
+      font-weight: 600;
       width: 100vw;
       height: 100vh;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      -webkit-font-smoothing: antialiased;
     }
 
     #lyrics-container {
@@ -24,7 +25,7 @@
       max-height: 96vh;
       text-align: left;
       overflow: hidden;
-      line-height: 1.4;
+      line-height: 1.5;
       column-gap: 4vw;
       /* white-space and display are set dynamically by display.js */
     }
@@ -86,7 +87,9 @@
 
     .lyric-line {
       display: block;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 24px rgba(255,255,255,.18);
     }
 
 /* ── Chord display ───────────────────────────────────────────────────────── */
