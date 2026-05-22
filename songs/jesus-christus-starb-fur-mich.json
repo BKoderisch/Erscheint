@@ -7,7 +7,11 @@
   "capo": 0,
   "tempo": null,
   "playKey": "Em",
-  "labels": [],
+  "labels": [
+    "Kreuz",
+    "Ostern",
+    "Bekenntnis"
+  ],
   "sections": [
     {
       "label": "Verse 1",

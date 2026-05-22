@@ -1,0 +1,79 @@
+{
+  "id": "glauben",
+  "title": "Glauben",
+  "subtitle": "",
+  "artist": "Felix Kittke",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [
+    "Glaube",
+    "Ermutigung"
+  ],
+  "rawText": "{c: VERSE 1}\nDu [Am7]sagst hab keine Angst\nwirf die [G/B]Sorgen tief ins Meer\nDu [C2]hast für mich bezahlt\nkeine [G]Last ist dir zu schw[D]er  [D4]\n{eop}\n\n{c: PRECHORUS}\n[Am7]Ich habe dich erlebt\nwie du [Cmaj7]sorgst aus deiner Hand\ndass du [G/B]alles für mich gibst\nübers[D]teigt meinen Verstand    [D4]\n{eop}\n\n{soc}\n[Em7]Ich glaube, du sieh[C2]st mich\nIch glaube, du füh[G]rst mich\nIch glaube, wenn ich fall[Bm7] hebst du mich wieder auf\n[Em7]Ich glaube, du wills[C2]t mich\nIch glaube, du lieb[G]st mich\nIch glaube, wenn ich fall[Bm7] hebst du mich wieder auf\n[C2]Ich glaube, I[G/B]ch glaube, i[Em7]ch glaube     [D]\n{eoc}\n\n{c: VERSE 2}\nIch [Am7]habe dich erkannt\nja, ich l[G/B]aufe auf dich zu\nJesus, d[C2]u wirst mit mir gehen\nmein [G]bester Freund bist d[D]u    [D4]\n{eop}\n\n{c: BRIDGE}\nJesus [Am7]in deinem Namen müssen [C2(#11)]alle Zweifel fliehen\ndu h[G/B]ast den Feind besiegt, bef[D4]reit kann ich jetzt fliegen\nwie ein [Am7]Adler segle ich fest im G[C2(#11)]lauben auf dich zu\nbei d[D4]ir bin ich geborgen deine [D]Liebe deckt mich zu\n{eop}\n\nJesus, [Am7]auf dich allein setze [C2(#11)]ich all mein Vertrauen\nich [G/B]weiß du bist der Einzige a[D4]uf dich kann ich bauen\n[Am7]immer wieder neu leg ich [C2(#11)]alles vor dich hin\n[D4]dir gehört mein Leben und[D] alles was ich bin\n\n{soc}\n[Em7]Alle Ehre und a[C2]ll mein Lob\nge[Gmaj7]bühren dir allein, meinem [Bm7]König, meinem Gott\n[Em7]Halleluja, [C2]rufe ich dir zu\nIch h[Gmaj7]ör nicht auf zu preisen, ja, der [Bm7]Grund dafür bist du\n{eoc}",
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Du [Am7]sagst hab keine Angst",
+        "wirf die [G/B]Sorgen tief ins Meer",
+        "Du [C2]hast für mich bezahlt",
+        "keine [G]Last ist dir zu schw[D]er  [D4]"
+      ]
+    },
+    {
+      "label": "PRECHORUS",
+      "lines": [
+        "[Am7]Ich habe dich erlebt",
+        "wie du [Cmaj7]sorgst aus deiner Hand",
+        "dass du [G/B]alles für mich gibst",
+        "übers[D]teigt meinen Verstand    [D4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Em7]Ich glaube, du sieh[C2]st mich",
+        "Ich glaube, du füh[G]rst mich",
+        "Ich glaube, wenn ich fall[Bm7] hebst du mich wieder auf",
+        "[Em7]Ich glaube, du wills[C2]t mich",
+        "Ich glaube, du lieb[G]st mich",
+        "Ich glaube, wenn ich fall[Bm7] hebst du mich wieder auf",
+        "[C2]Ich glaube, I[G/B]ch glaube, i[Em7]ch glaube     [D]"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Ich [Am7]habe dich erkannt",
+        "ja, ich l[G/B]aufe auf dich zu",
+        "Jesus, d[C2]u wirst mit mir gehen",
+        "mein [G]bester Freund bist d[D]u    [D4]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Jesus [Am7]in deinem Namen müssen [C2(#11)]alle Zweifel fliehen",
+        "du h[G/B]ast den Feind besiegt, bef[D4]reit kann ich jetzt fliegen",
+        "wie ein [Am7]Adler segle ich fest im G[C2(#11)]lauben auf dich zu",
+        "bei d[D4]ir bin ich geborgen deine [D]Liebe deckt mich zu",
+        "",
+        "Jesus, [Am7]auf dich allein setze [C2(#11)]ich all mein Vertrauen",
+        "ich [G/B]weiß du bist der Einzige a[D4]uf dich kann ich bauen",
+        "[Am7]immer wieder neu leg ich [C2(#11)]alles vor dich hin",
+        "[D4]dir gehört mein Leben und[D] alles was ich bin"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Em7]Alle Ehre und a[C2]ll mein Lob",
+        "ge[Gmaj7]bühren dir allein, meinem [Bm7]König, meinem Gott",
+        "[Em7]Halleluja, [C2]rufe ich dir zu",
+        "Ich h[Gmaj7]ör nicht auf zu preisen, ja, der [Bm7]Grund dafür bist du"
+      ]
+    }
+  ]
+}

@@ -7,7 +7,11 @@
   "capo": 0,
   "tempo": null,
   "playKey": "G",
-  "labels": [],
+  "labels": [
+    "Kreuz",
+    "Anbetung",
+    "Dankbarkeit"
+  ],
   "sections": [
     {
       "label": "VERSE 1",

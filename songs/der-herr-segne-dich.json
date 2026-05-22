@@ -1,0 +1,60 @@
+{
+  "id": "der-herr-segne-dich",
+  "title": "Der Herr segne dich",
+  "subtitle": "The Blessing",
+  "artist": "",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [
+    "Segen",
+    "Gemeinschaft"
+  ],
+  "rawText": "{c: VERSE}\n[D]Der Herr segne dich un[G2]d behüte dich\n[D]lass sein Angesicht leuch[A4]ten und sei gnädig mit dir\n[Bm7]Sein Angesicht se[G2]i dir zugewandt\n[D]Fried[A4]e mit [D]dir   [A4/C#]\n{eop}\n\n{soc}\n[Bm7]Amen   [G2]\nAm[D]en, Am[A4]en\n{eoc}\n\n{c: BRIDGE}\nSeine G[Bm7]unst sei immer auf dir\nund auf t[G2]ausend derer nach dir\nauf den K[D]indern deiner Kinder\nund den K[A4]indern ihrer Kinder\n{eop}\n\nDer Herr s[Bm7]elbst sei immer mit dir\ngehe v[G2]or dir und auch nach dir\nEr sei u[D]m dich und durchdring dich\nEr ist m[A4]it dir, Er ist mit dir\n\njeden M[Bm7]orgen, jeden Abend\nwenn du k[G2]ommst und wenn du gehst und\nwenn du w[D]einst und wenn du jubelst\nEr ist f[A4]ür dich, Er ist für dich\n\n{c: ENDING}\nEr ist f[Bm7]ür dich, Er ist für dich\nEr ist f[G2]ür dich, Er ist für dich\nEr ist f[D]ür dich, Er ist für dich [A4]\n{eop}",
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "[D]Der Herr segne dich un[G2]d behüte dich",
+        "[D]lass sein Angesicht leuch[A4]ten und sei gnädig mit dir",
+        "[Bm7]Sein Angesicht se[G2]i dir zugewandt",
+        "[D]Fried[A4]e mit [D]dir   [A4/C#]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Bm7]Amen   [G2]",
+        "Am[D]en, Am[A4]en"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Seine G[Bm7]unst sei immer auf dir",
+        "und auf t[G2]ausend derer nach dir",
+        "auf den K[D]indern deiner Kinder",
+        "und den K[A4]indern ihrer Kinder",
+        "",
+        "Der Herr s[Bm7]elbst sei immer mit dir",
+        "gehe v[G2]or dir und auch nach dir",
+        "Er sei u[D]m dich und durchdring dich",
+        "Er ist m[A4]it dir, Er ist mit dir",
+        "",
+        "jeden M[Bm7]orgen, jeden Abend",
+        "wenn du k[G2]ommst und wenn du gehst und",
+        "wenn du w[D]einst und wenn du jubelst",
+        "Er ist f[A4]ür dich, Er ist für dich"
+      ]
+    },
+    {
+      "label": "ENDING",
+      "lines": [
+        "Er ist f[Bm7]ür dich, Er ist für dich",
+        "Er ist f[G2]ür dich, Er ist für dich",
+        "Er ist f[D]ür dich, Er ist für dich [A4]"
+      ]
+    }
+  ]
+}

@@ -1,7 +1,11 @@
 {
   "id": "all-i-need-is-you",
   "title": "All I need is you",
-  "labels": [],
+  "labels": [
+    "Anbetung",
+    "Hingabe",
+    "Englisch"
+  ],
   "sections": [
     {
       "label": "Verse 1",

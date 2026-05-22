@@ -1,0 +1,72 @@
+{
+  "id": "vereint-als-christi-leib",
+  "title": "Vereint als Christi Leib",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [
+    "Gemeinschaft",
+    "Anbetung"
+  ],
+  "rawText": "{c: Intro}\n[C2]     [Em7]      [D4]     [G/B]\n[C2]     [Em7]      [D4]\n\n{c: Verse 1}\nSieh wie dein V[C2]olk\nanbetend [Em7]vor dir [D4]steht\nund [G/B]lieblicher [C2]Duft\nWie Weihrauch [Em7]sich erh[D4]ebt\n\n{c: Verse 2}\nOh sieh wie dein V[Am7]olk\nvoll S[Em7]ehnsucht vor dir st[D4]eht\nMit [G/B]Liebe erf[C2]üllt\nNur deinen [Em7]Namen e[D4]hrt\n\n{c: Prechorus}\n[C2]   Vereint als Christi L[Em7]eib\n[D4]   Vereint Dich anzu[G/B]beten\n[C2]   In Wahrheit und im G[Em7]eist\n[D4]Wir wolln mehr\n\n{c: Chorus}\n[G]   Wir wolln den König s[D/F#]ehen\n[Em7]   Füll unser Land mit deiner [Am7]Herrlichkeit\n[G/B]Deiner H[C2]errlichkeit\n[G]   Die ganze Schöpfung p[D/F#]reist\n[Em7]   Den Vater Sohn und Geist in [Am7]Ewigkeit\n[G/B]Bis in [C2]Ewigk[D4]eit\n\n{c: Verse 3}\nHör wir dein V[C2]olk\ndir neue Li[Em7]eder si[D4]ngt\nEin [G/B]Klang der bez[C2]eugt\nPreist den H[Em7]errn er hat ges[D4]iegt\n\n{c: Bridge}\nIhm sei [C2]Ehre alle Z[G/B]eit\nAlle St[Em7]immen singt ver[D]eint\nHallel[C2]ujah unser K[G/B]önig triumph[D4]iert",
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "Sieh wie dein V[C2]olk",
+        "anbetend [Em7]vor dir [D4]steht",
+        "und [G/B]lieblicher [C2]Duft",
+        "Wie Weihrauch [Em7]sich erh[D4]ebt"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "Oh sieh wie dein V[Am7]olk",
+        "voll S[Em7]ehnsucht vor dir st[D4]eht",
+        "Mit [G/B]Liebe erf[C2]üllt",
+        "Nur deinen [Em7]Namen e[D4]hrt"
+      ]
+    },
+    {
+      "label": "Prechorus",
+      "lines": [
+        "[C2]   Vereint als Christi L[Em7]eib",
+        "[D4]   Vereint Dich anzu[G/B]beten",
+        "[C2]   In Wahrheit und im G[Em7]eist",
+        "[D4]Wir wolln mehr"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]   Wir wolln den König s[D/F#]ehen",
+        "[Em7]   Füll unser Land mit deiner [Am7]Herrlichkeit",
+        "[G/B]Deiner H[C2]errlichkeit",
+        "[G]   Die ganze Schöpfung p[D/F#]reist",
+        "[Em7]   Den Vater Sohn und Geist in [Am7]Ewigkeit",
+        "[G/B]Bis in [C2]Ewigk[D4]eit"
+      ]
+    },
+    {
+      "label": "Verse 3",
+      "lines": [
+        "Hör wir dein V[C2]olk",
+        "dir neue Li[Em7]eder si[D4]ngt",
+        "Ein [G/B]Klang der bez[C2]eugt",
+        "Preist den H[Em7]errn er hat ges[D4]iegt"
+      ]
+    },
+    {
+      "label": "Bridge",
+      "lines": [
+        "Ihm sei [C2]Ehre alle Z[G/B]eit",
+        "Alle St[Em7]immen singt ver[D]eint",
+        "Hallel[C2]ujah unser K[G/B]önig triumph[D4]iert"
+      ]
+    }
+  ]
+}

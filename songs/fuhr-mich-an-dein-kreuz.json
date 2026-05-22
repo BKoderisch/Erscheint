@@ -7,7 +7,11 @@
   "capo": 0,
   "tempo": null,
   "playKey": "C",
-  "labels": [],
+  "labels": [
+    "Kreuz",
+    "Gebet",
+    "Hingabe"
+  ],
   "sections": [
     {
       "label": "VERSE 1",

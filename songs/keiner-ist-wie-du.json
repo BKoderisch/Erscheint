@@ -7,7 +7,9 @@
   "capo": 0,
   "tempo": null,
   "playKey": "C",
-  "labels": [],
+  "labels": [
+    "Anbetung"
+  ],
   "rawText": "{soc}\n[C]   Keiner [G/B]ist wie [F/A]  du  [C/G] \n[F]   Niemand [C/E]sonst berührt mein [Dm7]Herz so wie [Dm7/G]du     [G] \n[C]   Wo auch [G/B]immer ich noch [Gm/A#]suchte o [F/A]Herr\nEs [C/G]bleibt     keiner [F/G]ist    [G]wie    [C]   du \n{eoc}\n\nINSTRUMENTAL\n[|]  [Am]     [F2]     [|]  [C/G]     [Gsus]  [G]  [|]  \n\n{c: VERS}\nEr - [Fmaj7]barmen    [F/G]fließt wie ein [C]weiter [Am7]Strom \nUnd [Dm7]Heilung [G2/B]strömt aus deiner [C]Hand     [C2/E] \n[Fmaj7]Kinder mit [F/G]Wunden sind [C]sicher bei [Am7]dir \n[Dm]   Keiner [F/C]ist wie |  [G/B]du     [F2/A]   [G]  |",
   "sections": [
     {

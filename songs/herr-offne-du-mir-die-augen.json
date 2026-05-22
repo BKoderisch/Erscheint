@@ -7,7 +7,10 @@
   "capo": 0,
   "tempo": null,
   "playKey": "E",
-  "labels": [],
+  "labels": [
+    "Gebet",
+    "Heiliger Geist"
+  ],
   "sections": [
     {
       "label": "Chorus",

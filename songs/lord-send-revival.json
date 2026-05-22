@@ -1,0 +1,64 @@
+{
+  "id": "lord-send-revival",
+  "title": "Lord send revival",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [
+    "Erneuerung",
+    "Gebet",
+    "Englisch"
+  ],
+  "rawText": "{c: Verse 1}\n[C2]  Peace like a r[G]iver wash ove[D4]r me\n[C2]  Immerse me in wa[G]ter as deep as th[D4]e sea\n[C2]  Hide me in lo[G]ve, Your healing em[D4]brace\nPeace like a [C2]river,   [G]    wash ove[D4]r me\n\n{c: Chorus}\nAs I worship Your m[C2]ajesty    [G]\nI worship Your [D]ho - [D4]ly Na[D]me\nJesus, my e[C]verything  [G]\nAll that I [D]am    [D4]is    Y[D]ours\n\n{c: Verse 2}\n[C2]  Come Holy Spi[G]rit, rain down on [D4] me\n[C2]  Break open the h[G]eavens and drench the u[D4]nseen\n[C2]  Pour out Your pr[G]esence as I pour out You[D4]r praise\nCome Holy S[C2]pirit,  [G]    Lord, have You[D4]r way\n\n{c: Bridge 1}\n[C2]  Open the h[G]eavens, fling wide the g[D4]ates\n[D]Flood ev'ry [D4]heart with m[D]ercy\n[C2]  Pour out Your pr[G]esence, inhabit our pr[D4]aise\nAs [D]we cry h[D4]oly, [G/B]holy\n[C2]  Who[G]a, who[D]a, as we cry, holy, [G/B]holy\n\n{c: Bridge 2}\n[G/B]Lord, send rev[C2]ival, Lord, send it n[G]ow\nA move of Your S[D]pirit, heaven break out\nCome now in p[C2]ower, cover this la[G]nd\nLike You've done it bef[D]ore, would You do it again?",
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "[C2]  Peace like a r[G]iver wash ove[D4]r me",
+        "[C2]  Immerse me in wa[G]ter as deep as th[D4]e sea",
+        "[C2]  Hide me in lo[G]ve, Your healing em[D4]brace",
+        "Peace like a [C2]river,   [G]    wash ove[D4]r me"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "As I worship Your m[C2]ajesty    [G]",
+        "I worship Your [D]ho - [D4]ly Na[D]me",
+        "Jesus, my e[C]verything  [G]",
+        "All that I [D]am    [D4]is    Y[D]ours"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "[C2]  Come Holy Spi[G]rit, rain down on [D4] me",
+        "[C2]  Break open the h[G]eavens and drench the u[D4]nseen",
+        "[C2]  Pour out Your pr[G]esence as I pour out You[D4]r praise",
+        "Come Holy S[C2]pirit,  [G]    Lord, have You[D4]r way"
+      ]
+    },
+    {
+      "label": "Bridge 1",
+      "lines": [
+        "[C2]  Open the h[G]eavens, fling wide the g[D4]ates",
+        "[D]Flood ev'ry [D4]heart with m[D]ercy",
+        "[C2]  Pour out Your pr[G]esence, inhabit our pr[D4]aise",
+        "As [D]we cry h[D4]oly, [G/B]holy",
+        "[C2]  Who[G]a, who[D]a, as we cry, holy, [G/B]holy"
+      ]
+    },
+    {
+      "label": "Bridge 2",
+      "lines": [
+        "[G/B]Lord, send rev[C2]ival, Lord, send it n[G]ow",
+        "A move of Your S[D]pirit, heaven break out",
+        "Come now in p[C2]ower, cover this la[G]nd",
+        "Like You've done it bef[D]ore, would You do it again?"
+      ]
+    }
+  ]
+}

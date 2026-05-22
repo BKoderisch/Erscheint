@@ -7,7 +7,10 @@
   "capo": 0,
   "tempo": null,
   "playKey": "C",
-  "labels": [],
+  "labels": [
+    "Bekenntnis",
+    "Lobpreis"
+  ],
   "sections": [
     {
       "label": "Vers 1",

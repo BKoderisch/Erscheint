@@ -7,7 +7,10 @@
   "capo": 0,
   "tempo": null,
   "playKey": "G",
-  "labels": [],
+  "labels": [
+    "Identität",
+    "Lobpreis"
+  ],
   "sections": [
     {
       "label": "VERSE 1",

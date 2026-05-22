@@ -1,0 +1,60 @@
+{
+  "id": "freudenol-statt-tranen",
+  "title": "Freudenöl statt Tränen",
+  "subtitle": "",
+  "artist": "Timo Langner",
+  "key": "Ab",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "Ab",
+  "labels": [
+    "Heiliger Geist",
+    "Ermutigung"
+  ],
+  "rawText": "VERS 1\nIch r[Fm]ufe Freiheit aus,\nStoße K[Cm7]erkertüren auf\nUnd [Db]dir gehört mein [Ab]Lobpreis\nKannst T[Fm]otes neu beleben,\nSchenkst F[Cm7]reudenöl statt Tränen\nUnd [Db]dir gehört mein [Ab]Lobpreis\n\n{soc}\n[Fm]Manchmal da kann ich nicht [Cm]anders\nDa muss ich meine [Db2]Beine bewegen\nMeine [Ab]Hände zum Himmel heben\n[Fm]Manchmal da muss es einfach [Cm]raus\nDa sing ich [Db2]oh oh oh oh [Ab]oh (oh)\n\n\n \nVERS 2\nVer[Fm]wandelst meine Klage\nIn e[Cm7]inen Freudentanz\nUnd [Db]dir gehört mein [Ab]Lobpreis\nNimmst [Fm]meine Trauerkleider,\nGibst [Cm7]mir ein Festgewand\n[Db]Dir gehört mein [Ab]Lobpreis\n\n{c:bridge}\n[Fm]Wenn du mir [Cm7]nah bist \nDann \u0000find ich [Db2]Frieden, dann \u0000find ich [Ab]Freude\n[Fm]Wenn du mir [Cm7]nah bist, \nWeiß mich ge[Db2]borgen, fühl mich ge[Ab]tragen\nIch [Fm]liebe dich, ich [Cm7]liebe dich, \nIch [Db2]liebe dich, Herr ich [Ab]liebe dich",
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "Ich r[Fm]ufe Freiheit aus,",
+        "Stoße K[Cm7]erkertüren auf",
+        "Und [Db]dir gehört mein [Ab]Lobpreis",
+        "Kannst T[Fm]otes neu beleben,",
+        "Schenkst F[Cm7]reudenöl statt Tränen",
+        "Und [Db]dir gehört mein [Ab]Lobpreis"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[Fm]Manchmal da kann ich nicht [Cm]anders",
+        "Da muss ich meine [Db2]Beine bewegen",
+        "Meine [Ab]Hände zum Himmel heben",
+        "[Fm]Manchmal da muss es einfach [Cm]raus",
+        "Da sing ich [Db2]oh oh oh oh [Ab]oh (oh)"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "Ver[Fm]wandelst meine Klage",
+        "In e[Cm7]inen Freudentanz",
+        "Und [Db]dir gehört mein [Ab]Lobpreis",
+        "Nimmst [Fm]meine Trauerkleider,",
+        "Gibst [Cm7]mir ein Festgewand",
+        "[Db]Dir gehört mein [Ab]Lobpreis"
+      ]
+    },
+    {
+      "label": "bridge",
+      "lines": [
+        "[Fm]Wenn du mir [Cm7]nah bist",
+        "Dann \u0000find ich [Db2]Frieden, dann \u0000find ich [Ab]Freude",
+        "[Fm]Wenn du mir [Cm7]nah bist,",
+        "Weiß mich ge[Db2]borgen, fühl mich ge[Ab]tragen",
+        "Ich [Fm]liebe dich, ich [Cm7]liebe dich,",
+        "Ich [Db2]liebe dich, Herr ich [Ab]liebe dich"
+      ]
+    }
+  ]
+}

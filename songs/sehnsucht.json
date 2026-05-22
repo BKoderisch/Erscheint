@@ -1,0 +1,64 @@
+{
+  "id": "sehnsucht",
+  "title": "Sehnsucht",
+  "subtitle": "",
+  "artist": "",
+  "key": "Am",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "Am",
+  "labels": [
+    "Hingabe",
+    "Gebet"
+  ],
+  "rawText": "{c: Verse 1}\nDa brennt ein F[Am]euer in meinem H[F]erzen,\nDas mich verz[G]ehrt, immer m[Am]ehr\nDieses F[Am]euer ist unaufh[F]altsam\nBrennt tief in m[G]ir, zieht mich zu d[Am]ir\n\n{c: PreChorus}\n[Am]Alles in mir schreit, [F]alles in mir schreit nach d[G]ir, nach J[Dm]esus\n\n{c: Chorus 1}\n[Am]Du bist der, den meine S[Fmaj7]eele liebt\n[C]Die Antwort auf meine S[G]ehnsucht\n\n{c: Verse 2}\nIn deiner L[Am]iebe, hier bei [F]dir\nVerlier ich m[G]ich, find mich in d[Am]ir\nEs gibt nichts [Am]anderes, was mich e[F]rfüllt\nAls dich zu s[G]eh‘n unverh[Am]üllt\n\n{c: Bridge}\n[F]  Ich spür den Bli[G]ck, der immer auf mir ru[Am]ht,\nDein Herz das sch[Em]reit, das immer nach mir su[F]cht\nDie Stimme, di[G]e im Inneren nach mir ru[Am]ft\nDenn du und ich sind ei[Em]ns, Jesu[F]s\n\n{c: CHORUS 2}\n[F]Du bist der, den meine S[C]eele liebt\n[Am]Die Antwort auf meine S[G]ehnsucht",
+  "sections": [
+    {
+      "label": "Verse 1",
+      "lines": [
+        "Da brennt ein F[Am]euer in meinem H[F]erzen,",
+        "Das mich verz[G]ehrt, immer m[Am]ehr",
+        "Dieses F[Am]euer ist unaufh[F]altsam",
+        "Brennt tief in m[G]ir, zieht mich zu d[Am]ir"
+      ]
+    },
+    {
+      "label": "PreChorus",
+      "lines": [
+        "[Am]Alles in mir schreit, [F]alles in mir schreit nach d[G]ir, nach J[Dm]esus"
+      ]
+    },
+    {
+      "label": "Chorus 1",
+      "lines": [
+        "[Am]Du bist der, den meine S[Fmaj7]eele liebt",
+        "[C]Die Antwort auf meine S[G]ehnsucht"
+      ]
+    },
+    {
+      "label": "Verse 2",
+      "lines": [
+        "In deiner L[Am]iebe, hier bei [F]dir",
+        "Verlier ich m[G]ich, find mich in d[Am]ir",
+        "Es gibt nichts [Am]anderes, was mich e[F]rfüllt",
+        "Als dich zu s[G]eh‘n unverh[Am]üllt"
+      ]
+    },
+    {
+      "label": "Bridge",
+      "lines": [
+        "[F]  Ich spür den Bli[G]ck, der immer auf mir ru[Am]ht,",
+        "Dein Herz das sch[Em]reit, das immer nach mir su[F]cht",
+        "Die Stimme, di[G]e im Inneren nach mir ru[Am]ft",
+        "Denn du und ich sind ei[Em]ns, Jesu[F]s"
+      ]
+    },
+    {
+      "label": "CHORUS 2",
+      "lines": [
+        "[F]Du bist der, den meine S[C]eele liebt",
+        "[Am]Die Antwort auf meine S[G]ehnsucht"
+      ]
+    }
+  ]
+}

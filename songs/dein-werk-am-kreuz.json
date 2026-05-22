@@ -7,7 +7,11 @@
   "capo": 0,
   "tempo": null,
   "playKey": "E",
-  "labels": [],
+  "labels": [
+    "Kreuz",
+    "Gnade",
+    "Ostern"
+  ],
   "sections": [
     {
       "label": "Verse 1",

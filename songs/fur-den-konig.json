@@ -7,7 +7,10 @@
   "capo": 0,
   "tempo": null,
   "playKey": "A",
-  "labels": [],
+  "labels": [
+    "Lobpreis",
+    "Hingabe"
+  ],
   "sections": [
     {
       "label": "VERSE 1",
