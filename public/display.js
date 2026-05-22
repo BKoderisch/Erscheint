@@ -1,6 +1,8 @@
-let currentSongId = null;
-let currentSong   = null;
-const showChords  = location.pathname.startsWith('/chords');
+let currentSongId  = null;  // song the musician sees locally
+let currentSong    = null;
+let beamerSongId   = null;  // song currently on the beamer (from WS)
+let previewPlayKey = null;  // playKey of the locally previewed song
+const showChords   = location.pathname.startsWith('/chords');
 
 // ── Transposition ─────────────────────────────────────────────────────────────
 
@@ -80,14 +82,26 @@ function connect() {
 
 async function handleMessage(msg) {
   if (msg.type === 'blank') {
-    showBlank();
+    const wasPreview = showChords && currentSongId !== null && currentSongId !== beamerSongId;
+    beamerSongId = null;
+    if (!wasPreview) showBlank();
+    else updateBeamerBtn();
   } else if (msg.type === 'song') {
     const wsPlayKey = msg.playKey || null;
     const wsCapo    = msg.capo ?? null;
-    const sameKey   = wsPlayKey === (currentSong?._wsPlayKey ?? null);
-    const sameCapo  = wsCapo    === (currentSong?._wsCapo    ?? null);
+    beamerSongId = msg.songId;
+
+    // On /chords: don't overwrite local preview with beamer state
+    if (showChords && currentSongId !== null && currentSongId !== msg.songId) {
+      updateBeamerBtn();
+      return;
+    }
+
+    const sameKey  = wsPlayKey === (currentSong?._wsPlayKey ?? null);
+    const sameCapo = wsCapo    === (currentSong?._wsCapo    ?? null);
     if (msg.songId === currentSongId && sameKey && sameCapo) return;
-    currentSongId = msg.songId;
+    currentSongId  = msg.songId;
+    previewPlayKey = null;
     try {
       const res = await fetch(`/api/songs/${msg.songId}`);
       if (!res.ok) { showBlank(); return; }
@@ -96,15 +110,39 @@ async function handleMessage(msg) {
       currentSong._wsCapo    = msg.capo ?? null;
       applyBestLayout();
       updateMetaOverlay();
+      updateBeamerBtn();
     } catch { showBlank(); }
   }
 }
 
 function showBlank() {
-  currentSongId = null;
-  currentSong   = null;
+  currentSongId  = null;
+  currentSong    = null;
+  previewPlayKey = null;
   document.getElementById('lyrics-container').innerHTML = '';
   updateMetaOverlay();
+  updateBeamerBtn();
+}
+
+function updateBeamerBtn() {
+  if (!showChords) return;
+  const btn = document.getElementById('beamer-btn');
+  btn.style.display = (currentSongId && currentSongId !== beamerSongId) ? 'flex' : 'none';
+}
+
+async function loadSongLocally(id, playKey) {
+  try {
+    const res = await fetch(`/api/songs/${id}`);
+    if (!res.ok) return;
+    currentSong = await res.json();
+    currentSongId  = id;
+    previewPlayKey = playKey || null;
+    currentSong._wsPlayKey = playKey || null;
+    currentSong._wsCapo    = null;
+    applyBestLayout();
+    updateMetaOverlay();
+    updateBeamerBtn();
+  } catch {}
 }
 
 // ── Chord helpers ─────────────────────────────────────────────────────────────
@@ -410,8 +448,7 @@ if (showChords) {
         `<span class="sidebar-song-title">${escSidebar(song.title)}</span>` +
         (keyLabel ? `<span class="sidebar-song-key">${escSidebar(keyLabel)}</span>` : '');
       li.addEventListener('click', () => {
-        const pk = song._playKey || undefined;
-        send({ type: 'show_song', songId: song.id, ...(pk ? { playKey: pk } : {}) });
+        loadSongLocally(song.id, song._playKey || null);
         closeSidebar();
       });
       listEl.appendChild(li);
@@ -455,11 +492,12 @@ if (showChords) {
       : idx + delta;
     if (next < 0 || next >= currentOrder.length) return;
     const song = currentOrder[next];
-    const pk = song._playKey || undefined;
-    send({ type: 'show_song', songId: song.id, ...(pk ? { playKey: pk } : {}) });
+    loadSongLocally(song.id, song._playKey || null);
   }
 
   // ── Load data ──────────────────────────────────────────────────────────────
+
+  const ARR_PREF_KEY = 'erscheint-chords-arr';
 
   async function loadSidebarData() {
     try {
@@ -468,6 +506,15 @@ if (showChords) {
         fetch('/api/arrangements').then(r => r.json()),
       ]);
     } catch { allSongs = []; arrangements = []; }
+
+    // Prefer last used arrangement, then auto-select if only one exists
+    const saved = localStorage.getItem(ARR_PREF_KEY);
+    if (saved && arrangements.find(a => a.id === saved)) {
+      activeArrId = saved;
+    } else if (arrangements.length >= 1) {
+      activeArrId = arrangements[0].id;
+    }
+
     buildOrder();
     renderArrSelect();
   }
@@ -481,6 +528,8 @@ if (showChords) {
 
   arrSelect.addEventListener('change', () => {
     activeArrId = arrSelect.value || null;
+    if (activeArrId) localStorage.setItem(ARR_PREF_KEY, activeArrId);
+    else             localStorage.removeItem(ARR_PREF_KEY);
     buildOrder();
     renderSidebarList(searchEl.value);
   });
@@ -508,6 +557,15 @@ if (showChords) {
     if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
     navigateSong(dx < 0 ? +1 : -1);
   }, { passive: true });
+
+  // Beamer button: send locally previewed song to the beamer
+  document.getElementById('beamer-btn').addEventListener('click', () => {
+    if (!currentSongId) return;
+    const pk = previewPlayKey || undefined;
+    send({ type: 'show_song', songId: currentSongId, ...(pk ? { playKey: pk } : {}) });
+    beamerSongId = currentSongId;
+    updateBeamerBtn();
+  });
 
   loadSidebarData();
 }

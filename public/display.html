@@ -126,6 +126,23 @@
 }
 .meta-btn:hover, .meta-btn:active { background: rgba(255,255,255,.25); color: #fff; }
 
+/* ── Beamer button ───────────────────────────────────────────────────────── */
+#beamer-btn {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 20;
+  display: flex; align-items: center; gap: 8px;
+  padding: 13px 28px; border-radius: 50px;
+  background: #2563eb; border: none;
+  color: #fff; font-size: 15px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+  box-shadow: 0 4px 20px rgba(37,99,235,.5);
+  transition: background .15s, transform .1s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+#beamer-btn:hover  { background: #1d4ed8; }
+#beamer-btn:active { transform: translateX(-50%) scale(.96); }
+
 /* ── Song sidebar ────────────────────────────────────────────────────────── */
 #sidebar-toggle {
   display: none; /* shown via JS on /chords only */
@@ -234,6 +251,10 @@
   </div>
 
   <div id="lyrics-container"></div>
+
+  <button id="beamer-btn" style="display:none" title="Auf Beamer anzeigen">
+    <span>▶ Auf Beamer</span>
+  </button>
 
   <div class="meta-overlay" id="meta-overlay" style="display:none">
     <button class="meta-btn" id="meta-key-down">◀</button>
