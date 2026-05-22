@@ -343,48 +343,75 @@ async function shiftPlayKey(delta) {
 
 connect();
 
-// ── Song sidebar (chords page only) ──────────────────────────────────────────
+// ── Song sidebar + navigation (chords page only) ─────────────────────────────
 
 if (showChords) {
-  let sidebarSongs = [];
-  let sidebarOpen  = false;
+  let allSongs      = [];   // full song list from API
+  let arrangements  = [];   // all arrangements
+  let activeArrId   = null; // currently selected arrangement (null = all songs)
+  let currentOrder  = [];   // songs in current view (arr or all), with _playKey
+  let sidebarOpen   = false;
 
   const sidebar    = document.getElementById('song-sidebar');
   const overlay    = document.getElementById('sidebar-overlay');
   const toggleBtn  = document.getElementById('sidebar-toggle');
   const closeBtn   = document.getElementById('sidebar-close');
+  const arrSelect  = document.getElementById('sidebar-arr-select');
   const searchEl   = document.getElementById('sidebar-search');
   const listEl     = document.getElementById('sidebar-list');
 
-  function openSidebar() {
-    sidebarOpen = true;
-    sidebar.classList.add('open');
-    overlay.classList.add('open');
-    searchEl.value = '';
-    searchEl.focus();
-    renderSidebarList('');
+  // ── Helpers ────────────────────────────────────────────────────────────────
+
+  function escSidebar(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
-  function closeSidebar() {
-    sidebarOpen = false;
-    sidebar.classList.remove('open');
-    overlay.classList.remove('open');
+  function buildOrder() {
+    if (!activeArrId) {
+      currentOrder = allSongs.map(s => ({ ...s, _playKey: null }));
+      return;
+    }
+    const arr = arrangements.find(a => a.id === activeArrId);
+    if (!arr) { currentOrder = allSongs.map(s => ({ ...s, _playKey: null })); return; }
+    const items = arr.items || [];
+    currentOrder = items
+      .filter(it => it.type === 'song')
+      .map(it => {
+        const song = allSongs.find(s => s.id === it.id);
+        return song ? { ...song, _playKey: it.playKey || null } : null;
+      })
+      .filter(Boolean);
+  }
+
+  // ── Render ─────────────────────────────────────────────────────────────────
+
+  function renderArrSelect() {
+    arrSelect.innerHTML = '<option value="">— Alle Songs —</option>'
+      + arrangements.map(a => `<option value="${escSidebar(a.id)}">${escSidebar(a.name)}</option>`).join('');
+    arrSelect.value = activeArrId || '';
   }
 
   function renderSidebarList(query) {
     const q = query.trim().toLowerCase();
-    const filtered = q
-      ? sidebarSongs.filter(s => s.title.toLowerCase().includes(q))
-      : sidebarSongs;
+    // Search always across all songs; no query → show current order
+    const base     = q ? allSongs : currentOrder;
+    const filtered = q ? base.filter(s => s.title.toLowerCase().includes(q)) : base;
 
     listEl.innerHTML = '';
+    let num = 0;
     for (const song of filtered) {
+      const inOrder = !q && activeArrId;
+      num++;
       const li = document.createElement('li');
       li.className = 'sidebar-song' + (song.id === currentSongId ? ' active' : '');
-      li.innerHTML = `<span class="sidebar-song-title">${escSidebar(song.title)}</span>`
-        + (song.key ? `<span class="sidebar-song-key">${escSidebar(song.playKey || song.key)}</span>` : '');
+      const keyLabel = song._playKey || song.playKey || song.key || '';
+      li.innerHTML =
+        (inOrder ? `<span class="sidebar-song-num">${num}</span>` : '') +
+        `<span class="sidebar-song-title">${escSidebar(song.title)}</span>` +
+        (keyLabel ? `<span class="sidebar-song-key">${escSidebar(keyLabel)}</span>` : '');
       li.addEventListener('click', () => {
-        send({ type: 'show_song', songId: song.id });
+        const pk = song._playKey || undefined;
+        send({ type: 'show_song', songId: song.id, ...(pk ? { playKey: pk } : {}) });
         closeSidebar();
       });
       listEl.appendChild(li);
@@ -397,24 +424,92 @@ if (showChords) {
     }
   }
 
-  function escSidebar(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  // ── Open / Close ───────────────────────────────────────────────────────────
+
+  function openSidebar() {
+    sidebarOpen = true;
+    sidebar.classList.add('open');
+    overlay.classList.add('open');
+    searchEl.value = '';
+    renderSidebarList('');
+    // scroll active item into view
+    setTimeout(() => {
+      const active = listEl.querySelector('.sidebar-song.active');
+      if (active) active.scrollIntoView({ block: 'center' });
+    }, 50);
   }
 
-  async function loadSidebarSongs() {
-    try {
-      sidebarSongs = await fetch('/api/songs').then(r => r.json());
-    } catch { sidebarSongs = []; }
+  function closeSidebar() {
+    sidebarOpen = false;
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
   }
+
+  // ── Navigation ─────────────────────────────────────────────────────────────
+
+  function navigateSong(delta) {
+    if (!currentOrder.length) return;
+    const idx = currentOrder.findIndex(s => s.id === currentSongId);
+    const next = idx < 0
+      ? (delta > 0 ? 0 : currentOrder.length - 1)
+      : idx + delta;
+    if (next < 0 || next >= currentOrder.length) return;
+    const song = currentOrder[next];
+    const pk = song._playKey || undefined;
+    send({ type: 'show_song', songId: song.id, ...(pk ? { playKey: pk } : {}) });
+  }
+
+  // ── Load data ──────────────────────────────────────────────────────────────
+
+  async function loadSidebarData() {
+    try {
+      [allSongs, arrangements] = await Promise.all([
+        fetch('/api/songs').then(r => r.json()),
+        fetch('/api/arrangements').then(r => r.json()),
+      ]);
+    } catch { allSongs = []; arrangements = []; }
+    buildOrder();
+    renderArrSelect();
+  }
+
+  // ── Events ─────────────────────────────────────────────────────────────────
 
   toggleBtn.style.display = 'flex';
   toggleBtn.addEventListener('click', () => sidebarOpen ? closeSidebar() : openSidebar());
   closeBtn.addEventListener('click', closeSidebar);
   overlay.addEventListener('click', closeSidebar);
-  searchEl.addEventListener('input', () => renderSidebarList(searchEl.value));
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && sidebarOpen) closeSidebar(); });
 
-  loadSidebarSongs();
+  arrSelect.addEventListener('change', () => {
+    activeArrId = arrSelect.value || null;
+    buildOrder();
+    renderSidebarList(searchEl.value);
+  });
+
+  searchEl.addEventListener('input', () => renderSidebarList(searchEl.value));
+
+  // Keyboard: Escape closes sidebar, arrows navigate songs
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { closeSidebar(); return; }
+    if (sidebarOpen) return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); navigateSong(+1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp'  ) { e.preventDefault(); navigateSong(-1); }
+  });
+
+  // Touch swipe: left/right to navigate songs
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  document.addEventListener('touchend', (e) => {
+    if (sidebarOpen) return;
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    navigateSong(dx < 0 ? +1 : -1);
+  }, { passive: true });
+
+  loadSidebarData();
 }
 
 // ── Auto-fullscreen ───────────────────────────────────────────────────────────

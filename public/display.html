@@ -173,8 +173,19 @@
 }
 #sidebar-close:hover { color: #fff; }
 
+#sidebar-arr-select {
+  margin: 10px 12px 0; flex-shrink: 0;
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
+  border-radius: 8px; padding: 9px 12px;
+  color: #fff; font-size: 13px; outline: none;
+  font-family: inherit; cursor: pointer;
+  appearance: none; -webkit-appearance: none;
+}
+#sidebar-arr-select:focus { border-color: rgba(255,255,255,.3); }
+#sidebar-arr-select option { background: #141420; color: #fff; }
+
 #sidebar-search {
-  margin: 10px 12px 8px; flex-shrink: 0;
+  margin: 8px 12px; flex-shrink: 0;
   background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.14);
   border-radius: 8px; padding: 9px 12px;
   color: #fff; font-size: 14px; outline: none;
@@ -199,6 +210,8 @@
 }
 .sidebar-song:hover  { background: rgba(255,255,255,.09); }
 .sidebar-song.active { background: rgba(255,255,255,.13); }
+.sidebar-song-num    { width: 20px; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.3);
+                       flex-shrink: 0; text-align: right; }
 .sidebar-song-title  { flex: 1; font-size: 14px; font-weight: 600; color: #fff; }
 .sidebar-song-key    { font-size: 11px; font-weight: 700; color: rgba(255,255,255,.4);
                        background: rgba(255,255,255,.08); padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
@@ -215,7 +228,8 @@
       <span>Songs</span>
       <button id="sidebar-close" title="Schließen">✕</button>
     </div>
-    <input id="sidebar-search" type="search" placeholder="Suchen …" autocomplete="off">
+    <select id="sidebar-arr-select"></select>
+    <input id="sidebar-search" type="search" placeholder="Alle Songs durchsuchen …" autocomplete="off">
     <ul id="sidebar-list"></ul>
   </div>
 
