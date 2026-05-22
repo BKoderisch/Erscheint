@@ -428,6 +428,12 @@
       flex-shrink: 0;
     }
     .arr-song-title { flex: 1; font-size: .9rem; font-weight: 600; }
+    .arr-default-key {
+      font-size: .72rem; font-weight: 700;
+      color: var(--text-3); background: var(--surf-2);
+      border: 1px solid var(--border); border-radius: 4px;
+      padding: 2px 7px; flex-shrink: 0; min-width: 26px; text-align: center;
+    }
     .arr-key-select, .arr-capo-select {
       padding: 4px 4px; flex-shrink: 0;
       background: var(--surf-2); border: 1px solid var(--border);
@@ -438,6 +444,7 @@
     .arr-key-select  { width: 64px; }
     .arr-capo-select { width: 52px; }
     .arr-key-select:focus, .arr-capo-select:focus { border-color: var(--accent); }
+    .arr-key-select.arr-key-override { border-color: rgba(251,191,36,.5); color: #fbbf24; }
     .arr-key-select option, .arr-capo-select option {
       background: var(--surf-3); color: var(--text);
     }

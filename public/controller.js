@@ -876,12 +876,14 @@ function renderArrEditor() {
       const song = songs.find((s) => s.id === item.id);
       if (!song) return;
       songNum++;
+      const defaultKey = song.playKey || song.key || '';
       li.className = 'arr-song-row';
       li.innerHTML = `
         <span class="drag-handle">⠿</span>
         <span class="arr-song-num">${songNum}</span>
         <span class="arr-song-title">${escHtml(song.title)}</span>
-        <select class="arr-key-select" draggable="false" title="Spieltonart">${KEY_OPTIONS_HTML}</select>
+        ${defaultKey ? `<span class="arr-default-key" title="Standardtonart des Songs">${escHtml(defaultKey)}</span>` : ''}
+        <select class="arr-key-select" draggable="false" title="Tonart-Override (leer = Standardtonart)">${KEY_OPTIONS_HTML}</select>
         <select class="arr-capo-select" draggable="false" title="Capo">${CAPO_OPTIONS_HTML}</select>
         <button class="move-btn" draggable="false" title="Nach oben" ${idx === 0 ? 'disabled' : ''}>▲</button>
         <button class="move-btn" draggable="false" title="Nach unten" ${idx === items.length - 1 ? 'disabled' : ''}>▼</button>
@@ -889,8 +891,13 @@ function renderArrEditor() {
 
       const keySelect  = li.querySelector('.arr-key-select');
       const capoSelect = li.querySelector('.arr-capo-select');
-      keySelect.value  = item.playKey || song.playKey || song.key || '';
+      keySelect.value  = item.playKey || '';          // only show explicit override
       capoSelect.value = item.capo != null ? String(item.capo) : '';
+
+      const updateKeyHighlight = () => {
+        keySelect.classList.toggle('arr-key-override', !!keySelect.value);
+      };
+      updateKeyHighlight();
 
       const saveItemOverrides = () => {
         const arr = arrangements.find((a) => a.id === editingArrId);
@@ -903,7 +910,7 @@ function renderArrEditor() {
         if (newCapo != null) its[idx].capo = newCapo; else delete its[idx].capo;
         saveArrItems(its);
       };
-      keySelect.addEventListener('change',  saveItemOverrides);
+      keySelect.addEventListener('change', () => { updateKeyHighlight(); saveItemOverrides(); });
       capoSelect.addEventListener('change', saveItemOverrides);
     }
 
