@@ -2,12 +2,92 @@
   "id": "erfullt",
   "name": "Erfüllt",
   "songIds": [
-    "all-i-need-is-you"
+    "herr-offne-du-mir-die-augen",
+    "geist-des-vaters",
+    "freudenol-statt-tranen",
+    "ich-tauche-ein",
+    "alle-augen-auf-dich",
+    "dir-gebuhrt-die-ehre",
+    "ich-lasse-mich-fallen",
+    "vereint-als-christi-leib",
+    "ich-tauche-ein-1",
+    "sehnsucht",
+    "glauben",
+    "der-herr-segne-dich",
+    "auge-im-sturm",
+    "dein-werk-am-kreuz",
+    "der-einzige",
+    "ich-sag-jesus",
+    "wurdig-und-herrlich-ist-das-lamm"
   ],
   "items": [
     {
       "type": "song",
-      "id": "all-i-need-is-you"
+      "id": "herr-offne-du-mir-die-augen"
+    },
+    {
+      "type": "song",
+      "id": "geist-des-vaters"
+    },
+    {
+      "type": "song",
+      "id": "freudenol-statt-tranen"
+    },
+    {
+      "type": "song",
+      "id": "ich-tauche-ein"
+    },
+    {
+      "type": "song",
+      "id": "alle-augen-auf-dich"
+    },
+    {
+      "type": "song",
+      "id": "dir-gebuhrt-die-ehre"
+    },
+    {
+      "type": "song",
+      "id": "ich-lasse-mich-fallen"
+    },
+    {
+      "type": "song",
+      "id": "vereint-als-christi-leib"
+    },
+    {
+      "type": "song",
+      "id": "ich-tauche-ein-1"
+    },
+    {
+      "type": "song",
+      "id": "sehnsucht"
+    },
+    {
+      "type": "song",
+      "id": "glauben"
+    },
+    {
+      "type": "song",
+      "id": "der-herr-segne-dich"
+    },
+    {
+      "type": "song",
+      "id": "auge-im-sturm"
+    },
+    {
+      "type": "song",
+      "id": "dein-werk-am-kreuz"
+    },
+    {
+      "type": "song",
+      "id": "der-einzige"
+    },
+    {
+      "type": "song",
+      "id": "ich-sag-jesus"
+    },
+    {
+      "type": "song",
+      "id": "wurdig-und-herrlich-ist-das-lamm"
     }
   ]
 }
