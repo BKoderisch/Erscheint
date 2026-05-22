@@ -4,6 +4,9 @@ let beamerSongId   = null;  // song currently on the beamer (from WS)
 let previewPlayKey = null;  // playKey of the locally previewed song
 const showChords   = location.pathname.startsWith('/chords');
 
+// Overridden by the chords sidebar block to keep active highlight in sync
+let updateSidebarActive = () => {};
+
 // ── Transposition ─────────────────────────────────────────────────────────────
 
 const SHARPS = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
@@ -82,21 +85,15 @@ function connect() {
 
 async function handleMessage(msg) {
   if (msg.type === 'blank') {
-    const wasPreview = showChords && currentSongId !== null && currentSongId !== beamerSongId;
     beamerSongId = null;
-    if (!wasPreview) showBlank();
-    else updateBeamerBtn();
+    showBlank();
   } else if (msg.type === 'song') {
     const wsPlayKey = msg.playKey || null;
     const wsCapo    = msg.capo ?? null;
     beamerSongId = msg.songId;
 
-    // On /chords: don't overwrite local preview with beamer state
-    if (showChords && currentSongId !== null && currentSongId !== msg.songId) {
-      updateBeamerBtn();
-      return;
-    }
-
+    // Always update local view — controller can change what /chords shows too.
+    // (Beamer button appears when the user has browsed locally to a different song.)
     const sameKey  = wsPlayKey === (currentSong?._wsPlayKey ?? null);
     const sameCapo = wsCapo    === (currentSong?._wsCapo    ?? null);
     if (msg.songId === currentSongId && sameKey && sameCapo) return;
@@ -111,6 +108,7 @@ async function handleMessage(msg) {
       applyBestLayout();
       updateMetaOverlay();
       updateBeamerBtn();
+      updateSidebarActive();
     } catch { showBlank(); }
   }
 }
@@ -122,6 +120,7 @@ function showBlank() {
   document.getElementById('lyrics-container').innerHTML = '';
   updateMetaOverlay();
   updateBeamerBtn();
+  updateSidebarActive();
 }
 
 function updateBeamerBtn() {
@@ -398,6 +397,18 @@ if (showChords) {
   const searchEl   = document.getElementById('sidebar-search');
   const listEl     = document.getElementById('sidebar-list');
 
+  // Update active highlight in the sidebar list without re-rendering everything
+  updateSidebarActive = function () {
+    document.querySelectorAll('.sidebar-song[data-songid]').forEach(li => {
+      li.classList.toggle('active', li.dataset.songid === currentSongId);
+    });
+    // If sidebar is open, scroll active item into view
+    if (sidebarOpen) {
+      const active = listEl.querySelector('.sidebar-song.active');
+      if (active) active.scrollIntoView({ block: 'nearest' });
+    }
+  };
+
   // ── Helpers ────────────────────────────────────────────────────────────────
 
   function escSidebar(s) {
@@ -442,6 +453,7 @@ if (showChords) {
       num++;
       const li = document.createElement('li');
       li.className = 'sidebar-song' + (song.id === currentSongId ? ' active' : '');
+      li.dataset.songid = song.id;
       const keyLabel = song._playKey || song.playKey || song.key || '';
       li.innerHTML =
         (inOrder ? `<span class="sidebar-song-num">${num}</span>` : '') +
