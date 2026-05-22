@@ -11,23 +11,23 @@
     "Anbetung",
     "Lobpreis"
   ],
-  "rawText": "{soc}\n[E]Würdig und [B/D#]herrlich ist das [C#m]Lamm    [C#m/B] \n[E/G#]Jesus    [A]dir al - [F#/A#]lein sei [B]Ehre\n[E]Du der du [E7/G#]sitzt auf deinem [A]Thron\n[E/B]Dir sei [B]Ruhm in Ewig - [E]keit\n{eoc}\n\n{c: VERS}\nHalle - [D]luja sei er - [A/E]hoben o [E]Herr\nDu bist [D]König und wir [A/E]beugen uns [E]Herr\nIn An - [C#m]betung    [C#m/B]singen wir zu [B]dir\n{eop}",
+  "rawText": "{soc}\n[E]Würdig und [B/D#]herrlich ist das [C#m]Lamm    [C#m/B] \n[E/G#]Jesus    [A]dir al[F#/A#]lein sei [B]Ehre\n[E]Du der du [E7/G#]sitzt auf deinem [A]Thron\n[E/B]Dir sei [B]Ruhm in Ewig[E]keit\n{eoc}\n\n{c: VERS}\nHalle[D]luja sei er[A/E]hoben o [E]Herr\nDu bist [D]König und wir [A/E]beugen uns [E]Herr\nIn An[C#m]betung    [C#m/B]singen wir zu [B]dir\n{eop}",
   "sections": [
     {
       "label": "Chorus",
       "lines": [
         "[E]Würdig und [B/D#]herrlich ist das [C#m]Lamm    [C#m/B]",
-        "[E/G#]Jesus    [A]dir al - [F#/A#]lein sei [B]Ehre",
+        "[E/G#]Jesus    [A]dir al[F#/A#]lein sei [B]Ehre",
         "[E]Du der du [E7/G#]sitzt auf deinem [A]Thron",
-        "[E/B]Dir sei [B]Ruhm in Ewig - [E]keit"
+        "[E/B]Dir sei [B]Ruhm in Ewig[E]keit"
       ]
     },
     {
       "label": "VERS",
       "lines": [
-        "Halle - [D]luja sei er - [A/E]hoben o [E]Herr",
+        "Halle[D]luja sei er[A/E]hoben o [E]Herr",
         "Du bist [D]König und wir [A/E]beugen uns [E]Herr",
-        "In An - [C#m]betung    [C#m/B]singen wir zu [B]dir"
+        "In An[C#m]betung    [C#m/B]singen wir zu [B]dir"
       ]
     }
   ]
