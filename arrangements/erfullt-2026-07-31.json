@@ -1,0 +1,32 @@
+{
+  "id": "erfullt-2026-07-31",
+  "name": "Erfüllt (31.07.2026)",
+  "songIds": [
+    "hoher",
+    "alles-was-atmet",
+    "du-bist-machtig",
+    "geist-des-vaters",
+    "freudenol-statt-tranen",
+    "ich-tauche-ein",
+    "herr-offne-du-mir-die-augen",
+    "auge-im-sturm",
+    "ich-lasse-mich-fallen",
+    "sehnsucht",
+    "komm-jetzt-ist-die-zeit-wir-beten-an",
+    "wurdig-und-herrlich-ist-das-lamm"
+  ],
+  "items": [
+    { "type": "song", "id": "hoher" },
+    { "type": "song", "id": "alles-was-atmet" },
+    { "type": "song", "id": "du-bist-machtig" },
+    { "type": "song", "id": "geist-des-vaters" },
+    { "type": "song", "id": "freudenol-statt-tranen" },
+    { "type": "song", "id": "ich-tauche-ein" },
+    { "type": "song", "id": "herr-offne-du-mir-die-augen" },
+    { "type": "song", "id": "auge-im-sturm" },
+    { "type": "song", "id": "ich-lasse-mich-fallen" },
+    { "type": "song", "id": "sehnsucht" },
+    { "type": "song", "id": "komm-jetzt-ist-die-zeit-wir-beten-an" },
+    { "type": "song", "id": "wurdig-und-herrlich-ist-das-lamm" }
+  ]
+}
