@@ -10,7 +10,7 @@
     "wurdig-und-herrlich-ist-das-lamm",
     "majestat",
     "jesus-dein-licht",
-    "vater-ich-danke-dir"
+    "vater-ich-danke-dir",
     "immer-mehr"
   ],
   "items": [
@@ -36,7 +36,6 @@
     },
     {
       "type": "song",
-<<<<<<< HEAD
       "id": "wurdig-und-herrlich-ist-das-lamm"
     },
     {
@@ -51,13 +50,10 @@
     {
       "type": "song",
       "id": "vater-ich-danke-dir"
-=======
-      "id": "ich-lasse-mich-fallen"
     },
     {
       "type": "song",
       "id": "immer-mehr"
->>>>>>> b46a52a3a3596ee25d5746de8c1f92aace6d0a46
     }
   ]
 }
