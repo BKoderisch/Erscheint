@@ -5,10 +5,13 @@
     "hoher",
     "alles-was-atmet",
     "du-bist-machtig",
+    "vater-ich-danke-dir",
     "geist-des-vaters",
     "freudenol-statt-tranen",
+    "jesus-dein-licht",
     "ich-tauche-ein",
     "herr-offne-du-mir-die-augen",
+    "jesus-beruhre-mich",
     "auge-im-sturm",
     "ich-lasse-mich-fallen",
     "sehnsucht",
@@ -16,17 +19,65 @@
     "wurdig-und-herrlich-ist-das-lamm"
   ],
   "items": [
-    { "type": "song", "id": "hoher" },
-    { "type": "song", "id": "alles-was-atmet" },
-    { "type": "song", "id": "du-bist-machtig" },
-    { "type": "song", "id": "geist-des-vaters" },
-    { "type": "song", "id": "freudenol-statt-tranen" },
-    { "type": "song", "id": "ich-tauche-ein" },
-    { "type": "song", "id": "herr-offne-du-mir-die-augen" },
-    { "type": "song", "id": "auge-im-sturm" },
-    { "type": "song", "id": "ich-lasse-mich-fallen" },
-    { "type": "song", "id": "sehnsucht" },
-    { "type": "song", "id": "komm-jetzt-ist-die-zeit-wir-beten-an" },
-    { "type": "song", "id": "wurdig-und-herrlich-ist-das-lamm" }
+    {
+      "type": "song",
+      "id": "hoher"
+    },
+    {
+      "type": "song",
+      "id": "alles-was-atmet"
+    },
+    {
+      "type": "song",
+      "id": "du-bist-machtig"
+    },
+    {
+      "type": "song",
+      "id": "vater-ich-danke-dir"
+    },
+    {
+      "type": "song",
+      "id": "geist-des-vaters"
+    },
+    {
+      "type": "song",
+      "id": "freudenol-statt-tranen"
+    },
+    {
+      "type": "song",
+      "id": "jesus-dein-licht"
+    },
+    {
+      "type": "song",
+      "id": "ich-tauche-ein"
+    },
+    {
+      "type": "song",
+      "id": "herr-offne-du-mir-die-augen"
+    },
+    {
+      "type": "song",
+      "id": "jesus-beruhre-mich"
+    },
+    {
+      "type": "song",
+      "id": "auge-im-sturm"
+    },
+    {
+      "type": "song",
+      "id": "ich-lasse-mich-fallen"
+    },
+    {
+      "type": "song",
+      "id": "sehnsucht"
+    },
+    {
+      "type": "song",
+      "id": "komm-jetzt-ist-die-zeit-wir-beten-an"
+    },
+    {
+      "type": "song",
+      "id": "wurdig-und-herrlich-ist-das-lamm"
+    }
   ]
 }
