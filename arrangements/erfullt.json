@@ -9,7 +9,6 @@
     "dir-gebuhrt-die-ehre",
     "vereint-als-christi-leib",
     "ich-tauche-ein",
-    "ich-tauche-ein-1",
     "sehnsucht",
     "auge-im-sturm",
     "befreit-durch-deine-gnade",
@@ -49,10 +48,6 @@
     {
       "type": "song",
       "id": "ich-tauche-ein"
-    },
-    {
-      "type": "song",
-      "id": "ich-tauche-ein-1"
     },
     {
       "type": "song",
