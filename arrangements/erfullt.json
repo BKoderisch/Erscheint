@@ -3,23 +3,22 @@
   "name": "Erfüllt",
   "songIds": [
     "alle-augen-auf-dich",
-    "herr-offne-du-mir-die-augen",
-    "geist-des-vaters",
+    "etwas-in-mir",
     "freudenol-statt-tranen",
+    "dir-gehort-mein-lob",
     "dir-gebuhrt-die-ehre",
-    "ich-lasse-mich-fallen",
     "vereint-als-christi-leib",
     "ich-tauche-ein",
     "ich-tauche-ein-1",
     "sehnsucht",
-    "glauben",
-    "der-herr-segne-dich",
     "auge-im-sturm",
-    "dein-werk-am-kreuz",
+    "befreit-durch-deine-gnade",
+    "niemand-gleicht-dem-herrn",
+    "der-mich-sieht",
     "der-einzige",
-    "ich-sag-jesus",
-    "lord-send-revival",
-    "wurdig-und-herrlich-ist-das-lamm"
+    "die-liebe-des-retters",
+    "fuhr-mich-an-dein-kreuz",
+    "alles-tanzt"
   ],
   "items": [
     {
@@ -28,11 +27,7 @@
     },
     {
       "type": "song",
-      "id": "herr-offne-du-mir-die-augen"
-    },
-    {
-      "type": "song",
-      "id": "geist-des-vaters"
+      "id": "etwas-in-mir"
     },
     {
       "type": "song",
@@ -41,11 +36,11 @@
     },
     {
       "type": "song",
-      "id": "dir-gebuhrt-die-ehre"
+      "id": "dir-gehort-mein-lob"
     },
     {
       "type": "song",
-      "id": "ich-lasse-mich-fallen"
+      "id": "dir-gebuhrt-die-ehre"
     },
     {
       "type": "song",
@@ -65,19 +60,19 @@
     },
     {
       "type": "song",
-      "id": "glauben"
-    },
-    {
-      "type": "song",
-      "id": "der-herr-segne-dich"
-    },
-    {
-      "type": "song",
       "id": "auge-im-sturm"
     },
     {
       "type": "song",
-      "id": "dein-werk-am-kreuz"
+      "id": "befreit-durch-deine-gnade"
+    },
+    {
+      "type": "song",
+      "id": "niemand-gleicht-dem-herrn"
+    },
+    {
+      "type": "song",
+      "id": "der-mich-sieht"
     },
     {
       "type": "song",
@@ -85,15 +80,15 @@
     },
     {
       "type": "song",
-      "id": "ich-sag-jesus"
+      "id": "die-liebe-des-retters"
     },
     {
       "type": "song",
-      "id": "lord-send-revival"
+      "id": "fuhr-mich-an-dein-kreuz"
     },
     {
       "type": "song",
-      "id": "wurdig-und-herrlich-ist-das-lamm"
+      "id": "alles-tanzt"
     }
   ]
 }

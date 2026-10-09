@@ -1,0 +1,59 @@
+{
+  "id": "der-mich-sieht",
+  "title": "Der mich sieht",
+  "subtitle": "",
+  "artist": "",
+  "key": "F#",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [
+    "Lobpreis",
+    "Anbetung"
+  ],
+  "rawText": "{c:VERS 1}\n[F#]   Du sahst mich [B]längst als ich noch nicht war\n[F#]   In deinem [B]Buch stand schon jeder Tag\n[F#/A#]   Niemand sonst [B]kennt mich so wie du  [F#/A#]         [B] \n\n{c:VERS 2}\n[F#]   Wohin ich auch [B]geh folgt mir deine Hand\n[F#]   Du bist nicht [B]fern du bist immer nah\n[F#/A#]   Du findest [B]mich egal wie weit ich [F#/A#]  lauf       [C#] \n\n{c:CHORUS}\nDu bist ein Gott [B]der mich sieht    [F#] \nHast deine Augen [D#m]stets auf mich ge - [C#]richtet\nDeine Gnade [B]findet mich    [F#] \nUnd richtet meinen [D#m]Blick auf dich den [C#]Retter\n\n{c:VERS 3}\n[F#]   Ich seh dich [B]an, nur ein Augenblick\n[F#]   Reicht völlig [B]aus, du veränderst mich\n[F#/A#]   Alles in [B]mir erkennt dich wie du [F#/A#]  bist       [C#] \n\n{c:BRIDGE}\nVon [D#m]heute an nur noch Jesus, [B]du allein niemand anders\n[F#]Ich lass dich nie mehr [C#sus]los\n[D#m]Denn ich weiß, du bist bei mir, [B]ob ich geh oder falle\n[F#]Du lässt mich niemals [C#sus]los",
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "[F#]   Du sahst mich [B]längst als ich noch nicht war",
+        "[F#]   In deinem [B]Buch stand schon jeder Tag",
+        "[F#/A#]   Niemand sonst [B]kennt mich so wie du  [F#/A#]         [B]"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "[F#]   Wohin ich auch [B]geh folgt mir deine Hand",
+        "[F#]   Du bist nicht [B]fern du bist immer nah",
+        "[F#/A#]   Du findest [B]mich egal wie weit ich [F#/A#]  lauf       [C#]"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "Du bist ein Gott [B]der mich sieht    [F#]",
+        "Hast deine Augen [D#m]stets auf mich ge - [C#]richtet",
+        "Deine Gnade [B]findet mich    [F#]",
+        "Und richtet meinen [D#m]Blick auf dich den [C#]Retter"
+      ]
+    },
+    {
+      "label": "VERS 3",
+      "lines": [
+        "[F#]   Ich seh dich [B]an, nur ein Augenblick",
+        "[F#]   Reicht völlig [B]aus, du veränderst mich",
+        "[F#/A#]   Alles in [B]mir erkennt dich wie du [F#/A#]  bist       [C#]"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Von [D#m]heute an nur noch Jesus, [B]du allein niemand anders",
+        "[F#]Ich lass dich nie mehr [C#sus]los",
+        "[D#m]Denn ich weiß, du bist bei mir, [B]ob ich geh oder falle",
+        "[F#]Du lässt mich niemals [C#sus]los"
+      ]
+    }
+  ]
+}

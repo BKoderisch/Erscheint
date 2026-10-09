@@ -1,0 +1,38 @@
+{
+  "id": "erfullt-klavier",
+  "name": "Erfüllt (Klavier)",
+  "songIds": [
+    "herr-dein-name-sei-erhoht",
+    "die-liebe-des-retters",
+    "wurdig-und-herrlich-ist-das-lamm",
+    "majestat",
+    "fur-den-konig",
+    "ich-lasse-mich-fallen"
+  ],
+  "items": [
+    {
+      "type": "song",
+      "id": "herr-dein-name-sei-erhoht"
+    },
+    {
+      "type": "song",
+      "id": "die-liebe-des-retters"
+    },
+    {
+      "type": "song",
+      "id": "wurdig-und-herrlich-ist-das-lamm"
+    },
+    {
+      "type": "song",
+      "id": "majestat"
+    },
+    {
+      "type": "song",
+      "id": "fur-den-konig"
+    },
+    {
+      "type": "song",
+      "id": "ich-lasse-mich-fallen"
+    }
+  ]
+}
