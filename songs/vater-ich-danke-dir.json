@@ -1,0 +1,39 @@
+{
+  "id": "vater-ich-danke-dir",
+  "title": "Vater ich danke dir",
+  "subtitle": "",
+  "artist": "",
+  "key": "A",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "A",
+  "labels": [
+    "Dankbarkeit",
+    "Lobpreis"
+  ],
+  "rawText": "{c: INTERLUDE}\n[A]  [D]  [A/C#]  [E]\n{eop}\n\n{c: VERSE}\nWer b[A]ittet dem wird gegeben wer s[F#m]ucht der wird finden\nWer a[E]nklopft dem wird [D]aufgetan  [A]         [D]       [E]\nEin [A]Vater gibt seinen Kindern all [F#m]das was sie brauchen\n[E]Wieviel mehr gibst [D]Du Deinen Geist     [A]          [D]\n{eop}\n\n{soc}\n[E]Vater ich [A]danke Dir\nVon Deinen Gaben l[Bm7]eben wir\nUnd was wir haben [D]kommt von Dir\n[E]Du bist so gut zu mir    [A]          [D]\n[E]Vater ich [A]preise Dich\nDenn Du bist immer [Bm7]da für mich\nLässt Deine Kinder [D]nie im Stich\n[E]Du bist so gut zu [A]mir\n{eoc}",
+  "sections": [
+    {
+      "label": "VERSE",
+      "lines": [
+        "Wer b[A]ittet dem wird gegeben wer s[F#m]ucht der wird finden",
+        "Wer a[E]nklopft dem wird [D]aufgetan  [A]         [D]       [E]",
+        "Ein [A]Vater gibt seinen Kindern all [F#m]das was sie brauchen",
+        "[E]Wieviel mehr gibst [D]Du Deinen Geist     [A]          [D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[E]Vater ich [A]danke Dir",
+        "Von Deinen Gaben l[Bm7]eben wir",
+        "Und was wir haben [D]kommt von Dir",
+        "[E]Du bist so gut zu mir    [A]          [D]",
+        "[E]Vater ich [A]preise Dich",
+        "Denn Du bist immer [Bm7]da für mich",
+        "Lässt Deine Kinder [D]nie im Stich",
+        "[E]Du bist so gut zu [A]mir"
+      ]
+    }
+  ]
+}

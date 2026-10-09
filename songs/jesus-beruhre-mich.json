@@ -1,0 +1,79 @@
+{
+  "id": "jesus-beruhre-mich",
+  "title": "Jesus berühre mich",
+  "subtitle": "",
+  "artist": "",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [
+    "Anbetung",
+    "Hingabe",
+    "Heiliger Geist"
+  ],
+  "rawText": "{c: VERSE 1}\nNur den S[D]aum deines Gewandes\neinen [Bm7]Augenblick berühr'n,\nund die K[G]raft, die von dir ausgeht,\ntief in m[A4]einem Innern s[A]pür'n.\nNur ein B[D]lick aus deinen Augen,\nnur ein W[Bm7]ort aus deinem Mund,\nund die H[G]eilungsströme fließen,\nmeine S[A4]eele wird ges[A]und.\n{eop}\n\n{soc}\nJesus, ber[D]ühre mich.\nHole mich ab, öffne die T[Em7]ür für mich.\nNimm mich an deiner Hand,\nent[G]führe mich in deine [Bm7]Gegenw[A]art.\nJesus, ich s[D]püre dich,\nstrecke mich aus nach dir, ber[Em7]ühre dich.\nUnd mein Herz brennt von neuem\n[G]nur für dich, in deiner [Bm7]Gegenw[A]art.\n{eoc}\n\n{c: VERSE 2}\nNur ein S[D]tück vom Brot des Lebens,\nnur ein T[Bm7]ropfen aus dem Kelch,\ndann bin i[G]ch mit dir verbunden\nund mein H[A4]unger wird gestil[A]lt.\nNur ein S[D]chluck vom Strom des Lebens,\nvon dem W[Bm7]asser, das du gibst,\nund die S[G]tröme werden fließen\naus der Q[A4]uelle tief in m[A]ir.\n{eop}\n\n{soc}\n{eoc}\n\n{c: BRIDGE}\n[D/F#]Herr, ich bin nicht w[G]ürdig,\n[D]bin oft so weit weg von [A]dir.\n[D/F#]Doch in deiner L[G]iebe\n[D]kommst du auch zu m[A]ir.   [B4]\n{eop}\n\n{soc}\nJesus, ber[E]ühre mich.\nHole mich ab, öffne die T[F#m7]ür für mich.\nNimm mich an deiner Hand,\nent[A]führe mich in deine [C#m7]Gegenwa[B]rt.\nJesus, ich s[E]püre dich,\nstrecke mich aus nach dir, ber[F#m7]ühre dich.\nUnd mein Herz brennt von neuem\n[A]nur für dich, in deiner [C#m7]Gegenwa[B]rt.   [E]\n{eoc}",
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "Nur den S[D]aum deines Gewandes",
+        "einen [Bm7]Augenblick berühr'n,",
+        "und die K[G]raft, die von dir ausgeht,",
+        "tief in m[A4]einem Innern s[A]pür'n.",
+        "Nur ein B[D]lick aus deinen Augen,",
+        "nur ein W[Bm7]ort aus deinem Mund,",
+        "und die H[G]eilungsströme fließen,",
+        "meine S[A4]eele wird ges[A]und."
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Jesus, ber[D]ühre mich.",
+        "Hole mich ab, öffne die T[Em7]ür für mich.",
+        "Nimm mich an deiner Hand,",
+        "ent[G]führe mich in deine [Bm7]Gegenw[A]art.",
+        "Jesus, ich s[D]püre dich,",
+        "strecke mich aus nach dir, ber[Em7]ühre dich.",
+        "Und mein Herz brennt von neuem",
+        "[G]nur für dich, in deiner [Bm7]Gegenw[A]art."
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "Nur ein S[D]tück vom Brot des Lebens,",
+        "nur ein T[Bm7]ropfen aus dem Kelch,",
+        "dann bin i[G]ch mit dir verbunden",
+        "und mein H[A4]unger wird gestil[A]lt.",
+        "Nur ein S[D]chluck vom Strom des Lebens,",
+        "von dem W[Bm7]asser, das du gibst,",
+        "und die S[G]tröme werden fließen",
+        "aus der Q[A4]uelle tief in m[A]ir."
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "[D/F#]Herr, ich bin nicht w[G]ürdig,",
+        "[D]bin oft so weit weg von [A]dir.",
+        "[D/F#]Doch in deiner L[G]iebe",
+        "[D]kommst du auch zu m[A]ir.   [B4]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "Jesus, ber[E]ühre mich.",
+        "Hole mich ab, öffne die T[F#m7]ür für mich.",
+        "Nimm mich an deiner Hand,",
+        "ent[A]führe mich in deine [C#m7]Gegenwa[B]rt.",
+        "Jesus, ich s[E]püre dich,",
+        "strecke mich aus nach dir, ber[F#m7]ühre dich.",
+        "Und mein Herz brennt von neuem",
+        "[A]nur für dich, in deiner [C#m7]Gegenwa[B]rt.   [E]"
+      ]
+    }
+  ]
+}

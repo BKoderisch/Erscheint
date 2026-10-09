@@ -1,0 +1,61 @@
+{
+  "id": "jesus-dein-licht",
+  "title": "Jesus dein Licht",
+  "subtitle": "",
+  "artist": "",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [
+    "Heiliger Geist",
+    "Erneuerung",
+    "Anbetung"
+  ],
+  "rawText": "{c: VERSE 1}\n[G]Herr, das L[C]icht deiner L[G]iebe le[D4]uchtet [D]auf,\n[G]strahlt inm[C]itten der F[G]insternis [D4]für uns a[D]uf.\n[C]Jesus, d[D]u Licht der [Bm7]Welt, sende [Em]uns dein Licht.\n[C]Mach uns f[D]rei durch die W[Bm7]ahrheit, die [Em]jetzt anbricht\n[F]Sei mein L[D4]icht, s[F]ei mein [D4]Licht![D]\n{eop}\n\n{soc}\n[G]Jesus, dein L[C]icht füll' dies\n[Am]Land mit des [D4]Vaters Ehre!\n[G]Komm, Heil'ger [C]Geist,\nsetz die [Am]Herzen in B[F]rand[D4]!       [D]\n[G]Fließ Gnadenst[C]rom,\nüberf[Am]lute dies L[D4]and mit Liebe!\n[G]Sende dein W[C]ort,\n[Am]Herr, dein L[D4]icht s[D]trahle a[C2]uf!\n[Am]  [G/B]    [Cm6]  [D]\n{eoc}\n\n{c: VERSE 2}\n[G]Herr, voll E[C]hrfurcht komm' ic[G]h zu d[D4]einem T[D]hron,\n[G]aus dem D[C]unkel ins L[G]icht des G[D4]ottesso[D]hns.\n[C]Durch dein B[D]lut kann ich [Bm7]nun vor dir s[Em]tehen.\n[C]Prüf mich, H[D]err, lass mein[Bm7] Dunkel verg[Em]ehen,\n[F]sei mein L[D4]icht, s[F]ei mein L[D4]icht![D]\n{eop}\n\n{c: VERSE 3}\n[G]Schau'n wir, K[C]önig, zu d[G]einem G[D4]lanze a[D]uf,\n[G]dann strahlt d[C]ein Bild auf u[G]nserem A[D4]ntlitz a[D]uf.\n[C]Du hast G[D]nade um G[Bm7]nade geg[Em]eben,\n[C]dich widers[D]piegelnd erz[Bm7]ähl' unser L[Em]eben\n[F]von deinem L[D4]icht, v[F]on deinem L[D4]icht! [D]\n{eop}",
+  "sections": [
+    {
+      "label": "VERSE 1",
+      "lines": [
+        "[G]Herr, das L[C]icht deiner L[G]iebe le[D4]uchtet [D]auf,",
+        "[G]strahlt inm[C]itten der F[G]insternis [D4]für uns a[D]uf.",
+        "[C]Jesus, d[D]u Licht der [Bm7]Welt, sende [Em]uns dein Licht.",
+        "[C]Mach uns f[D]rei durch die W[Bm7]ahrheit, die [Em]jetzt anbricht",
+        "[F]Sei mein L[D4]icht, s[F]ei mein [D4]Licht![D]"
+      ]
+    },
+    {
+      "label": "Chorus",
+      "lines": [
+        "[G]Jesus, dein L[C]icht füll' dies",
+        "[Am]Land mit des [D4]Vaters Ehre!",
+        "[G]Komm, Heil'ger [C]Geist,",
+        "setz die [Am]Herzen in B[F]rand[D4]!       [D]",
+        "[G]Fließ Gnadenst[C]rom,",
+        "überf[Am]lute dies L[D4]and mit Liebe!",
+        "[G]Sende dein W[C]ort,",
+        "[Am]Herr, dein L[D4]icht s[D]trahle a[C2]uf!"
+      ]
+    },
+    {
+      "label": "VERSE 2",
+      "lines": [
+        "[G]Herr, voll E[C]hrfurcht komm' ic[G]h zu d[D4]einem T[D]hron,",
+        "[G]aus dem D[C]unkel ins L[G]icht des G[D4]ottesso[D]hns.",
+        "[C]Durch dein B[D]lut kann ich [Bm7]nun vor dir s[Em]tehen.",
+        "[C]Prüf mich, H[D]err, lass mein[Bm7] Dunkel verg[Em]ehen,",
+        "[F]sei mein L[D4]icht, s[F]ei mein L[D4]icht![D]"
+      ]
+    },
+    {
+      "label": "VERSE 3",
+      "lines": [
+        "[G]Schau'n wir, K[C]önig, zu d[G]einem G[D4]lanze a[D]uf,",
+        "[G]dann strahlt d[C]ein Bild auf u[G]nserem A[D4]ntlitz a[D]uf.",
+        "[C]Du hast G[D]nade um G[Bm7]nade geg[Em]eben,",
+        "[C]dich widers[D]piegelnd erz[Bm7]ähl' unser L[Em]eben",
+        "[F]von deinem L[D4]icht, v[F]on deinem L[D4]icht! [D]"
+      ]
+    }
+  ]
+}
