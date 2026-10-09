@@ -7,7 +7,8 @@
     "wurdig-und-herrlich-ist-das-lamm",
     "majestat",
     "fur-den-konig",
-    "ich-lasse-mich-fallen"
+    "ich-lasse-mich-fallen",
+    "immer-mehr"
   ],
   "items": [
     {
@@ -33,6 +34,10 @@
     {
       "type": "song",
       "id": "ich-lasse-mich-fallen"
+    },
+    {
+      "type": "song",
+      "id": "immer-mehr"
     }
   ]
 }

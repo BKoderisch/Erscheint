@@ -1,0 +1,38 @@
+{
+  "id": "immer-mehr",
+  "title": "Immer mehr",
+  "subtitle": "",
+  "artist": "Lothar Kosse",
+  "key": "Em",
+  "capo": 0,
+  "tempo": 66,
+  "playKey": "Em",
+  "labels": [
+    "Anbetung",
+    "Hingabe"
+  ],
+  "rawText": "{c: CHORUS}\nImmer [Em]mehr von [C]Dir immer [D]mehr\nImmer [Em]mehr sein wie [C]Du immer [D]mehr\nImmer [Em]mehr Deine [C]Worte ver - [D]steh'n\nDeine [G/B]Werke [C]tun o [B]Herr immer [Em]mehr\n\n{c: VERS}\nDu bist ein [D]Gott der Seine Kinder [Em]liebt\nDer als ein [Am]Vater ihr Verlangen [G]sieht\nNiemand und [D]nichts kommt Dir jemals [Em7]gleich o\n[C]Herr [G/C]\nDu zeigst Dich [D]uns als ewig treuer [Em]Freund\nUnd weißt ge - [Am]nau wie unser Herz es [G/B]meint\nGib uns [C]mehr von [D]Dir immer [G]mehr",
+  "sections": [
+    {
+      "label": "CHORUS",
+      "lines": [
+        "Immer [Em]mehr von [C]Dir immer [D]mehr",
+        "Immer [Em]mehr sein wie [C]Du immer [D]mehr",
+        "Immer [Em]mehr Deine [C]Worte ver - [D]steh'n",
+        "Deine [G/B]Werke [C]tun o [B]Herr immer [Em]mehr"
+      ]
+    },
+    {
+      "label": "VERS",
+      "lines": [
+        "Du bist ein [D]Gott der Seine Kinder [Em]liebt",
+        "Der als ein [Am]Vater ihr Verlangen [G]sieht",
+        "Niemand und [D]nichts kommt Dir jemals [Em7]gleich o",
+        "[C]Herr [G/C]",
+        "Du zeigst Dich [D]uns als ewig treuer [Em]Freund",
+        "Und weißt ge - [Am]nau wie unser Herz es [G/B]meint",
+        "Gib uns [C]mehr von [D]Dir immer [G]mehr"
+      ]
+    }
+  ]
+}
