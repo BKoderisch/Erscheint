@@ -21,7 +21,8 @@
     },
     {
       "type": "song",
-      "id": "dir-gebuhrt-die-ehre"
+      "id": "dir-gebuhrt-die-ehre",
+      "playKey": "C"
     },
     {
       "type": "song",
