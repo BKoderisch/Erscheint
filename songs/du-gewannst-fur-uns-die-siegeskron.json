@@ -1,0 +1,49 @@
+{
+  "id": "du-gewannst-fur-uns-die-siegeskron",
+  "title": "Du gewannst für uns die Siegeskron",
+  "subtitle": "",
+  "artist": "Rob Packer",
+  "key": "C",
+  "capo": 0,
+  "tempo": 72,
+  "playKey": "C",
+  "labels": [
+    "Lobpreis",
+    "Anbetung",
+    "Bekenntnis"
+  ],
+  "rawText": "{c: VERS 1}\nDu ge - [C]wannst für [F]uns die [C/E]Sie - [Dm7]ges - [C/E]kron [G7/D] [C/E]\nTrium - [Dm7]phiertest [G]über Sünd' und [C2]Tod [C] [Esus/B] [E7/B]\n[Am]Dein [Cmaj7/G]Na - [Am/G]me [D9/F#]hoch erhöht\nklingt [C2/G]durch\nDie Erde [Dm7/G]weit [G]\n\n{c: VERS 2}\nAlle [C]Macht der [F]Finster - [C/E]nis [Dm7]er [C/E]- bebt [G7/D] [C/E]\nWenn dein [Dm7]Name [G]angerufen [C2]wird [C] [Esus/B] [E7/B]\n[Am]Wir [Cmaj7/G]dei - [Am/G]ne [D9/F#]Kirche treiben\ndeinen [C2/G]Sieg\nIn der Welt [Dm7/G]vor - [G]an\n\n{c: CHORUS}\nWelch ein [Dm]Name voller [Gsus]Kraft\n[G]Voller [Em7]Herrlichkeit und [Am7]Pracht [Am7/G]\n[Fmaj7]Nichts ist ver - [Esus]gleichbar [E/G#]diesem [Am]Namen [Am/E]groß\nan [Fmaj7]Macht\nDu [Em7]bist [Dm7]Jesus, du bist [F/G]Herr\nDu bist [C]Gott [F/C] [C]",
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "Du ge - [C]wannst für [F]uns die [C/E]Sie - [Dm7]ges - [C/E]kron [G7/D] [C/E]",
+        "Trium - [Dm7]phiertest [G]über Sünd' und [C2]Tod [C] [Esus/B] [E7/B]",
+        "[Am]Dein [Cmaj7/G]Na - [Am/G]me [D9/F#]hoch erhöht",
+        "klingt [C2/G]durch",
+        "Die Erde [Dm7/G]weit [G]"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "Alle [C]Macht der [F]Finster - [C/E]nis [Dm7]er [C/E]- bebt [G7/D] [C/E]",
+        "Wenn dein [Dm7]Name [G]angerufen [C2]wird [C] [Esus/B] [E7/B]",
+        "[Am]Wir [Cmaj7/G]dei - [Am/G]ne [D9/F#]Kirche treiben",
+        "deinen [C2/G]Sieg",
+        "In der Welt [Dm7/G]vor - [G]an"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "Welch ein [Dm]Name voller [Gsus]Kraft",
+        "[G]Voller [Em7]Herrlichkeit und [Am7]Pracht [Am7/G]",
+        "[Fmaj7]Nichts ist ver - [Esus]gleichbar [E/G#]diesem [Am]Namen [Am/E]groß",
+        "an [Fmaj7]Macht",
+        "Du [Em7]bist [Dm7]Jesus, du bist [F/G]Herr",
+        "Du bist [C]Gott [F/C] [C]"
+      ]
+    }
+  ]
+}
