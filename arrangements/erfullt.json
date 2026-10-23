@@ -3,16 +3,19 @@
   "name": "Erfüllt",
   "songIds": [
     "dir-gehort-mein-lob",
-    "dir-gebuhrt-die-ehre",
-    "auge-im-sturm",
     "die-liebe-des-retters",
+    "auge-im-sturm",
     "alles-tanzt",
+    "jesus-beruhre-mich",
     "alles-fuhrt-zum-lobpreis-fur-das-lamm",
+    "keiner-ist-wie-du",
     "heilig",
-    "still",
     "halleluja-halleluja-denn-der-herr-unser-gott-er-regiert",
     "feuer-des-herrn",
-    "keiner-ist-wie-du"
+    "dir-gebuhrt-die-ehre",
+    "still",
+    "du-bist-der-hochste",
+    "du-hast-erbarmen"
   ],
   "items": [
     {
@@ -21,8 +24,7 @@
     },
     {
       "type": "song",
-      "id": "dir-gebuhrt-die-ehre",
-      "playKey": "C"
+      "id": "die-liebe-des-retters"
     },
     {
       "type": "song",
@@ -30,11 +32,11 @@
     },
     {
       "type": "song",
-      "id": "die-liebe-des-retters"
+      "id": "alles-tanzt"
     },
     {
       "type": "song",
-      "id": "alles-tanzt"
+      "id": "jesus-beruhre-mich"
     },
     {
       "type": "song",
@@ -42,11 +44,11 @@
     },
     {
       "type": "song",
-      "id": "heilig"
+      "id": "keiner-ist-wie-du"
     },
     {
       "type": "song",
-      "id": "still"
+      "id": "heilig"
     },
     {
       "type": "song",
@@ -58,7 +60,20 @@
     },
     {
       "type": "song",
-      "id": "keiner-ist-wie-du"
+      "id": "dir-gebuhrt-die-ehre",
+      "playKey": "C"
+    },
+    {
+      "type": "song",
+      "id": "still"
+    },
+    {
+      "type": "song",
+      "id": "du-bist-der-hochste"
+    },
+    {
+      "type": "song",
+      "id": "du-hast-erbarmen"
     }
   ]
 }
