@@ -12,7 +12,7 @@
     "Hingabe",
     "Heiligkeit"
   ],
-  "rawText": "{c: VERS 1}\n[E]Reini - [B/D#]ge mein [C#m]Herz mach mich rein wie\n[F#m7]Gold\nIn [Bsus]dei - [B]nem [Bsus]Feu - [B]er\n[E]Reini - [B/D#]ge mein [C#m]Herz mach mich rein wie\n[F#m7]Gold\n[E/B]Pures [B]Gold\n\n{c: CHORUS}\n[E]Feu - [A2]er des [B]Herrn da[E]nach ver - langt [A2]mein\n[B]Herz\n[E/B]Mach mich [E]rein [B]heilig [E]dir al - [A]lein will ich [Bsus]dienen [B]\nHerr mach mich [E]rein [B]heilig [E]dir al - [A]lein will ich\n[Bsus]dienen mein [B]Meister\n\n{c: ENDUNG 1 (Zum Instrumental)}\n[F#m7]Und deinen [Bsus]Wil - [B]len [Bsus/C#]tun\n\n{c: ENDUNG 2 (Zum Chorus)}\n[F#m7]Und deinen [Bsus]Wil - [B]len | [Bsus/C#]tun\n[B/D#] [B] |\n\n{c: ENDUNG 3 (Schluss)}\n[F#m7]Und deinen [Bsus]Wil - [B]len [Bsus/C#]tun\n\n{c: INSTRUMENTAL}\n| [B] [C#m7] | [E/G#] [A2] | [E] [Bsus/F#] | [E/G#] [E/A] [B] | [E] |\n\n{c: VERS 2}\n[E]Reini - [B/D#]ge mein [C#m]Herz nimm was mich trennt\n[F#m7]von dir\nUnd [Bsus]mach mich [B]hei - [Bsus]lig [B]\n[E]Reini - [B/D#]ge mein [C#m]Herz nimm was mich trennt\n[F#m7]von dir\n[E/B]Tief [B]in mir",
+  "rawText": "{c: VERS 1}\n[E]Reini - [B/D#]ge mein [C#m]Herz mach mich rein wie\n[F#m7]Gold\nIn [Bsus]dei - [B]nem [Bsus]Feu - [B]er\n[E]Reini - [B/D#]ge mein [C#m]Herz mach mich rein wie\n[F#m7]Gold\n[E/B]Pures [B]Gold\n\n{c: CHORUS}\n[E]Feu - [A2]er des [B]Herrn da[E]nach ver - langt [A2]mein\n[B]Herz\n[E/B]Mach mich [E]rein [B]heilig [E]dir al - [A]lein will ich [Bsus]dienen [B]\nHerr mach mich [E]rein [B]heilig [E]dir al - [A]lein will ich\n[Bsus]dienen mein [B]Meister\n\n{c: ENDUNG 1}\n[F#m7]Und deinen [Bsus]Wil - [B]len [Bsus/C#]tun\n\n{c: ENDUNG 2}\n[F#m7]Und deinen [Bsus]Wil - [B]len | [Bsus/C#]tun\n[B/D#] [B] |\n\n{c: ENDUNG 3}\n[F#m7]Und deinen [Bsus]Wil - [B]len [Bsus/C#]tun\n\n{c: INSTRUMENTAL}\n| [B] [C#m7] | [E/G#] [A2] | [E] [Bsus/F#] | [E/G#] [E/A] [B] | [E] |\n\n{c: VERS 2}\n[E]Reini - [B/D#]ge mein [C#m]Herz nimm was mich trennt\n[F#m7]von dir\nUnd [Bsus]mach mich [B]hei - [Bsus]lig [B]\n[E]Reini - [B/D#]ge mein [C#m]Herz nimm was mich trennt\n[F#m7]von dir\n[E/B]Tief [B]in mir",
   "sections": [
     {
       "label": "VERS 1",
@@ -36,20 +36,20 @@
       ]
     },
     {
-      "label": "ENDUNG 1 (Zum Instrumental)",
+      "label": "ENDUNG 1",
       "lines": [
         "[F#m7]Und deinen [Bsus]Wil - [B]len [Bsus/C#]tun"
       ]
     },
     {
-      "label": "ENDUNG 2 (Zum Chorus)",
+      "label": "ENDUNG 2",
       "lines": [
         "[F#m7]Und deinen [Bsus]Wil - [B]len | [Bsus/C#]tun",
         "[B/D#] [B] |"
       ]
     },
     {
-      "label": "ENDUNG 3 (Schluss)",
+      "label": "ENDUNG 3",
       "lines": [
         "[F#m7]Und deinen [Bsus]Wil - [B]len [Bsus/C#]tun"
       ]

@@ -154,6 +154,20 @@ function plainText(line) {
   return line.replace(/\[[^\]]*\]/g, '');
 }
 
+// Syllable hyphens ("Hal - le - lu - ja") only help to place chords; in the
+// lyrics view the split words are joined again.
+const SYLLABLE_HYPHEN = /(?<=\p{L})((?:\s*\[[^\]]*\])*)(?:\s+|(?<=\]))-((?:[\s-]|\[[^\]]*\])*)(?=\p{L})/gu;
+const CHORD_TOKEN = /\[[^\]]*\]/g;
+
+function joinSyllables(line) {
+  return line.replace(SYLLABLE_HYPHEN, (_, a, b) => (a + b).match(CHORD_TOKEN)?.join('') ?? '');
+}
+
+function isInstrumental(section) {
+  if (/^(instrumental|interlude|zwischenspiel)/i.test((section.label || '').trim())) return true;
+  return !section.lines.some((l) => /\p{L}/u.test(plainText(l)));
+}
+
 function buildChordGroup(chord, text) {
   const g = document.createElement('span');
   g.className = 'chord-group';
@@ -216,7 +230,7 @@ function buildSectionEl(section) {
     } else {
       el = document.createElement('span');
       el.className = 'lyric-line';
-      el.textContent = plainText(line);
+      el.textContent = plainText(showChords ? line : joinSyllables(line));
     }
     block.appendChild(el);
   }
@@ -238,7 +252,8 @@ function buildSongHeader(song) {
   return wrap;
 }
 
-function buildLayout(container, song, numCols, allowWrap) {
+function buildLayout(container, fullSong, numCols, allowWrap) {
+  const song = showChords ? fullSong : { ...fullSong, sections: fullSong.sections.filter((s) => !isInstrumental(s)) };
   container.innerHTML = '';
   container.style.whiteSpace = allowWrap ? 'normal' : 'nowrap';
 

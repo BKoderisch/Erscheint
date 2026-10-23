@@ -7,7 +7,10 @@
   "capo": 0,
   "tempo": null,
   "playKey": "Em",
-  "labels": [],
+  "labels": [
+    "Anbetung",
+    "Lobpreis"
+  ],
   "rawText": "{c:Vers}\n[Dm]  Einer sitzt auf dem [Bb]Thron\nJe -[F]sus, hei -[Am]lig\n[Dm]  Lobpreis, Ehre und [Gm7]Ruhm\nEr i[F]st wür -[Csus]dig\n\n{c:Chorus}\n[Dm]Würdig [C/E]ist das [F]Lamm, der Ge -[Gm7]opferte ist auf dem [Bb]Thron\nNein, [C]niemand gleicht dem [Dm]Herrn\n[Dm]Alle [C/E]Himmel [F]knien und ver -[Gm7]ehren einzig Gottes [Bb]Sohn\nNein, [C]niemand gleicht dem [Dm]Herrn\n\n{c:Bridge}\nWir krön’n dich, unsern [Dm]König, wir krön’n dich, unsern König\nWir krön’n dich, unsern [Bb]König, wir [C]krön’n dich, unsern [Dm]Herrn\nWir krön’n dich, unsern [Dm]König, wir krön’n dich, unsern König\nWir krön’n dich, unsern [Bb]König, wir [C]krön’n dich, unsern [Dm]Herrn",
   "sections": [
     {
