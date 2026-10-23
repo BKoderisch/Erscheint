@@ -411,6 +411,9 @@ if (showChords) {
   const arrSelect  = document.getElementById('sidebar-arr-select');
   const searchEl   = document.getElementById('sidebar-search');
   const listEl     = document.getElementById('sidebar-list');
+  const tagsEl     = document.getElementById('sidebar-tags');
+  const activeTags = new Set(); // tag filter, a song must carry all of them
+  let lyricHitIds  = new Set(); // songs whose lyrics match the current query
 
   // Update active highlight in the sidebar list without re-rendering everything
   updateSidebarActive = function () {
@@ -455,16 +458,38 @@ if (showChords) {
     arrSelect.value = activeArrId || '';
   }
 
+  function renderTags() {
+    const counts = new Map();
+    for (const song of allSongs) for (const l of song.labels || []) counts.set(l, (counts.get(l) || 0) + 1);
+    const tags = [...counts.keys()].sort((a, b) =>
+      activeTags.has(b) - activeTags.has(a) || counts.get(b) - counts.get(a) || a.localeCompare(b, 'de'));
+    tagsEl.innerHTML = '';
+    for (const tag of tags) {
+      const btn = document.createElement('button');
+      btn.className = 'sidebar-tag' + (activeTags.has(tag) ? ' on' : '');
+      btn.textContent = tag;
+      btn.addEventListener('click', () => {
+        if (activeTags.has(tag)) activeTags.delete(tag); else activeTags.add(tag);
+        renderTags();
+        renderSidebarList(searchEl.value);
+      });
+      tagsEl.appendChild(btn);
+    }
+  }
+
   function renderSidebarList(query) {
     const q = query.trim().toLowerCase();
-    // Search always across all songs; no query → show current order
-    const base     = q ? allSongs : currentOrder;
-    const filtered = q ? base.filter(s => s.title.toLowerCase().includes(q)) : base;
+    // Any search or tag filter looks at all songs; otherwise show the current order
+    const filtering = q || activeTags.size;
+    const base      = filtering ? allSongs : currentOrder;
+    const filtered  = base.filter(s =>
+      (!q || s.title.toLowerCase().includes(q) || (s.labels || []).some(l => l.toLowerCase().includes(q)) || lyricHitIds.has(s.id))
+      && [...activeTags].every(t => (s.labels || []).includes(t)));
 
     listEl.innerHTML = '';
     let num = 0;
     for (const song of filtered) {
-      const inOrder = !q && activeArrId;
+      const inOrder = !filtering && activeArrId;
       num++;
       const li = document.createElement('li');
       li.className = 'sidebar-song' + (song.id === currentSongId ? ' active' : '');
@@ -495,6 +520,9 @@ if (showChords) {
     sidebar.classList.add('open');
     overlay.classList.add('open');
     searchEl.value = '';
+    lyricHitIds = new Set();
+    activeTags.clear();
+    renderTags();
     renderSidebarList('');
     // scroll active item into view
     setTimeout(() => {
@@ -544,6 +572,7 @@ if (showChords) {
 
     buildOrder();
     renderArrSelect();
+    renderTags();
   }
 
   // ── Events ─────────────────────────────────────────────────────────────────
@@ -561,7 +590,23 @@ if (showChords) {
     renderSidebarList(searchEl.value);
   });
 
-  searchEl.addEventListener('input', () => renderSidebarList(searchEl.value));
+  // Title and tags match instantly; lyrics come from the server search shortly after
+  let searchTimer = null;
+  searchEl.addEventListener('input', () => {
+    lyricHitIds = new Set();
+    renderSidebarList(searchEl.value);
+    clearTimeout(searchTimer);
+    const q = searchEl.value.trim();
+    if (!q) return;
+    searchTimer = setTimeout(async () => {
+      try {
+        const hits = await fetch(`/api/search?q=${encodeURIComponent(q)}`).then(r => r.json());
+        if (searchEl.value.trim() !== q) return;
+        lyricHitIds = new Set(hits.map(h => h.id));
+        renderSidebarList(searchEl.value);
+      } catch { /* title and tag matches stay */ }
+    }, 200);
+  });
 
   // Keyboard: Escape closes sidebar, arrows navigate songs
   document.addEventListener('keydown', (e) => {
