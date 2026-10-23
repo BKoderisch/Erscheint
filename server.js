@@ -151,7 +151,12 @@ function parseRawText(rawText) {
 
     // ── Plain-text section headers ─────────────────────────────────────────────
     const stripped = stripChords(raw);
-    if (!stripped) { prevBlank = false; continue; } // chord-only line
+    if (!stripped) { // chord-only line (e.g. instrumental): keep it
+      if (!current) current = { label: '', lines: [] };
+      current.lines.push(raw);
+      prevBlank = false;
+      continue;
+    }
     const isHeader = SECTION_HEADER.test(stripped) || (prevBlank && stripped.endsWith(':') && stripped.length < 40);
     prevBlank = false;
     if (isHeader) {

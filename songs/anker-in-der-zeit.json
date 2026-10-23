@@ -11,9 +11,10 @@
     "Ermutigung",
     "Glaube"
   ],
+  "rawText": "{c: Verse 1}\nEs gibt bed[G]ingungslose Liebe,\ndie alles t[G]rägt und nie vergeht\nund uners[Cmaj7]chütterliche Hoffnung,\ndie jeden T[G]est der Zeit besteht.\nEs gibt ein L[Bm]icht, das uns den W[C]eg weist,\nauch wenn wir [Em7]jetzt nicht alles seh[A7]n.\nEs gibt Gew[Am7]issheit unsres Gla[G/B]ubens,\nauch wenn wir [Cmaj7]manches n[D4]icht verste[G]hn.\n\n{c: Verse 2}\nEs gibt Vers[G]öhnung selbst für Feinde\nund echten F[G]rieden nach dem Streit,\nVergebung [Cmaj7]für die schlimmsten Sünden,\nein neuer A[G]nfang jederzeit.\nEs gibt ein [Bm]ewges Reich des Frie[C]dens.\nIn unsrer [Em7]Mitte lebt es schon[A7]:\nein Stück vom [Am7]Himmel hier auf E[G/B]rden\nin Jesus C[Cmaj7]hristus, G[D4]ottes Soh[G]n.\n\n{c: Chorus}\nEr ist das [D]Zentrum d[C]er Geschich[G/B]te,\n[C]er ist der [G]Anker[D/F#] in der Z[Em]eit.   [Em7]\nEr ist der U[D]rsprung a[C]llen Le[G/B]bens\n[C]und unser [G]Ziel in [B]Ewigke[Em]it,\n[Am7]und unser [D4]Ziel in Ewigkei[G]t.\n\n{c: Verse 3}\nEs gibt die w[G]underbare Heilung,\ndie letzte R[G]ettung in der Not.\nUnd es gibt T[Cmaj7]rost in Schmerz und Leiden,\newiges L[G]eben nach dem Tod.\nEs gibt Ger[Bm]echtigkeit für a[C]lle,\nfür unsre [Em7]Treue ewgen Loh[A7]n.\nEs gibt ein H[Am7]ochzeitsmahl für im[G/B]mer\nmit Jesus [Cmaj7]Christus, G[D4]ottes Soh[G]n.",
   "sections": [
     {
-      "label": "",
+      "label": "Verse 1",
       "lines": [
         "Es gibt bed[G]ingungslose Liebe,",
         "die alles t[G]rägt und nie vergeht",
@@ -26,7 +27,7 @@
       ]
     },
     {
-      "label": "",
+      "label": "Verse 2",
       "lines": [
         "Es gibt Vers[G]öhnung selbst für Feinde",
         "und echten F[G]rieden nach dem Streit,",
@@ -39,7 +40,7 @@
       ]
     },
     {
-      "label": "",
+      "label": "Chorus",
       "lines": [
         "Er ist das [D]Zentrum d[C]er Geschich[G/B]te,",
         "[C]er ist der [G]Anker[D/F#] in der Z[Em]eit.   [Em7]",
@@ -49,7 +50,7 @@
       ]
     },
     {
-      "label": "",
+      "label": "Verse 3",
       "lines": [
         "Es gibt die w[G]underbare Heilung,",
         "die letzte R[G]ettung in der Not.",

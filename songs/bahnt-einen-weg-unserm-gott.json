@@ -11,6 +11,7 @@
     "Lobpreis",
     "Advent"
   ],
+  "rawText": "{c: VERSE}\n[G]Bahnt einen W[C]eg unserm G[D]ott    [C]     [D]\n[G]Der uns erlö[C]st aus der No[D]t     [Em]         [D]\n[G]Er ist der Kö[C]nig der K[D]öni[Em]ge er hat am\n[Am]Kreuz gesiegt d[C]urch seinen Tod[D4]        [D]\n\n{c: VERSE 2}\n[G]Bahnt einen W[C]eg unserm G[D]ott    [C]     [D]\n[G]Der uns erw[C]ählt als sein Vo[D]lk   [Em]         [D]\n[G]Mit ihm zu h[C]errschen in E[D]wigk[Em]eit\nÖffnet die H[Am]erzen und m[C]acht euch ber[D4]eit   [D]\n\n{c: Chorus}\n[G]Dein R[Bm7]eich k[C2]omme O H[D]err\nerh[G]ebe dich i[Em7]n deiner M[D]acht\nDir sei E[G]hre und R[Bm7]uhm und M[C2]ajest[D]ät\nDeine [Am]Herrl[G]ichk[D]eit ist h[C2]ier\n\n{c: Chorus}\nDein Reich komme O Herr\nerhebe dich in deiner Macht\nDir sei Ehre und Ruhm und Majestät\nDeine [Am]Herrl[G]ichk[D]eit ist h[C2]ier   [D4]          [D]\n\n{c: Chorus}\n[G]Dein R[Bm7]eich k[C2]omme O H[D4]err [D]\nerh[G]ebe dich [Em7]in deiner M[D4]acht[D]\nDir sei E[G]hre und R[Bm7]uhm und [C2]Majes[D4]tät   [D]\nDeine [Am]Herrl[G]ichk[D]eit\nDeine [Am]Herrl[G]ichk[D]eit\nDeine [Am]Herrl[G]ichk[D]eit\nIst h[D#]ier     [F]       [G]       [D#]          [F]       [F4]         [A#]",
   "sections": [
     {
       "label": "VERSE",
@@ -22,7 +23,7 @@
       ]
     },
     {
-      "label": "",
+      "label": "VERSE 2",
       "lines": [
         "[G]Bahnt einen W[C]eg unserm G[D]ott    [C]     [D]",
         "[G]Der uns erw[C]ählt als sein Vo[D]lk   [Em]         [D]",

@@ -11,6 +11,7 @@
     "Lobpreis",
     "Freude"
   ],
+  "rawText": "{c: Verse 1}\n[Em]Dieses Gefühl, ein [G]neuer Rhythmus\n[D]Der in mir Leben w[A]eckt\n[Em]Ich breche frei aus a[G]lten Mauern\n[D]Hinein in Ewig[A]keit\n\n{c: Pre-Chorus}\nEs ist [Em]Freude [G]hier\nalles um mi[D]ch bebt, alles um mic[A]h lebt\nEs ist [Em]Freude [G]hier\nIch kann nicht wid[D]erstehen, kann nicht wide[A]rstehen\n\n{c: Chorus}\n[Em]Alles tanzt, niemand [G]kann es mir nehmen\nMit [D]allem was ich bin meinem K[A]önig zu singen\n[Em]Du allein, du allein, [G]du bist genug\nMeine F[D]reude ist die F[A]reude an dir\n\n{c: Verse 2}\n[Em]Ich weiß genau, du [G]hast noch viel mehr\n[D]Von dieser Leichtigk[A]eit\n[Em]Ein Vorgeschmack von d[G]em was wartet\n[D]In deiner Gegenwa[A]rt\n\n{c: Pre-Chorus}\nEs ist [Em]Freude [G]hier\nalles um mi[D]ch bebt, alles um mic[A]h lebt\nEs ist [Em]Freude [G]hier\nIch kann nicht wid[D]erstehen, kann nicht wide[A]rstehen\n\n{c: Bridge}\n[Em]Freude, [G]Freude, D[D]u allein bist die [A]Freude in mir\n[Em]Freude, [G]Freude, D[D]u allein bist die [A]Freude in mir\n\n{c: Ende}\n[C]",
   "sections": [
     {
       "label": "Verse 1",
@@ -65,9 +66,9 @@
       ]
     },
     {
-      "label": "",
+      "label": "Ende",
       "lines": [
-        "Ende C"
+        "[C]"
       ]
     }
   ]

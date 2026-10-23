@@ -1,11 +1,18 @@
 {
   "id": "all-i-need-is-you",
   "title": "All I need is you",
+  "subtitle": "",
+  "artist": "",
+  "key": "E",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
   "labels": [
     "Anbetung",
     "Hingabe",
     "Englisch"
   ],
+  "rawText": "{c: Verse 1}\n[C#m]Left my fear by the[F#m] side of the road\n[A]Hear You speak, [B]won't let go\n[C#m]Fall to my knees, as I[E] lift my hands to[Bsus] pray[B]\n[C#m]Got every reason to be [F#m]here again\n[A]Father's love that [B]draws me in\nAnd [C#m]all my eyes wanna [E]see is a glimpse of [Bsus]You[B]\n\n{c: Chorus}\nAll I need is [F#m]You    [A]\nAll I need is [E]You, Lord, is [B]You, Lord\nAll I need is [F#m]You    [A]\nAll I need is [E]You, Lord, is [B]You, Lord\n\n{c: Verse 2}\n[C#m]One more day, and it's [F#m]not the same\nYour [A]Spirit calls my [B]heart to sing\n[C#m]Drawn to the voice of my [E]Savior once [Bsus]again[B]\n[C#m]Where would my soul be [F#m]without Your Son\n[A]Gave His life to [B]save the earth\n[C#m]Rest in the thought that You're[E] watching over [Bsus]me  [B]\n\n{c: Bridge}\nYou [A]hold[E] the [B]univer[F#m]se\nYou [A]hold[E] every[B]one on e[F#m]arth\nYou [A]hold[E] the [B]univer[F#m]se\nYou [A]hold[E], You [B]hold",
   "sections": [
     {
       "label": "Verse 1",
@@ -47,11 +54,5 @@
         "You [A]hold[E], You [B]hold"
       ]
     }
-  ],
-  "subtitle": "",
-  "artist": "",
-  "key": "E",
-  "capo": 0,
-  "tempo": null,
-  "playKey": "G"
+  ]
 }
