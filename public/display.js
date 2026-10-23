@@ -163,6 +163,39 @@ function joinSyllables(line) {
   return line.replace(SYLLABLE_HYPHEN, (_, a, b) => (a + b).match(CHORD_TOKEN)?.join('') ?? '');
 }
 
+// Bar lines and repeat signs ("|", "||:", ":||", or a "[|]" pseudo chord)
+const BAR_TOKEN = /^(\[\|+:?\]|\[:?\|+\]|\|+:?|:?\|+)$/;
+
+function stripBars(line) {
+  return line.replace(/(^|\s)(?:\|+:?|:?\|+)(?=\s|$)/g, '$1').replace(/\s{2,}/g, '  ').trim();
+}
+
+function isChordOnly(line) {
+  return hasChords(line) && !/\p{L}/u.test(plainText(line));
+}
+
+// Instrumental / chord-only line: one row of chords, bar lines as quiet separators
+function buildChordRowEl(line) {
+  const el = document.createElement('span');
+  el.className = 'chord-row';
+  for (const m of line.matchAll(/\[[^\]]*\]|\S+/g)) {
+    const tok = m[0];
+    const span = document.createElement('span');
+    if (BAR_TOKEN.test(tok)) {
+      span.className = 'chord-bar';
+      span.textContent = tok.replace(/[\[\]]/g, '');
+    } else if (tok.startsWith('[')) {
+      span.className = 'chord';
+      span.textContent = transposeChord(tok.slice(1, -1), transposeSteps, transposeFlat);
+    } else {
+      span.className = 'chord-bar';
+      span.textContent = tok;
+    }
+    el.appendChild(span);
+  }
+  return el;
+}
+
 function isInstrumental(section) {
   if (/^(instrumental|interlude|zwischenspiel)/i.test((section.label || '').trim())) return true;
   return !section.lines.some((l) => /\p{L}/u.test(plainText(l)));
@@ -225,12 +258,16 @@ function buildSectionEl(section) {
     if (line === '') {
       el = document.createElement('span');
       el.style.cssText = 'display:block;height:0.4em';
+    } else if (showChords && isChordOnly(line)) {
+      el = buildChordRowEl(line);
     } else if (showChords && hasChords(line)) {
       el = buildChordLineEl(line);
     } else {
+      const text = showChords ? plainText(line) : stripBars(plainText(joinSyllables(line)));
+      if (!text) continue;
       el = document.createElement('span');
       el.className = 'lyric-line';
-      el.textContent = plainText(showChords ? line : joinSyllables(line));
+      el.textContent = text;
     }
     block.appendChild(el);
   }
