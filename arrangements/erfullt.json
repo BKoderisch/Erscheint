@@ -5,10 +5,14 @@
     "dir-gehort-mein-lob",
     "dir-gebuhrt-die-ehre",
     "auge-im-sturm",
-    "der-mich-sieht",
     "die-liebe-des-retters",
-    "fuhr-mich-an-dein-kreuz",
-    "alles-tanzt"
+    "alles-tanzt",
+    "alles-fuhrt-zum-lobpreis-fur-das-lamm",
+    "heilig",
+    "still",
+    "halleluja-halleluja-denn-der-herr-unser-gott-er-regiert",
+    "feuer-des-herrn",
+    "keiner-ist-wie-du"
   ],
   "items": [
     {
@@ -25,19 +29,35 @@
     },
     {
       "type": "song",
-      "id": "der-mich-sieht"
-    },
-    {
-      "type": "song",
       "id": "die-liebe-des-retters"
     },
     {
       "type": "song",
-      "id": "fuhr-mich-an-dein-kreuz"
+      "id": "alles-tanzt"
     },
     {
       "type": "song",
-      "id": "alles-tanzt"
+      "id": "alles-fuhrt-zum-lobpreis-fur-das-lamm"
+    },
+    {
+      "type": "song",
+      "id": "heilig"
+    },
+    {
+      "type": "song",
+      "id": "still"
+    },
+    {
+      "type": "song",
+      "id": "halleluja-halleluja-denn-der-herr-unser-gott-er-regiert"
+    },
+    {
+      "type": "song",
+      "id": "feuer-des-herrn"
+    },
+    {
+      "type": "song",
+      "id": "keiner-ist-wie-du"
     }
   ]
 }
