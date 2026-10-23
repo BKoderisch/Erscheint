@@ -11,44 +11,25 @@
     "Lobpreis",
     "Anbetung"
   ],
+  "rawText": "{c: Verse 1}\n[G/B]du hast mich erw[C2]ählt\nbev[D]or die Welt entsta[G]nd\n[G/B]und hast mich best[C2]immt\ndein Kind zu [D4]sein    [D]\nNur durch J[G/B]esus schenkst du m[C2]ir\nErl[D]ösung und Verg[Emin7]ebung\n[C2]alles führt zum L[Emin7]obpreis\n[D]für das [G4]Lamm [G]\n\n{c: Chorus}\nHei[D/F#]lig, hei[Emin7]lig\n[C2]Heilig i[G]st das [D4]Lamm\n\n{c: Verse 2}\nnur aus L[G/B]iebe kann ich [C2]nun\nmu[D]tig vor dir ste[G]hn\n[G/B]makellos und r[C2]ein\nnimmst du mich [D4]an    [D]\n[G/B]ja das war dein W[C2]ille\nbere[D]its von Anfang [Emin7]an\n[C2]alles führt zum L[Emin7]obpreis\n[D]für das [Amin7]Lamm  [G/B]\n[C2]alles führt zum L[Emin7]obpreis\n[D]für das [G4]Lamm [G]",
   "sections": [
     {
       "label": "Verse 1",
       "lines": [
         "[G/B]du hast mich erw[C2]ählt",
-        "bev[D]or die Welt entsta[G]nd"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
+        "bev[D]or die Welt entsta[G]nd",
         "[G/B]und hast mich best[C2]immt",
         "dein Kind zu [D4]sein    [D]",
         "Nur durch J[G/B]esus schenkst du m[C2]ir",
-        "Erl[D]ösung und Verg[Emin7]ebung"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
-        "[C2]alles führt zum L[Emin7]obpreis"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
+        "Erl[D]ösung und Verg[Emin7]ebung",
+        "[C2]alles führt zum L[Emin7]obpreis",
         "[D]für das [G4]Lamm [G]"
       ]
     },
     {
       "label": "Chorus",
       "lines": [
-        "Hei[D/F#]lig, hei[Emin7]lig"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
+        "Hei[D/F#]lig, hei[Emin7]lig",
         "[C2]Heilig i[G]st das [D4]Lamm"
       ]
     },
@@ -56,44 +37,14 @@
       "label": "Verse 2",
       "lines": [
         "nur aus L[G/B]iebe kann ich [C2]nun",
-        "mu[D]tig vor dir ste[G]hn"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
+        "mu[D]tig vor dir ste[G]hn",
         "[G/B]makellos und r[C2]ein",
-        "nimmst du mich [D4]an    [D]"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
+        "nimmst du mich [D4]an    [D]",
         "[G/B]ja das war dein W[C2]ille",
-        "bere[D]its von Anfang [Emin7]an"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
-        "[C2]alles führt zum L[Emin7]obpreis"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
-        "[D]für das [Amin7]Lamm  [G/B]"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
-        "[C2]alles führt zum L[Emin7]obpreis"
-      ]
-    },
-    {
-      "label": "",
-      "lines": [
+        "bere[D]its von Anfang [Emin7]an",
+        "[C2]alles führt zum L[Emin7]obpreis",
+        "[D]für das [Amin7]Lamm  [G/B]",
+        "[C2]alles führt zum L[Emin7]obpreis",
         "[D]für das [G4]Lamm [G]"
       ]
     }
