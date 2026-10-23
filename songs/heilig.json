@@ -1,0 +1,36 @@
+{
+  "id": "heilig",
+  "title": "Heilig",
+  "subtitle": "",
+  "artist": "Albert Frey",
+  "key": "Em",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "Em",
+  "labels": [
+    "Anbetung",
+    "Heiligkeit"
+  ],
+  "rawText": "{c: VERS}\n[Em]Heilig [Cmaj7]heilig [G]heilig ist der [Am/F#]Herr [B7+]\n[Em]Heilig [Cmaj7]heilig [G]heilig ist der [Am/F#]Herr [B7+]\nVer - [Cmaj7]zehrendes Feuer [D6]ewige Glut\nVoll - [B7/D#]kommen gerecht und [Em]vollkommen gut\nGe - [Cmaj7]waltige Wasser [D6]endloses Meer\n[B7/D#]Unfassbar groß bist du [Esus]Herr [E]\n\n{c: CHORUS}\nVoll [Am]Ehrfurcht stehen [D7sus]wir vor [D7]dir\nAus [Gmaj7]Gnade dürfen [Cmaj7]wir uns nahn\nVoll [Am/F#]Ehrfurcht stehn wir [B7]hier und beten [Em]an",
+  "sections": [
+    {
+      "label": "VERS",
+      "lines": [
+        "[Em]Heilig [Cmaj7]heilig [G]heilig ist der [Am/F#]Herr [B7+]",
+        "[Em]Heilig [Cmaj7]heilig [G]heilig ist der [Am/F#]Herr [B7+]",
+        "Ver - [Cmaj7]zehrendes Feuer [D6]ewige Glut",
+        "Voll - [B7/D#]kommen gerecht und [Em]vollkommen gut",
+        "Ge - [Cmaj7]waltige Wasser [D6]endloses Meer",
+        "[B7/D#]Unfassbar groß bist du [Esus]Herr [E]"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "Voll [Am]Ehrfurcht stehen [D7sus]wir vor [D7]dir",
+        "Aus [Gmaj7]Gnade dürfen [Cmaj7]wir uns nahn",
+        "Voll [Am/F#]Ehrfurcht stehn wir [B7]hier und beten [Em]an"
+      ]
+    }
+  ]
+}

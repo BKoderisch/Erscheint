@@ -1,0 +1,49 @@
+{
+  "id": "halleluja-halleluja-denn-der-herr-unser-gott-er-regiert",
+  "title": "Halleluja halleluja denn der Herr unser Gott er regiert",
+  "subtitle": "",
+  "artist": "Michael W. Smith",
+  "key": "A",
+  "capo": 0,
+  "tempo": 66,
+  "playKey": "A",
+  "labels": [
+    "Lobpreis",
+    "Anbetung"
+  ],
+  "rawText": "{c: VERS}\n[A]Hal [A2sus]- [A]le - [D/A]lu - [A]ja\n[A]Hal [A2sus]- [A]le - [D/A]lu [E/A]- [D/A]ja\nDenn der [E/A]Herr [D/A]un - [A]ser [D/A]Gott [A]er [A2sus]re - [A]giert\n[A]Hal [A2sus]- [A]le - [D/A]lu - [A]ja\n[A]Hal [A2sus]- [A]le - [D/A]lu [E/A]- [D/A]ja\n[E/A]Denn [D/A]der [E/A]Herr [D/A]un - [A]ser [D/A]Gott [A]er [A2sus]re - [A]giert\n[A]Hal [A2sus]- [A]le - [D/A]lu [E/A]- [D/A]ja\n\n{c: CHORUS}\n(Denn du bist) [D/A]Hei - [E]lig [A]hei [E/A]- [A]lig\nBist du [D/A]Herr [A]der All - [F#m]mächti - [E]ge\n[Bm]Würdig [A/C#]ist das [D]Lamm\n[Bm]Würdig [A/C#]ist das [D]Lamm\nDenn du bist [A]hei - [E/A]lig hei - [A]lig\nBist du [D/A]Herr [A]der All - [F#m]mächti - [E]ge\n[Bm]Würdig [A/C#]ist das [D]Lamm\n[Bm]Würdig [A/C#]ist das [D]Lamm\n(WIEDERHOLEN)\n\n{c: AMEN}\n[D]A - [E]men [A]",
+  "sections": [
+    {
+      "label": "VERS",
+      "lines": [
+        "[A]Hal [A2sus]- [A]le - [D/A]lu - [A]ja",
+        "[A]Hal [A2sus]- [A]le - [D/A]lu [E/A]- [D/A]ja",
+        "Denn der [E/A]Herr [D/A]un - [A]ser [D/A]Gott [A]er [A2sus]re - [A]giert",
+        "[A]Hal [A2sus]- [A]le - [D/A]lu - [A]ja",
+        "[A]Hal [A2sus]- [A]le - [D/A]lu [E/A]- [D/A]ja",
+        "[E/A]Denn [D/A]der [E/A]Herr [D/A]un - [A]ser [D/A]Gott [A]er [A2sus]re - [A]giert",
+        "[A]Hal [A2sus]- [A]le - [D/A]lu [E/A]- [D/A]ja"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "(Denn du bist) [D/A]Hei - [E]lig [A]hei [E/A]- [A]lig",
+        "Bist du [D/A]Herr [A]der All - [F#m]mächti - [E]ge",
+        "[Bm]Würdig [A/C#]ist das [D]Lamm",
+        "[Bm]Würdig [A/C#]ist das [D]Lamm",
+        "Denn du bist [A]hei - [E/A]lig hei - [A]lig",
+        "Bist du [D/A]Herr [A]der All - [F#m]mächti - [E]ge",
+        "[Bm]Würdig [A/C#]ist das [D]Lamm",
+        "[Bm]Würdig [A/C#]ist das [D]Lamm",
+        "(WIEDERHOLEN)"
+      ]
+    },
+    {
+      "label": "AMEN",
+      "lines": [
+        "[D]A - [E]men [A]"
+      ]
+    }
+  ]
+}

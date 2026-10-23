@@ -1,0 +1,73 @@
+{
+  "id": "still",
+  "title": "Still",
+  "subtitle": "",
+  "artist": "Reuben Morgan",
+  "key": "C",
+  "capo": 0,
+  "tempo": 70,
+  "playKey": "C",
+  "labels": [
+    "Anbetung",
+    "Hingabe",
+    "Glaube"
+  ],
+  "rawText": "{c: VERS 1}\n[C]Ber - [G/B]ge [Am]mich in [F]dei - [D/F#]nem [Gsus]Arm [G]\n[C/E]Schütze [F]mich mit [Dm7]deiner starken [G]Hand\n\n{c: CHORUS 1A}\n[C]Wenn die [C/E]Meere [F]toben, [G]Stürme [Csus]wehn [C]\nWerd ich [C/E]mit dir [F]übers [G]Wasser [Am]gehn\nDu [C/E]bist [F]König [G]über Wind und [Csus]Flut [C]\n[G/B]Mein Herz wird [F/A]still denn [G/B]du bist [Fmaj9]gut\n\n{c: VERS 2}\n[C]Komm [G/B]ruh dich [Am]aus bei [F]dei - [D/F#]nem [Gsus]Gott [G]\n[C/E]Trau auf [F]ihn und seine [Dm7]große [G]Kraft\n\n{c: CHORUS 1B}\n[C]Wenn die [C/E]Meere [F]toben, [G]Stürme [Csus]wehn [C]\nWerd ich [C/E]mit dir [F]übers [G]Wasser [Am]gehn\nDu [C/E]bist [F]König [G]über Wind und [Csus]Flut [C]\n\n{c: ENDUNG 1 (Zum Chorus 1B)}\n[G/B]Mein Herz wird [F/A]still denn [G/B]du bist [Csus]gut [C]\n\n{c: ENDUNG 2 (Zum Instrumental)}\n[G/B]Mein Herz wird [F/A]still denn [G/B]du bist [F]gut\n\n{c: ENDUNG 3 (Schluss)}\n[G/B]Mein Herz wird [F2]still denn du bist gut\n\n{c: INSTRUMENTAL (Zu Vers 2)}\n||: [F] | [Am] | [C/G] | [G] :||",
+  "sections": [
+    {
+      "label": "VERS 1",
+      "lines": [
+        "[C]Ber - [G/B]ge [Am]mich in [F]dei - [D/F#]nem [Gsus]Arm [G]",
+        "[C/E]Schütze [F]mich mit [Dm7]deiner starken [G]Hand"
+      ]
+    },
+    {
+      "label": "CHORUS 1A",
+      "lines": [
+        "[C]Wenn die [C/E]Meere [F]toben, [G]Stürme [Csus]wehn [C]",
+        "Werd ich [C/E]mit dir [F]übers [G]Wasser [Am]gehn",
+        "Du [C/E]bist [F]König [G]über Wind und [Csus]Flut [C]",
+        "[G/B]Mein Herz wird [F/A]still denn [G/B]du bist [Fmaj9]gut"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "[C]Komm [G/B]ruh dich [Am]aus bei [F]dei - [D/F#]nem [Gsus]Gott [G]",
+        "[C/E]Trau auf [F]ihn und seine [Dm7]große [G]Kraft"
+      ]
+    },
+    {
+      "label": "CHORUS 1B",
+      "lines": [
+        "[C]Wenn die [C/E]Meere [F]toben, [G]Stürme [Csus]wehn [C]",
+        "Werd ich [C/E]mit dir [F]übers [G]Wasser [Am]gehn",
+        "Du [C/E]bist [F]König [G]über Wind und [Csus]Flut [C]"
+      ]
+    },
+    {
+      "label": "ENDUNG 1 (Zum Chorus 1B)",
+      "lines": [
+        "[G/B]Mein Herz wird [F/A]still denn [G/B]du bist [Csus]gut [C]"
+      ]
+    },
+    {
+      "label": "ENDUNG 2 (Zum Instrumental)",
+      "lines": [
+        "[G/B]Mein Herz wird [F/A]still denn [G/B]du bist [F]gut"
+      ]
+    },
+    {
+      "label": "ENDUNG 3 (Schluss)",
+      "lines": [
+        "[G/B]Mein Herz wird [F2]still denn du bist gut"
+      ]
+    },
+    {
+      "label": "INSTRUMENTAL (Zu Vers 2)",
+      "lines": [
+        "||: [F] | [Am] | [C/G] | [G] :||"
+      ]
+    }
+  ]
+}
