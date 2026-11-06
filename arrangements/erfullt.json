@@ -2,10 +2,10 @@
   "id": "erfullt",
   "name": "Erfüllt",
   "songIds": [
+    "alles-tanzt",
     "dir-gehort-mein-lob",
     "die-liebe-des-retters",
     "auge-im-sturm",
-    "alles-tanzt",
     "jesus-beruhre-mich",
     "alles-fuhrt-zum-lobpreis-fur-das-lamm",
     "keiner-ist-wie-du",
@@ -13,11 +13,15 @@
     "halleluja-halleluja-denn-der-herr-unser-gott-er-regiert",
     "feuer-des-herrn",
     "dir-gebuhrt-die-ehre",
+    "du-hast-erbarmen",
     "still",
-    "du-bist-der-hochste",
-    "du-hast-erbarmen"
+    "du-bist-der-hochste"
   ],
   "items": [
+    {
+      "type": "song",
+      "id": "alles-tanzt"
+    },
     {
       "type": "song",
       "id": "dir-gehort-mein-lob"
@@ -29,10 +33,6 @@
     {
       "type": "song",
       "id": "auge-im-sturm"
-    },
-    {
-      "type": "song",
-      "id": "alles-tanzt"
     },
     {
       "type": "song",
@@ -65,15 +65,15 @@
     },
     {
       "type": "song",
+      "id": "du-hast-erbarmen"
+    },
+    {
+      "type": "song",
       "id": "still"
     },
     {
       "type": "song",
       "id": "du-bist-der-hochste"
-    },
-    {
-      "type": "song",
-      "id": "du-hast-erbarmen"
     }
   ]
 }
