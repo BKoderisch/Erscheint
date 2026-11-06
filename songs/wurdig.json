@@ -1,0 +1,87 @@
+{
+  "id": "wurdig",
+  "title": "Würdig",
+  "subtitle": "",
+  "artist": "Steven Furtick, Chris Brown, Mack Brock",
+  "key": "D",
+  "capo": 0,
+  "tempo": 65,
+  "playKey": "D",
+  "labels": [
+    "Anbetung",
+    "Lobpreis",
+    "Kreuz"
+  ],
+  "rawText": "{c: INTRO / TURNAROUND}\n| [Bm] [D] | [G] [A] | [Bm] [D] | [G] [A] |\n\n{c: VERS 1}\n[D]Du starbst für [Asus]mich am Kreuz [A]\nDamit ich [D/F#]leb in der [G]Freiheit die [D/A]du [A]gibst\n[D]Weil ich dein [Asus]eigen bin [A]\nHör ich nicht [D/F#]auf,\nLaut zu [G]singen wie [D/A]sehr du [A]liebst\n\n{c: CHORUS 1A}\n[A]Würdig bist nur [G]du, Je [Bm]- [A]sus\nDu verdienst das [D/F#]Lob würdig bist nur [Bm]du\n[A]Würdig bist nur [G]du, Je [Bm]- [A]sus\nDu verdienst das [D/F#]Lob\n(1.) Würdig bist nur [Bm]du (z. Turn.)\n(2.) Würdig bist nur [Bm]du [A] (z. Ch. 1a / Instr. 1)\n(3.) Würdig bist nur [Bm]du [A] [G] (letztes Mal)\n\n{c: VERS 2}\n[D]Du nimmst mir [Asus]meine Scham [A]\nIch steh vor [D/F#]dir\nVoller [G]Staunen weil [D/A]du ver - [A]gibst\n[D]Weil du mir [Asus]gnädig bist [A]\nHör ich nicht [D/F#]auf\nLaut zu [G]singen wie [D/A]sehr du [A]liebst\n\n{c: INSTRUMENTAL 1}\n| [G] | [Em] | [Bm] | [A] [D/F#] |\n\n{c: BRIDGE}\nWie im [G]Himmel so auch auf Erden\nSei dein [Em]Name hoch erhöht\nDu al - [Bm]lein verdienst das Lob\nGott der [A]über allem [D/F#]steht\n\n{c: INSTRUMENTAL 2}\n||: [Em] | [Bm] | [D] | [A] [D/F#] :||\n\n{c: CHORUS 1B}\n[D/F#]Würdig bist nur [G]du, Je [Bm]- [A]sus\nDu verdienst das [D/F#]Lob würdig bist nur [Bm]du\n[A]Würdig bist nur [G]du, Je [Bm]- [A]sus\nDu verdienst das [D/F#]Lob, würdig bist nur [Bm]du",
+  "sections": [
+    {
+      "label": "INTRO / TURNAROUND",
+      "lines": [
+        "| [Bm] [D] | [G] [A] | [Bm] [D] | [G] [A] |"
+      ]
+    },
+    {
+      "label": "VERS 1",
+      "lines": [
+        "[D]Du starbst für [Asus]mich am Kreuz [A]",
+        "Damit ich [D/F#]leb in der [G]Freiheit die [D/A]du [A]gibst",
+        "[D]Weil ich dein [Asus]eigen bin [A]",
+        "Hör ich nicht [D/F#]auf,",
+        "Laut zu [G]singen wie [D/A]sehr du [A]liebst"
+      ]
+    },
+    {
+      "label": "CHORUS 1A",
+      "lines": [
+        "[A]Würdig bist nur [G]du, Je [Bm]- [A]sus",
+        "Du verdienst das [D/F#]Lob würdig bist nur [Bm]du",
+        "[A]Würdig bist nur [G]du, Je [Bm]- [A]sus",
+        "Du verdienst das [D/F#]Lob",
+        "(1.) Würdig bist nur [Bm]du (z. Turn.)",
+        "(2.) Würdig bist nur [Bm]du [A] (z. Ch. 1a / Instr. 1)",
+        "(3.) Würdig bist nur [Bm]du [A] [G] (letztes Mal)"
+      ]
+    },
+    {
+      "label": "VERS 2",
+      "lines": [
+        "[D]Du nimmst mir [Asus]meine Scham [A]",
+        "Ich steh vor [D/F#]dir",
+        "Voller [G]Staunen weil [D/A]du ver - [A]gibst",
+        "[D]Weil du mir [Asus]gnädig bist [A]",
+        "Hör ich nicht [D/F#]auf",
+        "Laut zu [G]singen wie [D/A]sehr du [A]liebst"
+      ]
+    },
+    {
+      "label": "INSTRUMENTAL 1",
+      "lines": [
+        "| [G] | [Em] | [Bm] | [A] [D/F#] |"
+      ]
+    },
+    {
+      "label": "BRIDGE",
+      "lines": [
+        "Wie im [G]Himmel so auch auf Erden",
+        "Sei dein [Em]Name hoch erhöht",
+        "Du al - [Bm]lein verdienst das Lob",
+        "Gott der [A]über allem [D/F#]steht"
+      ]
+    },
+    {
+      "label": "INSTRUMENTAL 2",
+      "lines": [
+        "||: [Em] | [Bm] | [D] | [A] [D/F#] :||"
+      ]
+    },
+    {
+      "label": "CHORUS 1B",
+      "lines": [
+        "[D/F#]Würdig bist nur [G]du, Je [Bm]- [A]sus",
+        "Du verdienst das [D/F#]Lob würdig bist nur [Bm]du",
+        "[A]Würdig bist nur [G]du, Je [Bm]- [A]sus",
+        "Du verdienst das [D/F#]Lob, würdig bist nur [Bm]du"
+      ]
+    }
+  ]
+}

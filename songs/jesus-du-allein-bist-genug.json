@@ -1,0 +1,37 @@
+{
+  "id": "jesus-du-allein-bist-genug",
+  "title": "Jesus Du allein bist genug",
+  "subtitle": "",
+  "artist": "Lothar Kosse",
+  "key": "D",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "D",
+  "labels": [
+    "Anbetung",
+    "Hingabe",
+    "Heiliger Geist"
+  ],
+  "rawText": "{c: VERS}\n[D]Je - [A/C#]sus [G/B]Du allein [Asus]bist [A]ge - [D]nug\nDu [A/C#]bist [G]alles für [Em/A]mich\n[D]Je - [A/C#]sus [Bm7]öffne mein [D]Herz\n[A]Lass mich [D]sehn und ver - [A/C#]stehn\n[G]Dass Du mich [D]liebst\n\n{c: CHORUS}\n[G]Komm und [A]fülle mein [D]Herz\n[G]Gib mir [A]neu Deinen [Bm7]Geist\nDu bist [G]unser [A]Gott der [F#m7]Heilung [Bm7]bringt\nLicht des [C]Lebens das das [G/C]Dunkel durch - [Em7/A]dringt [A]",
+  "sections": [
+    {
+      "label": "VERS",
+      "lines": [
+        "[D]Je - [A/C#]sus [G/B]Du allein [Asus]bist [A]ge - [D]nug",
+        "Du [A/C#]bist [G]alles für [Em/A]mich",
+        "[D]Je - [A/C#]sus [Bm7]öffne mein [D]Herz",
+        "[A]Lass mich [D]sehn und ver - [A/C#]stehn",
+        "[G]Dass Du mich [D]liebst"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "[G]Komm und [A]fülle mein [D]Herz",
+        "[G]Gib mir [A]neu Deinen [Bm7]Geist",
+        "Du bist [G]unser [A]Gott der [F#m7]Heilung [Bm7]bringt",
+        "Licht des [C]Lebens das das [G/C]Dunkel durch - [Em7/A]dringt [A]"
+      ]
+    }
+  ]
+}
