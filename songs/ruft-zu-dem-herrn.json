@@ -1,0 +1,43 @@
+{
+  "id": "ruft-zu-dem-herrn",
+  "title": "Ruft zu dem Herrn",
+  "subtitle": "",
+  "artist": "Daniel Jacobi, Darlene Zschech, Peter Eltermann",
+  "key": "A",
+  "capo": 0,
+  "tempo": 76,
+  "playKey": "A",
+  "labels": [
+    "Lobpreis",
+    "Anbetung",
+    "Dankbarkeit"
+  ],
+  "rawText": "{c: VERS}\n[A]Mein Jesus [E]mein Retter\n[F#m]Keiner ist [E]so wie [D]du\nLobpreis sei [A/C#]dir [D]jeden Tag [A/E]mehr\nFür [F#m]deine große [G]Lie - [D/F#]be [Esus]Herr [E] [D/E]\n[A]Mein Tröster [E]mein Helfer\n[F#m]Du bist mir [E]Zuflucht und [D]Kraft\nAlles in [A/C#]mir [D]beugt sich vor [A/E]dir\n[F#m]Du bist hoch er - [G]ho - [D/F#]ben [Esus]Herr [E]\n\n{c: CHORUS}\n[A]Ruft zu dem [F#m]Herrn alle [D]Enden der [D/E]Welt [E]\n[A]Ehre und [F#m]Dank dem der [D]alles er - [Esus]hält [E]\n[F#m]Himmel und Erde er - [D]hebt ihn und singt\nWenn sein [E]Na - [F#m]me er - [E/G#]klingt\n[A]Wir preisen [F#m]dich du hast [D]Großes ge - [D/E]tan [E]\n[A]Wir kommen [F#m]vor dich und [D]beten dich [Esus]an [E]\n[F#m]Dank sei dir Herr du bist [D]unver - [D/E]gleich - [E]lich [A]gut",
+  "sections": [
+    {
+      "label": "VERS",
+      "lines": [
+        "[A]Mein Jesus [E]mein Retter",
+        "[F#m]Keiner ist [E]so wie [D]du",
+        "Lobpreis sei [A/C#]dir [D]jeden Tag [A/E]mehr",
+        "Für [F#m]deine große [G]Lie - [D/F#]be [Esus]Herr [E] [D/E]",
+        "[A]Mein Tröster [E]mein Helfer",
+        "[F#m]Du bist mir [E]Zuflucht und [D]Kraft",
+        "Alles in [A/C#]mir [D]beugt sich vor [A/E]dir",
+        "[F#m]Du bist hoch er - [G]ho - [D/F#]ben [Esus]Herr [E]"
+      ]
+    },
+    {
+      "label": "CHORUS",
+      "lines": [
+        "[A]Ruft zu dem [F#m]Herrn alle [D]Enden der [D/E]Welt [E]",
+        "[A]Ehre und [F#m]Dank dem der [D]alles er - [Esus]hält [E]",
+        "[F#m]Himmel und Erde er - [D]hebt ihn und singt",
+        "Wenn sein [E]Na - [F#m]me er - [E/G#]klingt",
+        "[A]Wir preisen [F#m]dich du hast [D]Großes ge - [D/E]tan [E]",
+        "[A]Wir kommen [F#m]vor dich und [D]beten dich [Esus]an [E]",
+        "[F#m]Dank sei dir Herr du bist [D]unver - [D/E]gleich - [E]lich [A]gut"
+      ]
+    }
+  ]
+}

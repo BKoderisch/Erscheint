@@ -1,0 +1,40 @@
+{
+  "id": "strome-lebendigen-wassers",
+  "title": "Ströme lebendigen Wassers",
+  "subtitle": "",
+  "artist": "Albert Frey",
+  "key": "G",
+  "capo": 0,
+  "tempo": null,
+  "playKey": "G",
+  "labels": [
+    "Heiliger Geist",
+    "Gebet",
+    "Erneuerung"
+  ],
+  "rawText": "{c: CHORUS}\n[G]O [D]Herr gieße [Am]Ströme des le - [C]bendigen Wassers aus\n[G]O [D]Herr über [Am]uns [C]\n[G]O [D]Herr gieße [Am]neu die Kraft des [C]Heiligen Geistes aus\n[G]O [D]Herr über [Am]uns [C] [G] (Schluss)\n\n{c: VERS}\n[Em]Sieh unser dürres Land\n[D]Hör unser Schrei'n\n[Am]Nur deine starke Hand\n[C]Kann uns be - [D]frei'n\n[Em]Lass Wasser fließen Herr\n[D]Von deinem Thron\n[Am]Gieß aus in unser Land\n[C]Den Lebens - [D]strom",
+  "sections": [
+    {
+      "label": "CHORUS",
+      "lines": [
+        "[G]O [D]Herr gieße [Am]Ströme des le - [C]bendigen Wassers aus",
+        "[G]O [D]Herr über [Am]uns [C]",
+        "[G]O [D]Herr gieße [Am]neu die Kraft des [C]Heiligen Geistes aus",
+        "[G]O [D]Herr über [Am]uns [C] [G] (Schluss)"
+      ]
+    },
+    {
+      "label": "VERS",
+      "lines": [
+        "[Em]Sieh unser dürres Land",
+        "[D]Hör unser Schrei'n",
+        "[Am]Nur deine starke Hand",
+        "[C]Kann uns be - [D]frei'n",
+        "[Em]Lass Wasser fließen Herr",
+        "[D]Von deinem Thron",
+        "[Am]Gieß aus in unser Land",
+        "[C]Den Lebens - [D]strom"
+      ]
+    }
+  ]
+}
